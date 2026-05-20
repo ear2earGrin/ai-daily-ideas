@@ -1,0 +1,42 @@
+name: Daily idea automation scaffold
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/add_daily_idea.py
+      - templates/daily_idea.md.tmpl
+      - templates/example_idea_payload.json
+      - docs/daily-idea-automation.md
+      - .github/workflows/daily-idea.yml
+  # Enable only after choosing an LLM provider, adding secrets, and deciding
+  # whether automated ideas should open PRs or wait for manual review.
+  # schedule:
+  #   - cron: "0 14 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Compile script
+        run: python3 -m py_compile scripts/add_daily_idea.py
+
+      - name: Render example payload without writing
+        run: python3 scripts/add_daily_idea.py --from-json templates/example_idea_payload.json --dry-run
+
+      # Future LLM wiring sketch:
+      # - Store provider keys in GitHub Actions secrets, never in the repo.
+      # - Generate JSON that matches templates/example_idea_payload.json.
+      # - Run scripts/add_daily_idea.py --from-json /tmp/daily-idea.json.
+      # - Open a pull request for human review instead of committing to main.
