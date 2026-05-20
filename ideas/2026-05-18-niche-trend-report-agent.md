@@ -1,3 +1,15 @@
+---
+title: AI Agent-Powered Niche Trend Report & Content Bundle Generator
+date: 2026-05-18
+status: ready
+category: content intelligence
+tags: [agents, content, trends, reports, saas]
+monetization: freemium subscription and one-off bundles
+effort: medium
+slug: 2026-05-18-niche-trend-report-agent
+summary: Users enter a niche and AI agents produce trend reports plus reusable content bundles for newsletters and social channels.
+---
+
 # AI Agent Daily Idea - May 18, 2026
 
 **Idea: AI Agent-Powered Niche Trend Report & Content Bundle Generator**
