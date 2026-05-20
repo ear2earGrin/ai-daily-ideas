@@ -2,6 +2,8 @@
 
 Each idea lives in `ideas/YYYY-MM-DD-short-slug.md` and starts with a YAML-style frontmatter block. The repository tooling intentionally supports a small, dependency-free subset of YAML: `key: value` scalars and inline lists like `[agent, saas]`.
 
+Use `templates/daily-idea.md` for a full idea document or `templates/idea-metadata.yaml` for just the normalized metadata fields.
+
 ## Required fields
 
 | Field | Example | Notes |
@@ -36,6 +38,15 @@ summary: One sentence describing the user, value, and output.
 ## Concept
 ...
 ```
+
+## Lifecycle templates
+
+- `templates/daily-idea.md` — new idea file with required metadata and starter sections.
+- `templates/idea-metadata.yaml` — metadata-only reference block.
+- `templates/validation-plan.md` — validation tasks, success criteria, and results log.
+- `templates/execution-log.md` — build scope, milestones, verification, and launch notes.
+
+See `docs/lifecycle.md` for how these fit together.
 
 ## Validation
 
