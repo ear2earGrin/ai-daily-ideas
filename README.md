@@ -2,6 +2,8 @@
 
 Daily AI agent project ideas for one-person teams — monetizable or fun.
 
+A repository of validated, evidence-backed AI agent project ideas that solo developers and small teams can build and monetize.
+
 ## What lives here
 
 - `ideas/` — one Markdown file per daily idea. Existing ideas stay here and should not be overwritten when adding new workflow structure.
@@ -9,7 +11,16 @@ Daily AI agent project ideas for one-person teams — monetizable or fun.
 - `docs/idea-schema.md` — required normalized metadata fields and allowed values.
 - `docs/lifecycle.md` — the capture → normalize → validate → execute workflow.
 - `docs/daily-idea-automation.md` — automation scaffold for adding ideas from CLI flags or JSON payloads.
+- `docs/plans/market-problem-scanner.md` — plan for mining evidence-backed monetizable pain points from public sources.
 - `INDEX.md` — generated catalog of all ideas.
+
+## Current Ideas
+
+Browse the `ideas/` directory for existing project ideas. Each idea includes:
+- Problem statement
+- Monetization strategy
+- Execution steps
+- Status
 
 ## Add a new daily idea
 
@@ -57,6 +68,19 @@ python3 scripts/add_daily_idea.py --from-json templates/example_idea_payload.jso
 
 See `docs/daily-idea-automation.md` for the full workflow, verification commands, and the GitHub Actions stub for future LLM wiring.
 
+## Next Phase: Market Problem Scanner
+
+We're building an automated pipeline to discover and validate new opportunities from public sources like Reddit, HackerNews, and web searches.
+
+**See:** [docs/plans/market-problem-scanner.md](docs/plans/market-problem-scanner.md)
+
+**Key features:**
+- Automated discovery of repeated pain points
+- Evidence-based validation, not guesswork
+- Multi-agent workflow: local Qwen for extraction, Claude for strategy
+- Scored opportunities: intensity, frequency, buyer quality, MVP simplicity
+- Weekly reports with top 3-5 actionable ideas
+
 ## Lifecycle
 
 The workflow is intentionally lightweight:
@@ -84,3 +108,7 @@ The generated catalog lives in `INDEX.md` and lists every idea by date, status, 
 ```bash
 python3 scripts/generate_index.py --check
 ```
+
+## Contributing
+
+New ideas and improvements welcome. Open a PR with your suggestion.
