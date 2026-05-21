@@ -10,6 +10,12 @@
 
 ---
 
+## Scope of This Plan
+
+- **This PR:** planning document only. It defines the workflow, schemas, scoring rubric, safety rules, and Kanban graph. It does not add executable scanner code.
+- **Next implementation PR:** build Tasks 1-7 below as working Python modules, tests, prompts, and templates.
+- **Later recurring PRs:** run the scanner on approved public sources and open evidence-backed weekly idea reports for review.
+
 ## Purpose
 
 Find repeated, monetizable pain points from public conversations and convert them into evidence-backed AI Daily Ideas that are:
@@ -20,7 +26,7 @@ Find repeated, monetizable pain points from public conversations and convert the
 ## Data Sources (v1)
 
 **Primary sources (v1 launch):**
-- Reddit: r/Entrepreneur, r/smallbusiness, r/SaaS, r/freelance, r/digitalnomad, niche-specific subreddits
+- Reddit: r/Entrepreneur, r/smallbusiness, r/SaaS, r/freelance, r/digitalnomad, niche-specific subreddits. Prefer official API access when credentials are available; otherwise start with public search-result snippets and manual seed URLs.
 - Public web searches: "I wish there was a tool for...", "frustrated with...", "tired of manually..."
 - HackerNews: Show HN, Ask HN threads about pain points
 - Indie Hackers forums
@@ -113,7 +119,7 @@ Each pain point is scored on 8 factors. Qwen applies the rubric mechanically; Cl
 ## Daily/Weekly Workflow
 
 ### Daily Collection (Automated)
-1. **Collect** (1 hour, Qwen): Scrape Reddit, HN, search results; save raw HTML/JSON
+1. **Collect** (1 hour, Qwen): Collect from approved public sources (Reddit API when configured, HN, search results); save raw HTML/JSON
 2. **Extract** (30 min, Qwen): Parse raw data → structured pain point records
 3. **Classify** (15 min, Qwen): Tag by domain, audience, urgency
 4. **Deduplicate** (15 min, Qwen): Merge similar complaints
@@ -145,6 +151,14 @@ Each pain point is scored on 8 factors. Qwen applies the rubric mechanically; Cl
 - **Mark uncertain claims:** Use `"confidence": "low"` when evidence is thin or ambiguous
 - **Human review required:** All ideas must pass ai-daily-reviewer before merging to main
 - **Version control:** All evidence, scores, and reports tracked in git
+
+### Evidence Validation Checklist
+Before an opportunity can become an AI Daily Idea, the reviewer must verify:
+- Every `source_url` is present and accessible, or the record is marked `confidence: low`
+- Every quoted pain statement appears in the captured source material
+- Qwen did not invent audiences, tools, pricing, or monetization claims beyond the evidence
+- Low-confidence records are excluded from top opportunities unless independently corroborated
+- At least two independent evidence records support any promoted opportunity cluster
 
 ## Initial Implementation Tasks (Next PR)
 
@@ -221,7 +235,7 @@ git commit -m "feat: add PainPoint data model"
 ---
 
 ### Task 2: Create Reddit Collector Script
-**Objective:** Scrape Reddit threads and save raw data
+**Objective:** Collect Reddit threads from the official API when credentials are configured, with rate limiting and a clean skip path when they are not
 
 **Files:**
 - Create: `src/scanner/collectors/reddit.py`
@@ -245,23 +259,32 @@ Expected: FAIL — "ModuleNotFoundError: No module named 'scanner.collectors'"
 **Step 3: Write minimal implementation**
 ```python
 # src/scanner/collectors/reddit.py
-import praw
+import os
+import time
 from typing import List, Dict
 
+import praw
+
 class RedditCollector:
-    def __init__(self, subreddit: str, limit: int = 10):
+    def __init__(self, subreddit: str, limit: int = 10, delay_seconds: float = 1.0):
         self.subreddit = subreddit
         self.limit = limit
+        self.delay_seconds = delay_seconds
+        client_id = os.environ.get("REDDIT_CLIENT_ID")
+        client_secret = os.environ.get("REDDIT_CLIENT_SECRET")
+        if not client_id or not client_secret:
+            raise RuntimeError("Set REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET to enable Reddit collection")
         self.reddit = praw.Reddit(
-            client_id="your_client_id",
-            client_secret="your_client_secret",
-            user_agent="market-problem-scanner/0.1"
+            client_id=client_id,
+            client_secret=client_secret,
+            user_agent=os.environ.get("REDDIT_USER_AGENT", "market-problem-scanner/0.1")
         )
     
     def fetch(self) -> List[Dict[str, str]]:
         posts = []
         subreddit = self.reddit.subreddit(self.subreddit)
         for submission in subreddit.hot(limit=self.limit):
+            time.sleep(self.delay_seconds)
             posts.append({
                 "url": submission.url,
                 "text": submission.title + "\n" + submission.selftext,
@@ -518,10 +541,16 @@ git commit -m "feat: add weekly report template"
 
 ### Task 6: Review & Approve (Assignee: ai-daily-reviewer)
 **Title:** Review idea drafts for quality, evidence, and feasibility  
-**Skills:** None  
+**Skills:** `github-code-review`  
 **Parents:** Task 5  
 **Workspace:** Same as Task 2  
 **Output:** Approval/rejection comments, revised drafts if needed
+
+**Required checks:**
+- Verify every `source_url` is accessible or explicitly marked low-confidence
+- Confirm quoted pain statements exist in captured source material
+- Reject opportunity clusters supported by only one weak evidence record
+- Flag invented audiences, pricing, or monetization claims that are not grounded in the evidence
 
 ---
 
@@ -647,10 +676,11 @@ pip install praw beautifulsoup4 playwright pytest
 
 4. Configure Reddit API (optional):
 ```bash
-# Create .env file
+# Create .env file with values from your Reddit developer app.
+# Do not commit this file.
 cat > .env << EOF
-REDDIT_CLIENT_ID=your_client_id
-REDDIT_CLIENT_SECRET=your_client_secret
+REDDIT_CLIENT_ID=<reddit_client_id>
+REDDIT_CLIENT_SECRET=<reddit_client_secret>
 REDDIT_USER_AGENT=market-problem-scanner/0.1
 EOF
 ```
