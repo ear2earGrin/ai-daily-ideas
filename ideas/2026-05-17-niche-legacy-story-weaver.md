@@ -1,3 +1,15 @@
+---
+title: Niche Legacy Story Weaver
+date: 2026-05-17
+status: ready
+category: consumer memory
+tags: [agents, storytelling, family, media, b2c]
+monetization: project fees and subscriptions
+effort: medium
+slug: 2026-05-17-niche-legacy-story-weaver
+summary: AI agents transform family photos, voice notes, documents, and anecdotes into legacy books, videos, podcasts, or memory vaults.
+---
+
 # Niche Legacy Story Weaver
 
 ## Concept

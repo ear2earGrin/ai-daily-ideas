@@ -1,0 +1,24 @@
+# Copy these fields into the YAML-style frontmatter at the top of every
+# ideas/YYYY-MM-DD-short-slug.md file. The slug must match the filename stem.
+title: Example Idea Title
+date: YYYY-MM-DD
+status: draft
+category: market or workflow category
+tags: [agents, workflow]
+monetization: subscription, services, one-off purchase, or other primary model
+effort: small
+slug: YYYY-MM-DD-example-idea-title
+summary: One sentence describing the user, pain, solution, and expected output.
+
+# Allowed status values:
+# - draft: captured but not ready for validation
+# - ready: clear enough for validation
+# - validating: demand or feasibility tests are in progress
+# - building: MVP or concierge workflow is in progress
+# - launched: externally usable or sold
+# - archived: deliberately paused or rejected
+
+# Allowed effort values:
+# - small: can validate/build a thin slice in days
+# - medium: likely needs several focused sessions
+# - large: requires heavier integrations, data, or sales motion
