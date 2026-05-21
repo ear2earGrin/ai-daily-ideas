@@ -10,6 +10,8 @@ test_files = [
     "test_models.py",
     "test_scoring.py",
     "test_extractor.py",
+    "test_sqlite_storage.py",
+    "test_dashboard.py",
 ]
 
 print("=" * 60)

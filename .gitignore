@@ -1,0 +1,10 @@
+# Local scanner state
+/data/
+
+# Generated dashboard/scanner runs
+/reports/dashboard_test/
+/reports/final_check/
+
+# Python cache
+__pycache__/
+*.pyc
