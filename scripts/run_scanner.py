@@ -33,7 +33,7 @@ def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: O
     Returns:
         Path to generated report
     """
-    print(f"📊 Market Problem Scanner v0.1.0")
+    print(f"📊 Market Problem Scanner v0.2.0")
     print(f"📁 Loading fixture: {fixture_path}")
     
     # Collect data

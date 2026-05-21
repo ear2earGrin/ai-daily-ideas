@@ -80,6 +80,18 @@ class OpportunityCluster:
     mvp_approach: str = ""
     competitive_landscape: str = ""
     recommendation: str = ""
+
+    # Ranking analysis: profitability x probability to build
+    profitability_score: int = 0
+    build_probability_score: int = 0
+    priority_score: int = 0
+    priority_band: str = "unranked"
+    buyer_type: str = ""
+    monetization_guess: str = ""
+    mvp_shape: str = ""
+    risk_notes: str = ""
+    missing_data: str = ""
+    next_validation_step: str = ""
     
     def to_dict(self) -> Dict:
         """Convert to dictionary for JSON serialization."""

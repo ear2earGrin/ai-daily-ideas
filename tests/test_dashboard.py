@@ -10,7 +10,8 @@ from urllib.parse import urlencode
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from scanner.models import PainPoint
+from scanner.models import OpportunityCluster, PainPoint
+from scanner.scoring import score_opportunity_ranking
 from scanner.sqlite_storage import ScannerDatabase
 
 _dashboard_path = Path(__file__).parent.parent / "scripts" / "run_dashboard.py"
@@ -37,8 +38,23 @@ def test_dashboard_home_and_update():
             quote="I need a local dashboard for reviewing findings.",
             audience="builders",
             pain="reviewing findings manually",
+            intensity=4,
+            frequency=4,
+            buyer_quality=3,
+            workaround_cost=4,
+            existing_spend=3,
+            reachability=4,
+            mvp_simplicity=5,
+            competition_gap=4,
         )
-        db.persist_scan("fixture.json", "report.md", 1, [pain], [])
+        cluster = OpportunityCluster(
+            title="Dashboard review workflow",
+            pain_points=[pain],
+            audience="builders",
+            executive_summary="Builders need a way to rank scanner findings.",
+        )
+        score_opportunity_ranking(cluster)
+        db.persist_scan("fixture.json", "report.md", 1, [pain], [cluster])
 
         server, thread, port = _start_server(db_path)
         try:
@@ -49,6 +65,18 @@ def test_dashboard_home_and_update():
             assert resp.status == 200
             assert "Market Problem Scanner Dashboard" in body
             assert "reviewing findings manually" in body
+            assert "Ranked Opportunities" in body
+            assert "Profitability" in body
+            assert "Build probability" in body
+            assert "Dashboard review workflow" in body
+
+            conn.request("GET", f"/cluster?id={cluster.id}")
+            resp = conn.getresponse()
+            detail = resp.read().decode("utf-8")
+            assert resp.status == 200
+            assert "Opportunity Detail" in detail
+            assert "Next validation" in detail
+            assert "48-hour concierge MVP" in detail
 
             payload = urlencode({
                 "kind": "pain",

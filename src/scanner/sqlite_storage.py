@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
 from .models import OpportunityCluster, PainPoint
+from .scoring import score_opportunity_ranking
 
 
 STATUS_VALUES = {"new", "interesting", "ignore", "build", "validate"}
@@ -76,6 +77,16 @@ class ScannerDatabase:
                     avg_score REAL NOT NULL DEFAULT 0,
                     executive_summary TEXT,
                     recommendation TEXT,
+                    profitability_score INTEGER NOT NULL DEFAULT 0,
+                    build_probability_score INTEGER NOT NULL DEFAULT 0,
+                    priority_score INTEGER NOT NULL DEFAULT 0,
+                    priority_band TEXT NOT NULL DEFAULT 'unranked',
+                    buyer_type TEXT,
+                    monetization_guess TEXT,
+                    mvp_shape TEXT,
+                    risk_notes TEXT,
+                    missing_data TEXT,
+                    next_validation_step TEXT,
                     status TEXT NOT NULL DEFAULT 'new',
                     notes TEXT NOT NULL DEFAULT '',
                     created_at TEXT,
@@ -93,9 +104,30 @@ class ScannerDatabase:
 
                 CREATE INDEX IF NOT EXISTS idx_pain_points_score ON pain_points(total_score DESC);
                 CREATE INDEX IF NOT EXISTS idx_clusters_score ON clusters(avg_score DESC);
+                CREATE INDEX IF NOT EXISTS idx_clusters_priority ON clusters(priority_score DESC);
                 CREATE INDEX IF NOT EXISTS idx_scan_runs_created ON scan_runs(created_at DESC);
                 """
             )
+            self._migrate_schema(conn)
+
+    def _migrate_schema(self, conn: sqlite3.Connection) -> None:
+        """Add ranking columns to existing local databases without data loss."""
+        cluster_columns = {row[1] for row in conn.execute("PRAGMA table_info(clusters)")}
+        additions = {
+            "profitability_score": "INTEGER NOT NULL DEFAULT 0",
+            "build_probability_score": "INTEGER NOT NULL DEFAULT 0",
+            "priority_score": "INTEGER NOT NULL DEFAULT 0",
+            "priority_band": "TEXT NOT NULL DEFAULT 'unranked'",
+            "buyer_type": "TEXT",
+            "monetization_guess": "TEXT",
+            "mvp_shape": "TEXT",
+            "risk_notes": "TEXT",
+            "missing_data": "TEXT",
+            "next_validation_step": "TEXT",
+        }
+        for column, definition in additions.items():
+            if column not in cluster_columns:
+                conn.execute(f"ALTER TABLE clusters ADD COLUMN {column} {definition}")
 
     def create_scan_run(
         self,
@@ -178,12 +210,15 @@ class ScannerDatabase:
         now = datetime.now().isoformat(timespec="seconds")
         with self.connect() as conn:
             for cluster in clusters:
+                score_opportunity_ranking(cluster)
                 conn.execute(
                     """
                     INSERT INTO clusters (
                         id, scan_run_id, title, domain, audience, total_mentions, avg_score,
-                        executive_summary, recommendation, created_at, updated_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        executive_summary, recommendation, profitability_score, build_probability_score,
+                        priority_score, priority_band, buyer_type, monetization_guess, mvp_shape,
+                        risk_notes, missing_data, next_validation_step, created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(id) DO UPDATE SET
                         scan_run_id=excluded.scan_run_id,
                         title=excluded.title,
@@ -193,6 +228,16 @@ class ScannerDatabase:
                         avg_score=excluded.avg_score,
                         executive_summary=excluded.executive_summary,
                         recommendation=excluded.recommendation,
+                        profitability_score=excluded.profitability_score,
+                        build_probability_score=excluded.build_probability_score,
+                        priority_score=excluded.priority_score,
+                        priority_band=excluded.priority_band,
+                        buyer_type=excluded.buyer_type,
+                        monetization_guess=excluded.monetization_guess,
+                        mvp_shape=excluded.mvp_shape,
+                        risk_notes=excluded.risk_notes,
+                        missing_data=excluded.missing_data,
+                        next_validation_step=excluded.next_validation_step,
                         created_at=excluded.created_at,
                         updated_at=excluded.updated_at
                     """,
@@ -206,6 +251,16 @@ class ScannerDatabase:
                         cluster.avg_score,
                         cluster.executive_summary,
                         cluster.recommendation,
+                        cluster.profitability_score,
+                        cluster.build_probability_score,
+                        cluster.priority_score,
+                        cluster.priority_band,
+                        cluster.buyer_type,
+                        cluster.monetization_guess,
+                        cluster.mvp_shape,
+                        cluster.risk_notes,
+                        cluster.missing_data,
+                        cluster.next_validation_step,
                         cluster.created_at,
                         now,
                     ),
@@ -244,6 +299,12 @@ class ScannerDatabase:
                 "scan_runs": conn.execute("SELECT COUNT(*) FROM scan_runs").fetchone()[0],
                 "pain_points": conn.execute("SELECT COUNT(*) FROM pain_points").fetchone()[0],
                 "clusters": conn.execute("SELECT COUNT(*) FROM clusters").fetchone()[0],
+                "top_priority_score": conn.execute(
+                    "SELECT COALESCE(MAX(priority_score), 0) FROM clusters"
+                ).fetchone()[0],
+                "validate_now": conn.execute(
+                    "SELECT COUNT(*) FROM clusters WHERE priority_band = 'validate immediately'"
+                ).fetchone()[0],
                 "high_score_pain_points": conn.execute(
                     "SELECT COUNT(*) FROM pain_points WHERE total_score >= 25"
                 ).fetchone()[0],
@@ -270,7 +331,7 @@ class ScannerDatabase:
                     FROM clusters c
                     LEFT JOIN cluster_pain_points cpp ON cpp.cluster_id = c.id
                     GROUP BY c.id
-                    ORDER BY c.avg_score DESC, c.total_mentions DESC
+                    ORDER BY c.priority_score DESC, c.profitability_score DESC, c.avg_score DESC, c.total_mentions DESC
                     LIMIT ?
                     """,
                     (limit,),
@@ -283,6 +344,25 @@ class ScannerDatabase:
                 conn.execute(
                     "SELECT * FROM pain_points ORDER BY total_score DESC, collected_at DESC LIMIT ?",
                     (limit,),
+                )
+            )
+
+    def get_cluster(self, cluster_id: str) -> Optional[sqlite3.Row]:
+        with self.connect() as conn:
+            return conn.execute("SELECT * FROM clusters WHERE id = ?", (cluster_id,)).fetchone()
+
+    def pain_points_for_cluster(self, cluster_id: str) -> List[sqlite3.Row]:
+        with self.connect() as conn:
+            return list(
+                conn.execute(
+                    """
+                    SELECT p.*
+                    FROM pain_points p
+                    JOIN cluster_pain_points cpp ON cpp.pain_point_id = p.id
+                    WHERE cpp.cluster_id = ?
+                    ORDER BY p.total_score DESC, p.collected_at DESC
+                    """,
+                    (cluster_id,),
                 )
             )
 
