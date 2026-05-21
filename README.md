@@ -109,12 +109,18 @@ python3 tests/run_tests.py
 - `src/scanner/` — Core scanner modules (models, scoring, extraction, reporting)
 - `fixtures/sample_pain_points.json` — Synthetic test data
 - `scripts/run_scanner.py` — CLI entry point
-- `scripts/run_dashboard.py` — local-only dashboard for reviewing stored findings
-- `src/scanner/sqlite_storage.py` — SQLite persistence for scan runs, pain points, clusters, statuses, and notes
+- `scripts/run_dashboard.py` — local-only dashboard for reviewing stored findings, ranked opportunities, and cluster detail pages
+- `src/scanner/sqlite_storage.py` — SQLite persistence for scan runs, pain points, clusters, ranking fields, statuses, and notes
 - `tests/` — Unit tests for scanner components
 - `reports/` — Generated opportunity reports
 
-**Current status:** Prototype v0.1.0 with heuristic extraction. Next steps: integrate local Qwen for LLM-based extraction, add real Reddit/HN collectors.
+**Ranking model:**
+- `profitability_score` estimates buyer urgency, budget, existing spend, frequency, reachability, revenue clarity, and workaround pain.
+- `build_probability_score` estimates MVP simplicity, data/API access proxy, automation fit, competition gap, compliance risk, maintenance burden, and founder-fit default.
+- `priority_score = profitability_score × build_probability_score`, which punishes sexy-but-hard ideas and easy-but-worthless ideas.
+- Priority bands: `validate immediately` (≥900), `promising` (650-899), `keep watching` (400-649), `ignore` (<400).
+
+**Current status:** Prototype v0.2.0 with heuristic extraction, SQLite dashboard storage, and opportunity ranking. Next steps: integrate local Qwen for LLM-based extraction, add real Reddit/HN collectors.
 
 ## Lifecycle
 

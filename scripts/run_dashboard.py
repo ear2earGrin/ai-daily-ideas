@@ -20,9 +20,10 @@ from scanner.sqlite_storage import STATUS_VALUES, ScannerDatabase
 CSS = """
 :root { color-scheme: dark; }
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0b0f17; color: #e5e7eb; }
-a { color: #7dd3fc; }
+a { color: #7dd3fc; text-decoration: none; }
+a:hover { text-decoration: underline; }
 header { padding: 28px 32px; background: linear-gradient(135deg, #111827, #1e1b4b); border-bottom: 1px solid #243042; }
-main { padding: 24px 32px 48px; max-width: 1280px; margin: 0 auto; }
+main { padding: 24px 32px 48px; max-width: 1320px; margin: 0 auto; }
 h1 { margin: 0 0 8px; font-size: 30px; }
 h2 { margin-top: 34px; border-bottom: 1px solid #243042; padding-bottom: 8px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
@@ -33,8 +34,12 @@ table { width: 100%; border-collapse: collapse; background: #111827; border: 1px
 th, td { padding: 10px 12px; border-bottom: 1px solid #243042; vertical-align: top; text-align: left; }
 th { color: #9ca3af; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; background: #0f172a; }
 tr:last-child td { border-bottom: 0; }
-.badge { display: inline-block; padding: 3px 8px; border-radius: 999px; background: #172554; color: #bfdbfe; font-size: 12px; }
+.badge { display: inline-block; padding: 3px 8px; border-radius: 999px; background: #172554; color: #bfdbfe; font-size: 12px; white-space: nowrap; }
+.badge.promising { background: #3b2f08; color: #fde68a; }
+.badge.validate { background: #064e3b; color: #a7f3d0; }
+.badge.ignore { background: #3f1d1d; color: #fecaca; }
 .score { font-weight: 800; color: #facc15; }
+.priority { font-size: 18px; }
 .excerpt { max-width: 420px; }
 form.inline { display: grid; gap: 6px; min-width: 220px; }
 select, input, button { background: #020617; color: #e5e7eb; border: 1px solid #334155; border-radius: 8px; padding: 7px 9px; }
@@ -42,11 +47,26 @@ button { cursor: pointer; background: #2563eb; border-color: #2563eb; font-weigh
 button:hover { background: #1d4ed8; }
 .small { color: #9ca3af; font-size: 12px; }
 .empty { color: #9ca3af; padding: 16px; background: #111827; border-radius: 14px; border: 1px solid #243042; }
+.detail-grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr); gap: 14px; }
+.kv { display: grid; grid-template-columns: 180px 1fr; gap: 8px; margin: 8px 0; }
+.kv strong { color: #9ca3af; }
+.back { display: inline-block; margin-bottom: 16px; }
 """
 
 
 def esc(value) -> str:
     return html.escape("" if value is None else str(value), quote=True)
+
+
+def band_class(band: str) -> str:
+    band = (band or "").lower()
+    if "validate" in band:
+        return "validate"
+    if "promising" in band:
+        return "promising"
+    if "ignore" in band:
+        return "ignore"
+    return ""
 
 
 def status_form(kind: str, item_id: str, status: str, notes: str) -> str:
@@ -62,6 +82,27 @@ def status_form(kind: str, item_id: str, status: str, notes: str) -> str:
       <input name="notes" value="{esc(notes)}" placeholder="notes">
       <button type="submit">Save</button>
     </form>
+    """
+
+
+def render_shell(title: str, body: str) -> str:
+    return f"""
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{esc(title)}</title>
+      <style>{CSS}</style>
+    </head>
+    <body>
+      <header>
+        <h1>{esc(title)}</h1>
+        <div class="small">Local-first review board for profitable and shippable scanner findings.</div>
+      </header>
+      <main>{body}</main>
+    </body>
+    </html>
     """
 
 
@@ -88,17 +129,18 @@ def render_home(db: ScannerDatabase) -> str:
     cluster_rows = "".join(
         f"""
         <tr>
-          <td><span class="score">{esc(round(row['avg_score'], 1))}</span></td>
-          <td><strong>{esc(row['title'])}</strong><div class="small">{esc(row['executive_summary'])}</div></td>
-          <td>{esc(row['domain'])}</td>
-          <td>{esc(row['audience'])}</td>
+          <td><span class="score priority">{esc(row['priority_score'])}</span><div class="small">priority</div></td>
+          <td><span class="score">{esc(row['profitability_score'])}</span><div class="small">profitability</div></td>
+          <td><span class="score">{esc(row['build_probability_score'])}</span><div class="small">build probability</div></td>
+          <td><strong><a href="/cluster?id={esc(row['id'])}">{esc(row['title'])}</a></strong><div class="small">{esc(row['executive_summary'])}</div><div class="small">{esc(row['next_validation_step'])}</div></td>
+          <td>{esc(row['buyer_type'] or row['audience'])}</td>
           <td>{esc(row['evidence_count'])}</td>
-          <td><span class="badge">{esc(row['status'])}</span></td>
+          <td><span class="badge {band_class(row['priority_band'])}">{esc(row['priority_band'])}</span></td>
           <td>{status_form('cluster', row['id'], row['status'], row['notes'])}</td>
         </tr>
         """
         for row in clusters
-    ) or '<tr><td colspan="7" class="small">No clusters yet.</td></tr>'
+    ) or '<tr><td colspan="8" class="small">No clusters yet.</td></tr>'
 
     pain_rows = "".join(
         f"""
@@ -114,32 +156,19 @@ def render_home(db: ScannerDatabase) -> str:
         for row in pains
     ) or '<tr><td colspan="6" class="small">No pain points yet.</td></tr>'
 
-    return f"""
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Market Problem Scanner Dashboard</title>
-      <style>{CSS}</style>
-    </head>
-    <body>
-      <header>
-        <h1>Market Problem Scanner Dashboard</h1>
-        <div class="small">Local-first review board for stored pain points, source evidence, and opportunity clusters.</div>
-      </header>
-      <main>
+    body = f"""
         <section class="grid">
           <div class="card"><div class="metric">{summary['scan_runs']}</div><div class="label">Scan runs</div></div>
           <div class="card"><div class="metric">{summary['pain_points']}</div><div class="label">Pain points</div></div>
           <div class="card"><div class="metric">{summary['clusters']}</div><div class="label">Clusters</div></div>
-          <div class="card"><div class="metric">{summary['high_score_pain_points']}</div><div class="label">High-score pains</div></div>
+          <div class="card"><div class="metric">{summary['top_priority_score']}</div><div class="label">Top priority</div></div>
+          <div class="card"><div class="metric">{summary['validate_now']}</div><div class="label">Validate now</div></div>
           <div class="card"><div class="metric">{summary['interesting_items']}</div><div class="label">Marked useful</div></div>
         </section>
 
-        <h2>Top Opportunity Clusters</h2>
+        <h2>Ranked Opportunities</h2>
         <table>
-          <thead><tr><th>Score</th><th>Cluster</th><th>Domain</th><th>Audience</th><th>Evidence</th><th>Status</th><th>Review</th></tr></thead>
+          <thead><tr><th>Priority</th><th>Profitability</th><th>Build probability</th><th>Cluster</th><th>Buyer</th><th>Evidence</th><th>Band</th><th>Review</th></tr></thead>
           <tbody>{cluster_rows}</tbody>
         </table>
 
@@ -154,10 +183,59 @@ def render_home(db: ScannerDatabase) -> str:
           <thead><tr><th>ID</th><th>Created</th><th>Sources</th><th>Pain points</th><th>Clusters</th><th>Report</th></tr></thead>
           <tbody>{run_rows}</tbody>
         </table>
-      </main>
-    </body>
-    </html>
     """
+    return render_shell("Market Problem Scanner Dashboard", body)
+
+
+def render_cluster_detail(db: ScannerDatabase, cluster_id: str) -> str:
+    cluster = db.get_cluster(cluster_id)
+    if cluster is None:
+        return render_shell("Cluster Not Found", '<a class="back" href="/">← Back</a><div class="empty">No cluster found.</div>')
+    pains = db.pain_points_for_cluster(cluster_id)
+    pain_rows = "".join(
+        f"""
+        <tr>
+          <td><span class="score">{esc(row['total_score'])}</span></td>
+          <td class="excerpt"><strong>{esc(row['pain'] or row['quote'])}</strong><div class="small">{esc(row['quote'])}</div></td>
+          <td>{esc(row['audience'])}</td>
+          <td><a href="{esc(row['source_url'])}" target="_blank" rel="noreferrer">source</a></td>
+        </tr>
+        """
+        for row in pains
+    ) or '<tr><td colspan="4" class="small">No linked evidence.</td></tr>'
+
+    body = f"""
+      <a class="back" href="/">← Back to dashboard</a>
+      <section class="grid">
+        <div class="card"><div class="metric">{esc(cluster['priority_score'])}</div><div class="label">Priority score</div></div>
+        <div class="card"><div class="metric">{esc(cluster['profitability_score'])}</div><div class="label">Profitability</div></div>
+        <div class="card"><div class="metric">{esc(cluster['build_probability_score'])}</div><div class="label">Build probability</div></div>
+        <div class="card"><div class="metric">{esc(cluster['total_mentions'])}</div><div class="label">Evidence points</div></div>
+      </section>
+
+      <h2>{esc(cluster['title'])}</h2>
+      <div class="detail-grid">
+        <div class="card">
+          <div class="kv"><strong>Priority band</strong><span class="badge {band_class(cluster['priority_band'])}">{esc(cluster['priority_band'])}</span></div>
+          <div class="kv"><strong>Buyer type</strong><span>{esc(cluster['buyer_type'] or cluster['audience'])}</span></div>
+          <div class="kv"><strong>Monetization</strong><span>{esc(cluster['monetization_guess'])}</span></div>
+          <div class="kv"><strong>MVP shape</strong><span>{esc(cluster['mvp_shape'])}</span></div>
+        </div>
+        <div class="card">
+          <div class="kv"><strong>Missing data</strong><span>{esc(cluster['missing_data'])}</span></div>
+          <div class="kv"><strong>Risk notes</strong><span>{esc(cluster['risk_notes'])}</span></div>
+          <div class="kv"><strong>Next validation</strong><span>{esc(cluster['next_validation_step'])}</span></div>
+          <div class="kv"><strong>Review</strong><span>{status_form('cluster', cluster['id'], cluster['status'], cluster['notes'])}</span></div>
+        </div>
+      </div>
+
+      <h2>Evidence</h2>
+      <table>
+        <thead><tr><th>Score</th><th>Pain</th><th>Audience</th><th>Source</th></tr></thead>
+        <tbody>{pain_rows}</tbody>
+      </table>
+    """
+    return render_shell(f"Opportunity Detail: {cluster['title']}", body)
 
 
 class DashboardHandler(BaseHTTPRequestHandler):
@@ -172,10 +250,14 @@ class DashboardHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
-        if parsed.path not in {"/", "/index.html"}:
+        if parsed.path in {"/", "/index.html"}:
+            body = render_home(self.db).encode("utf-8")
+        elif parsed.path == "/cluster":
+            cluster_id = parse_qs(parsed.query).get("id", [""])[0]
+            body = render_cluster_detail(self.db, cluster_id).encode("utf-8")
+        else:
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
             return
-        body = render_home(self.db).encode("utf-8")
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
