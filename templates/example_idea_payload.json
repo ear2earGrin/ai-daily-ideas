@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-19",
+  "title": "AI Agent-Powered Inbox Opportunity Scout",
+  "concept": "An assistant that scans a solo founder's inbound messages, support tickets, and community mentions to identify repeat customer pain points, then turns them into validated micro-product opportunities.",
+  "monetization": [
+    "Subscription for founders and indie hackers",
+    "Premium integrations with Gmail, Discord, and Linear",
+    "Done-for-you opportunity reports"
+  ],
+  "execution_steps": [
+    "Connect one message source and classify recurring pain points",
+    "Generate a weekly opportunity brief with evidence snippets",
+    "Add validation prompts and landing-page copy generation",
+    "Launch to founder communities and iterate on signal quality"
+  ],
+  "status": "Example payload for the automation scaffold; not yet published as an idea."
+}

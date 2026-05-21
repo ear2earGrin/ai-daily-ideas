@@ -5,12 +5,15 @@ Daily AI agent project ideas for one-person teams — monetizable or fun.
 ## What lives here
 
 - `ideas/` — one Markdown file per daily idea. Existing ideas stay here and should not be overwritten when adding new workflow structure.
-- `templates/` — copy-paste starting points for new ideas, metadata, validation plans, and execution logs.
+- `templates/` — copy-paste starting points for new ideas, metadata, validation plans, execution logs, and automation payloads.
 - `docs/idea-schema.md` — required normalized metadata fields and allowed values.
 - `docs/lifecycle.md` — the capture → normalize → validate → execute workflow.
+- `docs/daily-idea-automation.md` — automation scaffold for adding ideas from CLI flags or JSON payloads.
 - `INDEX.md` — generated catalog of all ideas.
 
 ## Add a new daily idea
+
+### Manual path
 
 1. Pick a date and slug, then create `ideas/YYYY-MM-DD-short-slug.md` from the template:
 
@@ -43,6 +46,16 @@ Daily AI agent project ideas for one-person teams — monetizable or fun.
    ```bash
    python3 scripts/generate_index.py --check
    ```
+
+### Automation scaffold
+
+Use `scripts/add_daily_idea.py` to render a new idea into `ideas/YYYY-MM-DD-slug.md` from CLI flags or a JSON payload:
+
+```bash
+python3 scripts/add_daily_idea.py --from-json templates/example_idea_payload.json --dry-run
+```
+
+See `docs/daily-idea-automation.md` for the full workflow, verification commands, and the GitHub Actions stub for future LLM wiring.
 
 ## Lifecycle
 
