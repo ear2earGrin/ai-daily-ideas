@@ -8,6 +8,7 @@ Prototype entry point for discovering monetizable pain points.
 import sys
 import argparse
 from pathlib import Path
+from typing import Optional
 
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
@@ -18,9 +19,10 @@ from scanner.models import OpportunityCluster
 from scanner.scoring import score_pain_point, score_cluster, rank_clusters
 from scanner.reporter import generate_report
 from scanner.storage import PainPointStorage, ClusterStorage
+from scanner.sqlite_storage import ScannerDatabase
 
 
-def scan_from_fixture(fixture_path: str, output_dir: str = "reports") -> str:
+def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: Optional[str] = None) -> str:
     """
     Run the scanner on a fixture file and generate a report.
     
@@ -86,6 +88,17 @@ def scan_from_fixture(fixture_path: str, output_dir: str = "reports") -> str:
         f.write(report)
     
     print(f"✅ Report saved to: {report_file}")
+
+    if db_path:
+        db = ScannerDatabase(db_path)
+        scan_run_id = db.persist_scan(
+            fixture_path=fixture_path,
+            report_path=str(report_file),
+            source_count=len(sources),
+            pain_points=all_pain_points,
+            clusters=clusters,
+        )
+        print(f"✅ Saved findings to SQLite: {db_path} (scan run #{scan_run_id})")
     print("")
     print("Preview:")
     print("=" * 60)
@@ -111,11 +124,16 @@ def main():
         default="reports",
         help="Output directory for reports"
     )
+    parser.add_argument(
+        "--db",
+        default=None,
+        help="Optional SQLite database path for persisted dashboard findings"
+    )
     
     args = parser.parse_args()
     
     try:
-        report_path = scan_from_fixture(args.fixture, args.output)
+        report_path = scan_from_fixture(args.fixture, args.output, args.db)
         print(f"\n✅ Success! Report: {report_path}")
         return 0
     except FileNotFoundError as e:

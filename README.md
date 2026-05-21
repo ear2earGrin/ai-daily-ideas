@@ -92,6 +92,15 @@ python3 scripts/run_scanner.py
 # Specify custom fixture and output directory
 python3 scripts/run_scanner.py --fixture fixtures/custom.json --output reports/custom
 
+# Persist findings to a local SQLite DB for dashboard review
+python3 scripts/run_scanner.py --fixture fixtures/sample_pain_points.json --output reports --db data/scanner.sqlite
+
+# Start the local dashboard on 127.0.0.1 only
+python3 scripts/run_dashboard.py --db data/scanner.sqlite --host 127.0.0.1 --port 8765
+
+# Then open:
+# http://127.0.0.1:8765
+
 # Run tests
 python3 tests/run_tests.py
 ```
@@ -100,6 +109,8 @@ python3 tests/run_tests.py
 - `src/scanner/` — Core scanner modules (models, scoring, extraction, reporting)
 - `fixtures/sample_pain_points.json` — Synthetic test data
 - `scripts/run_scanner.py` — CLI entry point
+- `scripts/run_dashboard.py` — local-only dashboard for reviewing stored findings
+- `src/scanner/sqlite_storage.py` — SQLite persistence for scan runs, pain points, clusters, statuses, and notes
 - `tests/` — Unit tests for scanner components
 - `reports/` — Generated opportunity reports
 

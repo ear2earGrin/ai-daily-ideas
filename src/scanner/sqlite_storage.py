@@ -1,0 +1,307 @@
+"""SQLite persistence for scanner findings and dashboard review state."""
+
+from __future__ import annotations
+
+import sqlite3
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Optional
+
+from .models import OpportunityCluster, PainPoint
+
+
+STATUS_VALUES = {"new", "interesting", "ignore", "build", "validate"}
+
+
+class ScannerDatabase:
+    """Small sqlite3 wrapper for local scanner findings."""
+
+    def __init__(self, db_path: str = "data/scanner.sqlite"):
+        self.db_path = Path(db_path)
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        self.init_schema()
+
+    def connect(self) -> sqlite3.Connection:
+        conn = sqlite3.connect(self.db_path)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA foreign_keys = ON")
+        return conn
+
+    def init_schema(self) -> None:
+        with self.connect() as conn:
+            conn.executescript(
+                """
+                CREATE TABLE IF NOT EXISTS scan_runs (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    created_at TEXT NOT NULL,
+                    fixture_path TEXT,
+                    report_path TEXT,
+                    source_count INTEGER NOT NULL DEFAULT 0,
+                    pain_point_count INTEGER NOT NULL DEFAULT 0,
+                    cluster_count INTEGER NOT NULL DEFAULT 0
+                );
+
+                CREATE TABLE IF NOT EXISTS pain_points (
+                    id TEXT PRIMARY KEY,
+                    scan_run_id INTEGER,
+                    quote TEXT NOT NULL,
+                    pain TEXT,
+                    source_url TEXT NOT NULL,
+                    source_type TEXT,
+                    audience TEXT,
+                    domain TEXT,
+                    total_score INTEGER NOT NULL DEFAULT 0,
+                    intensity INTEGER NOT NULL DEFAULT 0,
+                    frequency INTEGER NOT NULL DEFAULT 0,
+                    buyer_quality INTEGER NOT NULL DEFAULT 0,
+                    workaround_cost INTEGER NOT NULL DEFAULT 0,
+                    existing_spend INTEGER NOT NULL DEFAULT 0,
+                    reachability INTEGER NOT NULL DEFAULT 0,
+                    mvp_simplicity INTEGER NOT NULL DEFAULT 0,
+                    competition_gap INTEGER NOT NULL DEFAULT 0,
+                    collected_at TEXT,
+                    status TEXT NOT NULL DEFAULT 'new',
+                    notes TEXT NOT NULL DEFAULT '',
+                    updated_at TEXT NOT NULL,
+                    FOREIGN KEY(scan_run_id) REFERENCES scan_runs(id) ON DELETE SET NULL
+                );
+
+                CREATE TABLE IF NOT EXISTS clusters (
+                    id TEXT PRIMARY KEY,
+                    scan_run_id INTEGER,
+                    title TEXT NOT NULL,
+                    domain TEXT,
+                    audience TEXT,
+                    total_mentions INTEGER NOT NULL DEFAULT 0,
+                    avg_score REAL NOT NULL DEFAULT 0,
+                    executive_summary TEXT,
+                    recommendation TEXT,
+                    status TEXT NOT NULL DEFAULT 'new',
+                    notes TEXT NOT NULL DEFAULT '',
+                    created_at TEXT,
+                    updated_at TEXT NOT NULL,
+                    FOREIGN KEY(scan_run_id) REFERENCES scan_runs(id) ON DELETE SET NULL
+                );
+
+                CREATE TABLE IF NOT EXISTS cluster_pain_points (
+                    cluster_id TEXT NOT NULL,
+                    pain_point_id TEXT NOT NULL,
+                    PRIMARY KEY(cluster_id, pain_point_id),
+                    FOREIGN KEY(cluster_id) REFERENCES clusters(id) ON DELETE CASCADE,
+                    FOREIGN KEY(pain_point_id) REFERENCES pain_points(id) ON DELETE CASCADE
+                );
+
+                CREATE INDEX IF NOT EXISTS idx_pain_points_score ON pain_points(total_score DESC);
+                CREATE INDEX IF NOT EXISTS idx_clusters_score ON clusters(avg_score DESC);
+                CREATE INDEX IF NOT EXISTS idx_scan_runs_created ON scan_runs(created_at DESC);
+                """
+            )
+
+    def create_scan_run(
+        self,
+        fixture_path: str,
+        report_path: str,
+        source_count: int,
+        pain_point_count: int,
+        cluster_count: int,
+    ) -> int:
+        now = datetime.now().isoformat(timespec="seconds")
+        with self.connect() as conn:
+            cur = conn.execute(
+                """
+                INSERT INTO scan_runs
+                (created_at, fixture_path, report_path, source_count, pain_point_count, cluster_count)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (now, fixture_path, report_path, source_count, pain_point_count, cluster_count),
+            )
+            if cur.lastrowid is None:
+                raise RuntimeError("failed to create scan run")
+            return int(cur.lastrowid)
+
+    def save_pain_points(self, pain_points: Iterable[PainPoint], scan_run_id: Optional[int] = None) -> None:
+        now = datetime.now().isoformat(timespec="seconds")
+        with self.connect() as conn:
+            for pain in pain_points:
+                conn.execute(
+                    """
+                    INSERT INTO pain_points (
+                        id, scan_run_id, quote, pain, source_url, source_type, audience, domain,
+                        total_score, intensity, frequency, buyer_quality, workaround_cost,
+                        existing_spend, reachability, mvp_simplicity, competition_gap,
+                        collected_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(id) DO UPDATE SET
+                        scan_run_id=excluded.scan_run_id,
+                        quote=excluded.quote,
+                        pain=excluded.pain,
+                        source_url=excluded.source_url,
+                        source_type=excluded.source_type,
+                        audience=excluded.audience,
+                        domain=excluded.domain,
+                        total_score=excluded.total_score,
+                        intensity=excluded.intensity,
+                        frequency=excluded.frequency,
+                        buyer_quality=excluded.buyer_quality,
+                        workaround_cost=excluded.workaround_cost,
+                        existing_spend=excluded.existing_spend,
+                        reachability=excluded.reachability,
+                        mvp_simplicity=excluded.mvp_simplicity,
+                        competition_gap=excluded.competition_gap,
+                        collected_at=excluded.collected_at,
+                        updated_at=excluded.updated_at
+                    """,
+                    (
+                        pain.id,
+                        scan_run_id,
+                        pain.quote,
+                        pain.pain,
+                        pain.source_url,
+                        pain.source_type,
+                        pain.audience,
+                        self._infer_domain(pain.source_url),
+                        pain.total_score,
+                        pain.intensity,
+                        pain.frequency,
+                        pain.buyer_quality,
+                        pain.workaround_cost,
+                        pain.existing_spend,
+                        pain.reachability,
+                        pain.mvp_simplicity,
+                        pain.competition_gap,
+                        pain.collected_at,
+                        now,
+                    ),
+                )
+
+    def save_clusters(self, clusters: Iterable[OpportunityCluster], scan_run_id: Optional[int] = None) -> None:
+        now = datetime.now().isoformat(timespec="seconds")
+        with self.connect() as conn:
+            for cluster in clusters:
+                conn.execute(
+                    """
+                    INSERT INTO clusters (
+                        id, scan_run_id, title, domain, audience, total_mentions, avg_score,
+                        executive_summary, recommendation, created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(id) DO UPDATE SET
+                        scan_run_id=excluded.scan_run_id,
+                        title=excluded.title,
+                        domain=excluded.domain,
+                        audience=excluded.audience,
+                        total_mentions=excluded.total_mentions,
+                        avg_score=excluded.avg_score,
+                        executive_summary=excluded.executive_summary,
+                        recommendation=excluded.recommendation,
+                        created_at=excluded.created_at,
+                        updated_at=excluded.updated_at
+                    """,
+                    (
+                        cluster.id,
+                        scan_run_id,
+                        cluster.title,
+                        cluster.domain,
+                        cluster.audience,
+                        cluster.total_mentions,
+                        cluster.avg_score,
+                        cluster.executive_summary,
+                        cluster.recommendation,
+                        cluster.created_at,
+                        now,
+                    ),
+                )
+                for pain in cluster.pain_points:
+                    conn.execute(
+                        """
+                        INSERT OR IGNORE INTO cluster_pain_points (cluster_id, pain_point_id)
+                        VALUES (?, ?)
+                        """,
+                        (cluster.id, pain.id),
+                    )
+
+    def persist_scan(
+        self,
+        fixture_path: str,
+        report_path: str,
+        source_count: int,
+        pain_points: List[PainPoint],
+        clusters: List[OpportunityCluster],
+    ) -> int:
+        scan_run_id = self.create_scan_run(
+            fixture_path=fixture_path,
+            report_path=report_path,
+            source_count=source_count,
+            pain_point_count=len(pain_points),
+            cluster_count=len(clusters),
+        )
+        self.save_pain_points(pain_points, scan_run_id)
+        self.save_clusters(clusters, scan_run_id)
+        return scan_run_id
+
+    def summary(self) -> Dict[str, Any]:
+        with self.connect() as conn:
+            return {
+                "scan_runs": conn.execute("SELECT COUNT(*) FROM scan_runs").fetchone()[0],
+                "pain_points": conn.execute("SELECT COUNT(*) FROM pain_points").fetchone()[0],
+                "clusters": conn.execute("SELECT COUNT(*) FROM clusters").fetchone()[0],
+                "high_score_pain_points": conn.execute(
+                    "SELECT COUNT(*) FROM pain_points WHERE total_score >= 25"
+                ).fetchone()[0],
+                "interesting_items": conn.execute(
+                    "SELECT COUNT(*) FROM pain_points WHERE status IN ('interesting','build','validate')"
+                ).fetchone()[0],
+            }
+
+    def recent_scan_runs(self, limit: int = 20) -> List[sqlite3.Row]:
+        with self.connect() as conn:
+            return list(
+                conn.execute(
+                    "SELECT * FROM scan_runs ORDER BY datetime(created_at) DESC, id DESC LIMIT ?",
+                    (limit,),
+                )
+            )
+
+    def top_clusters(self, limit: int = 50) -> List[sqlite3.Row]:
+        with self.connect() as conn:
+            return list(
+                conn.execute(
+                    """
+                    SELECT c.*, COUNT(cpp.pain_point_id) AS evidence_count
+                    FROM clusters c
+                    LEFT JOIN cluster_pain_points cpp ON cpp.cluster_id = c.id
+                    GROUP BY c.id
+                    ORDER BY c.avg_score DESC, c.total_mentions DESC
+                    LIMIT ?
+                    """,
+                    (limit,),
+                )
+            )
+
+    def top_pain_points(self, limit: int = 100) -> List[sqlite3.Row]:
+        with self.connect() as conn:
+            return list(
+                conn.execute(
+                    "SELECT * FROM pain_points ORDER BY total_score DESC, collected_at DESC LIMIT ?",
+                    (limit,),
+                )
+            )
+
+    def update_status_notes(self, table: str, item_id: str, status: str, notes: str) -> None:
+        if table not in {"pain_points", "clusters"}:
+            raise ValueError("table must be pain_points or clusters")
+        if status not in STATUS_VALUES:
+            raise ValueError(f"status must be one of {sorted(STATUS_VALUES)}")
+        now = datetime.now().isoformat(timespec="seconds")
+        with self.connect() as conn:
+            conn.execute(
+                f"UPDATE {table} SET status = ?, notes = ?, updated_at = ? WHERE id = ?",
+                (status, notes, now, item_id),
+            )
+
+    @staticmethod
+    def _infer_domain(source_url: str) -> str:
+        if "reddit.com" in source_url:
+            return "reddit"
+        if "ycombinator.com" in source_url or "news.ycombinator.com" in source_url:
+            return "hacker-news"
+        return "web"
