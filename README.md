@@ -81,6 +81,30 @@ We're building an automated pipeline to discover and validate new opportunities 
 - Scored opportunities: intensity, frequency, buyer quality, MVP simplicity
 - Weekly reports with top 3-5 actionable ideas
 
+### Running the Prototype
+
+The scanner prototype is now available:
+
+```bash
+# Run scanner on sample fixtures (no API credentials needed)
+python3 scripts/run_scanner.py
+
+# Specify custom fixture and output directory
+python3 scripts/run_scanner.py --fixture fixtures/custom.json --output reports/custom
+
+# Run tests
+python3 tests/run_tests.py
+```
+
+**Components:**
+- `src/scanner/` — Core scanner modules (models, scoring, extraction, reporting)
+- `fixtures/sample_pain_points.json` — Synthetic test data
+- `scripts/run_scanner.py` — CLI entry point
+- `tests/` — Unit tests for scanner components
+- `reports/` — Generated opportunity reports
+
+**Current status:** Prototype v0.1.0 with heuristic extraction. Next steps: integrate local Qwen for LLM-based extraction, add real Reddit/HN collectors.
+
 ## Lifecycle
 
 The workflow is intentionally lightweight:

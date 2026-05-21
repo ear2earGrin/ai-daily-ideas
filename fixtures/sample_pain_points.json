@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "url": "https://reddit.com/r/Entrepreneur/synthetic/001",
+      "type": "reddit",
+      "text": "I run a small e-commerce shop and I hate manually syncing inventory between Shopify and my warehouse spreadsheet. I spend 3 hours every week copy-pasting data and I always make mistakes. Orders get delayed because of inventory errors. I looked at existing tools like Zapier but they're too complex to set up, and most inventory apps are $100+/month which is way too expensive for my $5K/month shop.",
+      "metadata": {
+        "synthetic": true,
+        "category": "inventory_management"
+      }
+    },
+    {
+      "url": "https://news.ycombinator.com/synthetic/002",
+      "type": "hn",
+      "text": "As a freelance developer, I'm frustrated with tracking my time across multiple clients and projects. I manually log hours in different spreadsheets for each client, then at the end of the month I have to manually create invoices. Takes me 4-5 hours every month and it's painful. I tried Toggl and Harvest but they don't integrate well with my invoicing workflow. I wish there was a simple tool that could auto-generate invoices from my time logs without all the enterprise bloat.",
+      "metadata": {
+        "synthetic": true,
+        "category": "time_tracking"
+      }
+    },
+    {
+      "url": "https://reddit.com/r/smallbusiness/synthetic/003",
+      "type": "reddit",
+      "text": "Anyone else tired of manually managing customer follow-ups? I run a consulting business and I have to manually track when to follow up with leads in a spreadsheet. I set calendar reminders but I always forget or miss them. There's no good way to automate this without paying $200/month for a full CRM like Salesforce which is total overkill. I just need something that reminds me to email clients at the right time.",
+      "metadata": {
+        "synthetic": true,
+        "category": "crm_lite"
+      }
+    },
+    {
+      "url": "https://reddit.com/r/SaaS/synthetic/004",
+      "type": "reddit",
+      "text": "I'm building a small SaaS app and I need to manually check my Stripe dashboard every day to see if there are any failed payments or subscription cancellations. It takes 15 minutes every morning and I always worry I'm missing something important. I wish Stripe would just send me a daily summary email with all the important stuff instead of making me log in and click around.",
+      "metadata": {
+        "synthetic": true,
+        "category": "subscription_monitoring"
+      }
+    },
+    {
+      "url": "https://indiehackers.com/synthetic/005",
+      "type": "forum",
+      "text": "Been struggling with content distribution. I write blog posts and then I have to manually post them to Reddit, HN, Twitter, LinkedIn, and my newsletter. Takes 2 hours every time I publish something. I tried Buffer and Hootsuite but they don't handle Reddit or HN well, and the free tiers are too limited. Just need something that can post to all these places at once without me having to log into 5 different sites.",
+      "metadata": {
+        "synthetic": true,
+        "category": "content_distribution"
+      }
+    },
+    {
+      "url": "https://reddit.com/r/digitalnomad/synthetic/006",
+      "type": "reddit",
+      "text": "Digital nomad here. I hate manually tracking my travel expenses for tax purposes. I have receipts in my email, photos on my phone, and credit card statements all over the place. Every quarter I spend a full weekend organizing everything for my accountant. It's a nightmare. Existing expense apps like Expensify are designed for corporate employees, not freelancers like me who need to track everything manually.",
+      "metadata": {
+        "synthetic": true,
+        "category": "expense_tracking"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "description": "Synthetic pain points for Market Problem Scanner prototype testing",
+    "created_at": "2026-05-21",
+    "note": "These are realistic but synthetic examples for testing extraction and scoring logic"
+  }
+}
