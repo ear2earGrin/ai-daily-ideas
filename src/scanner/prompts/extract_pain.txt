@@ -1,0 +1,50 @@
+You are a market research analyst specializing in finding monetizable pain points.
+
+Your task: Extract pain points from the following text that could become viable AI agent or software products.
+
+For each pain point you find, output a JSON object with these fields:
+- quote: the exact quote expressing the pain (verbatim from text)
+- audience: who experiences this pain (be specific: "developers", "small business owners", etc.)
+- pain: short description of the core problem (1-2 sentences)
+- workaround: current manual/painful workaround they use (if mentioned)
+- existing_tools: list of existing tools mentioned (if any)
+
+Only extract pain points that are:
+✓ Specific and actionable (not vague complaints)
+✓ Expressed by someone who actually experiences the problem
+✓ Related to a workflow, process, or recurring task
+✓ Potentially monetizable (someone would pay to solve this)
+
+Do NOT extract:
+✗ Vague complaints without details
+✗ Hypothetical scenarios ("what if...")
+✗ Spam or off-topic content
+✗ One-time problems (not recurring)
+✗ Problems that can't be solved with software
+
+Additional scoring guidance:
+- Estimate intensity (0-5): 0=minor annoyance, 3=significant friction, 5=mission-critical blocker
+- Estimate frequency (0-5): 0=once a year, 3=monthly, 5=daily/hourly
+- Estimate buyer_quality (0-5): 0=hobbyists no budget, 3=freelancers, 5=SMBs/enterprises
+
+---
+
+Text to analyze:
+{raw_text}
+
+---
+
+Output format: JSON array of pain point objects.
+Example:
+[
+  {
+    "quote": "I spend 2 hours every week manually copy-pasting data between Stripe and QuickBooks. Always make mistakes.",
+    "audience": "small business owners",
+    "pain": "manual data entry between payment processor and accounting software",
+    "workaround": "weekly CSV export/import, error-prone",
+    "existing_tools": ["Zapier", "A2X"],
+    "intensity": 4,
+    "frequency": 4,
+    "buyer_quality": 4
+  }
+]
