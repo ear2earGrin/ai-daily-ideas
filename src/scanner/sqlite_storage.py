@@ -167,6 +167,18 @@ class ScannerDatabase:
                 "UPDATE pain_points SET fingerprint = ? WHERE id = ?",
                 (hashlib.sha256(payload.encode("utf-8")).hexdigest(), row["id"]),
             )
+        for row in conn.execute(
+            """
+            SELECT id, fingerprint, ROW_NUMBER() OVER (PARTITION BY fingerprint ORDER BY id) AS duplicate_index
+            FROM pain_points
+            WHERE fingerprint IS NOT NULL AND fingerprint != ''
+            """
+        ):
+            if row["duplicate_index"] > 1:
+                conn.execute(
+                    "UPDATE pain_points SET fingerprint = ? WHERE id = ?",
+                    (f"{row['fingerprint']}:{row['id']}", row["id"]),
+                )
 
     def create_scan_run(
         self,
