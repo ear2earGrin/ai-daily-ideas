@@ -327,11 +327,41 @@ class ScannerDatabase:
             return list(
                 conn.execute(
                     """
-                    SELECT c.*, COUNT(cpp.pain_point_id) AS evidence_count
-                    FROM clusters c
-                    LEFT JOIN cluster_pain_points cpp ON cpp.cluster_id = c.id
-                    GROUP BY c.id
-                    ORDER BY c.priority_score DESC, c.profitability_score DESC, c.avg_score DESC, c.total_mentions DESC
+                    WITH cluster_rollups AS (
+                        SELECT
+                            MIN(c.id) AS id,
+                            c.title AS title,
+                            MAX(c.scan_run_id) AS scan_run_id,
+                            c.domain AS domain,
+                            c.audience AS audience,
+                            SUM(CASE WHEN c.total_mentions > 0 THEN c.total_mentions ELSE 1 END) AS total_mentions,
+                            AVG(c.avg_score) AS avg_score,
+                            CASE
+                                WHEN COUNT(*) > 1 THEN COUNT(*) || ' scan runs rolled up for this opportunity. Open detail for evidence.'
+                                ELSE MAX(c.executive_summary)
+                            END AS executive_summary,
+                            MAX(c.recommendation) AS recommendation,
+                            MAX(c.profitability_score) AS profitability_score,
+                            MAX(c.build_probability_score) AS build_probability_score,
+                            MAX(c.priority_score) AS priority_score,
+                            MAX(c.priority_band) AS priority_band,
+                            MAX(c.buyer_type) AS buyer_type,
+                            MAX(c.monetization_guess) AS monetization_guess,
+                            MAX(c.mvp_shape) AS mvp_shape,
+                            MAX(c.risk_notes) AS risk_notes,
+                            MAX(c.missing_data) AS missing_data,
+                            MAX(c.next_validation_step) AS next_validation_step,
+                            MAX(c.status) AS status,
+                            MAX(c.notes) AS notes,
+                            MAX(c.created_at) AS created_at,
+                            MAX(c.updated_at) AS updated_at,
+                            COUNT(DISTINCT cpp.pain_point_id) AS evidence_count
+                        FROM clusters c
+                        LEFT JOIN cluster_pain_points cpp ON cpp.cluster_id = c.id
+                        GROUP BY c.title, c.domain, c.audience
+                    )
+                    SELECT * FROM cluster_rollups
+                    ORDER BY priority_score DESC, profitability_score DESC, avg_score DESC, total_mentions DESC
                     LIMIT ?
                     """,
                     (limit,),
@@ -353,16 +383,22 @@ class ScannerDatabase:
 
     def pain_points_for_cluster(self, cluster_id: str) -> List[sqlite3.Row]:
         with self.connect() as conn:
+            cluster = conn.execute("SELECT title, domain, audience FROM clusters WHERE id = ?", (cluster_id,)).fetchone()
+            if cluster is None:
+                return []
             return list(
                 conn.execute(
                     """
-                    SELECT p.*
+                    SELECT DISTINCT p.*
                     FROM pain_points p
                     JOIN cluster_pain_points cpp ON cpp.pain_point_id = p.id
-                    WHERE cpp.cluster_id = ?
+                    JOIN clusters c ON c.id = cpp.cluster_id
+                    WHERE c.title = ?
+                      AND COALESCE(c.domain, '') = COALESCE(?, '')
+                      AND COALESCE(c.audience, '') = COALESCE(?, '')
                     ORDER BY p.total_score DESC, p.collected_at DESC
                     """,
-                    (cluster_id,),
+                    (cluster["title"], cluster["domain"], cluster["audience"]),
                 )
             )
 
