@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from scanner.collectors import FixtureCollector, HackerNewsCollector
 from scanner.extractor import HeuristicExtractor, StructuredExtractor
 from scanner.opportunity_builder import build_opportunity_clusters
+from scanner.query_packs import collect_hn_pack
 from scanner.scoring import score_pain_point, rank_clusters
 from scanner.reporter import generate_report
 from scanner.storage import PainPointStorage, ClusterStorage
@@ -41,7 +42,7 @@ def scan_sources(
     llm_command: Optional[str] = None,
 ) -> str:
     """Run extraction/scoring/reporting for collected source dictionaries."""
-    print(f"📊 Market Problem Scanner v0.4.0")
+    print(f"📊 Market Problem Scanner v0.5.0")
     print(f"📁 Source: {source_label}")
     print(f"✅ Loaded {len(sources)} source(s)")
     
@@ -128,6 +129,19 @@ def scan_from_hn(
     return scan_sources(collector.collect(), f"hn:{query}", output_dir, db_path, extractor_mode, llm_command)
 
 
+def scan_from_hn_pack(
+    pack: str,
+    output_dir: str = "reports",
+    db_path: Optional[str] = None,
+    limit: int = 20,
+    extractor_mode: str = "heuristic",
+    llm_command: Optional[str] = None,
+) -> str:
+    """Run the scanner against every HN query in a named query pack."""
+    sources = collect_hn_pack(pack, limit_per_query=limit)
+    return scan_sources(sources, f"hn-pack:{pack}", output_dir, db_path, extractor_mode, llm_command)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Market Problem Scanner - Discover monetizable pain points"
@@ -139,9 +153,9 @@ def main():
     )
     parser.add_argument(
         "--source",
-        choices=["fixture", "hn"],
+        choices=["fixture", "hn", "hn-pack"],
         default="fixture",
-        help="Collector source: fixture for local demo data, hn for live Hacker News Algolia results"
+        help="Collector source: fixture for local demo data, hn for one Hacker News query, hn-pack for a named HN query pack"
     )
     parser.add_argument(
         "--query",
@@ -149,10 +163,15 @@ def main():
         help="Search query for live collectors such as --source hn"
     )
     parser.add_argument(
+        "--pack",
+        default="ops-manual-work",
+        help="Named query pack for --source hn-pack"
+    )
+    parser.add_argument(
         "--limit",
         type=int,
         default=20,
-        help="Maximum live-source results to collect"
+        help="Maximum live-source results to collect per query"
     )
     parser.add_argument(
         "--output",
@@ -181,6 +200,8 @@ def main():
     try:
         if args.source == "hn":
             report_path = scan_from_hn(args.query, args.output, args.db, args.limit, args.extractor, args.llm_command)
+        elif args.source == "hn-pack":
+            report_path = scan_from_hn_pack(args.pack, args.output, args.db, args.limit, args.extractor, args.llm_command)
         else:
             report_path = scan_from_fixture(args.fixture, args.output, args.db, args.extractor, args.llm_command)
         print(f"\n✅ Success! Report: {report_path}")

@@ -1,0 +1,16 @@
+{
+  "name": "legal-admin",
+  "description": "Legal ops and compliance admin pains where Marin has domain edge.",
+  "queries": [
+    "manual contract review",
+    "compliance spreadsheet",
+    "legal intake form",
+    "manually track contracts",
+    "contract renewal spreadsheet",
+    "policy update manually",
+    "client intake manually",
+    "legal document workflow",
+    "compliance checklist spreadsheet",
+    "manual due diligence"
+  ]
+}

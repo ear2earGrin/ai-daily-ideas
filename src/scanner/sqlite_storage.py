@@ -2,16 +2,43 @@
 
 from __future__ import annotations
 
+import hashlib
+import re
 import sqlite3
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from .models import OpportunityCluster, PainPoint
 from .scoring import score_opportunity_ranking
 
 
 STATUS_VALUES = {"new", "interesting", "ignore", "build", "validate"}
+
+TRACKING_QUERY_PREFIXES = ("utm_",)
+TRACKING_QUERY_KEYS = {"ref", "ref_src", "source", "fbclid", "gclid"}
+
+
+def normalize_source_url(url: str) -> str:
+    """Normalize source URLs enough for local dedupe without losing provenance."""
+    parts = urlsplit((url or "").strip())
+    query_pairs = []
+    for key, value in parse_qsl(parts.query, keep_blank_values=True):
+        lowered = key.lower()
+        if lowered in TRACKING_QUERY_KEYS or any(lowered.startswith(prefix) for prefix in TRACKING_QUERY_PREFIXES):
+            continue
+        query_pairs.append((key, value))
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/"), urlencode(query_pairs), ""))
+
+
+def normalize_quote(text: str) -> str:
+    return re.sub(r"\s+", " ", (text or "").strip().lower())
+
+
+def pain_point_fingerprint(pain: PainPoint) -> str:
+    payload = f"{normalize_source_url(pain.source_url)}\n{normalize_quote(pain.quote)}"
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
 class ScannerDatabase:
@@ -51,6 +78,7 @@ class ScannerDatabase:
                     source_type TEXT,
                     audience TEXT,
                     domain TEXT,
+                    fingerprint TEXT,
                     total_score INTEGER NOT NULL DEFAULT 0,
                     intensity INTEGER NOT NULL DEFAULT 0,
                     frequency INTEGER NOT NULL DEFAULT 0,
@@ -108,6 +136,7 @@ class ScannerDatabase:
                 """
             )
             self._migrate_schema(conn)
+            conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_pain_points_fingerprint ON pain_points(fingerprint) WHERE fingerprint IS NOT NULL")
             conn.execute("CREATE INDEX IF NOT EXISTS idx_clusters_priority ON clusters(priority_score DESC)")
 
     def _migrate_schema(self, conn: sqlite3.Connection) -> None:
@@ -128,6 +157,16 @@ class ScannerDatabase:
         for column, definition in additions.items():
             if column not in cluster_columns:
                 conn.execute(f"ALTER TABLE clusters ADD COLUMN {column} {definition}")
+
+        pain_columns = {row[1] for row in conn.execute("PRAGMA table_info(pain_points)")}
+        if "fingerprint" not in pain_columns:
+            conn.execute("ALTER TABLE pain_points ADD COLUMN fingerprint TEXT")
+        for row in conn.execute("SELECT id, source_url, quote FROM pain_points WHERE fingerprint IS NULL OR fingerprint = ''"):
+            payload = f"{normalize_source_url(row['source_url'])}\n{normalize_quote(row['quote'])}"
+            conn.execute(
+                "UPDATE pain_points SET fingerprint = ? WHERE id = ?",
+                (hashlib.sha256(payload.encode("utf-8")).hexdigest(), row["id"]),
+            )
 
     def create_scan_run(
         self,
@@ -155,33 +194,16 @@ class ScannerDatabase:
         now = datetime.now().isoformat(timespec="seconds")
         with self.connect() as conn:
             for pain in pain_points:
+                fingerprint = pain_point_fingerprint(pain)
                 conn.execute(
                     """
                     INSERT INTO pain_points (
-                        id, scan_run_id, quote, pain, source_url, source_type, audience, domain,
+                        id, scan_run_id, quote, pain, source_url, source_type, audience, domain, fingerprint,
                         total_score, intensity, frequency, buyer_quality, workaround_cost,
                         existing_spend, reachability, mvp_simplicity, competition_gap,
                         collected_at, updated_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(id) DO UPDATE SET
-                        scan_run_id=excluded.scan_run_id,
-                        quote=excluded.quote,
-                        pain=excluded.pain,
-                        source_url=excluded.source_url,
-                        source_type=excluded.source_type,
-                        audience=excluded.audience,
-                        domain=excluded.domain,
-                        total_score=excluded.total_score,
-                        intensity=excluded.intensity,
-                        frequency=excluded.frequency,
-                        buyer_quality=excluded.buyer_quality,
-                        workaround_cost=excluded.workaround_cost,
-                        existing_spend=excluded.existing_spend,
-                        reachability=excluded.reachability,
-                        mvp_simplicity=excluded.mvp_simplicity,
-                        competition_gap=excluded.competition_gap,
-                        collected_at=excluded.collected_at,
-                        updated_at=excluded.updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT DO NOTHING
                     """,
                     (
                         pain.id,
@@ -192,6 +214,7 @@ class ScannerDatabase:
                         pain.source_type,
                         pain.audience,
                         self._infer_domain(pain.source_url),
+                        fingerprint,
                         pain.total_score,
                         pain.intensity,
                         pain.frequency,
@@ -266,13 +289,23 @@ class ScannerDatabase:
                     ),
                 )
                 for pain in cluster.pain_points:
+                    pain_id = self._stored_pain_id(conn, pain)
+                    if pain_id is None:
+                        continue
                     conn.execute(
                         """
                         INSERT OR IGNORE INTO cluster_pain_points (cluster_id, pain_point_id)
                         VALUES (?, ?)
                         """,
-                        (cluster.id, pain.id),
+                        (cluster.id, pain_id),
                     )
+
+    def _stored_pain_id(self, conn: sqlite3.Connection, pain: PainPoint) -> Optional[str]:
+        row = conn.execute(
+            "SELECT id FROM pain_points WHERE fingerprint = ? OR id = ? ORDER BY updated_at DESC LIMIT 1",
+            (pain_point_fingerprint(pain), pain.id),
+        ).fetchone()
+        return row["id"] if row else None
 
     def persist_scan(
         self,

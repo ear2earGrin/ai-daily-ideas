@@ -92,6 +92,52 @@ def test_existing_database_migrates_ranking_columns_before_index_creation():
         assert "idx_clusters_priority" in indexes
 
 
+def test_existing_database_migrates_pain_fingerprint_before_index_creation():
+    with tempfile.TemporaryDirectory() as tmp:
+        db_path = Path(tmp) / "old_pain.sqlite"
+        import sqlite3
+        con = sqlite3.connect(db_path)
+        con.executescript(
+            """
+            CREATE TABLE pain_points (
+                id TEXT PRIMARY KEY,
+                quote TEXT NOT NULL,
+                pain TEXT,
+                source_url TEXT NOT NULL,
+                source_type TEXT,
+                audience TEXT,
+                domain TEXT,
+                total_score INTEGER NOT NULL DEFAULT 0,
+                intensity INTEGER NOT NULL DEFAULT 0,
+                frequency INTEGER NOT NULL DEFAULT 0,
+                buyer_quality INTEGER NOT NULL DEFAULT 0,
+                workaround_cost INTEGER NOT NULL DEFAULT 0,
+                existing_spend INTEGER NOT NULL DEFAULT 0,
+                reachability INTEGER NOT NULL DEFAULT 0,
+                mvp_simplicity INTEGER NOT NULL DEFAULT 0,
+                competition_gap INTEGER NOT NULL DEFAULT 0,
+                collected_at TEXT,
+                status TEXT NOT NULL DEFAULT 'new',
+                notes TEXT NOT NULL DEFAULT '',
+                updated_at TEXT NOT NULL
+            );
+            INSERT INTO pain_points (id, quote, source_url, updated_at)
+            VALUES ('pain_old', 'I manually copy invoices.', 'https://news.ycombinator.com/item?id=1', '2026-01-01T00:00:00');
+            """
+        )
+        con.close()
+
+        db = ScannerDatabase(str(db_path))
+        with db.connect() as con:
+            columns = {row[1] for row in con.execute("PRAGMA table_info(pain_points)")}
+            indexes = {row[1] for row in con.execute("PRAGMA index_list(pain_points)")}
+            fingerprint = con.execute("SELECT fingerprint FROM pain_points WHERE id='pain_old'").fetchone()[0]
+
+        assert "fingerprint" in columns
+        assert "idx_pain_points_fingerprint" in indexes
+        assert fingerprint
+
+
 if __name__ == "__main__":
     print("Running tests...")
     test_persist_scan_and_summary()
@@ -100,4 +146,6 @@ if __name__ == "__main__":
     print("✓ test_update_status_notes")
     test_existing_database_migrates_ranking_columns_before_index_creation()
     print("✓ test_existing_database_migrates_ranking_columns_before_index_creation")
+    test_existing_database_migrates_pain_fingerprint_before_index_creation()
+    print("✓ test_existing_database_migrates_pain_fingerprint_before_index_creation")
     print("\nAll tests passed! ✓")
