@@ -104,11 +104,11 @@ class ScannerDatabase:
 
                 CREATE INDEX IF NOT EXISTS idx_pain_points_score ON pain_points(total_score DESC);
                 CREATE INDEX IF NOT EXISTS idx_clusters_score ON clusters(avg_score DESC);
-                CREATE INDEX IF NOT EXISTS idx_clusters_priority ON clusters(priority_score DESC);
                 CREATE INDEX IF NOT EXISTS idx_scan_runs_created ON scan_runs(created_at DESC);
                 """
             )
             self._migrate_schema(conn)
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_clusters_priority ON clusters(priority_score DESC)")
 
     def _migrate_schema(self, conn: sqlite3.Connection) -> None:
         """Add ranking columns to existing local databases without data loss."""

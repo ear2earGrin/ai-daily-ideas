@@ -65,10 +65,39 @@ def test_update_status_notes():
         assert row["notes"] == "worth validating"
 
 
+def test_existing_database_migrates_ranking_columns_before_index_creation():
+    with tempfile.TemporaryDirectory() as tmp:
+        db_path = Path(tmp) / "old_scanner.sqlite"
+        import sqlite3
+        con = sqlite3.connect(db_path)
+        con.executescript(
+            """
+            CREATE TABLE clusters (
+                id TEXT PRIMARY KEY,
+                title TEXT NOT NULL,
+                avg_score REAL NOT NULL DEFAULT 0
+            );
+            CREATE INDEX idx_clusters_score ON clusters(avg_score DESC);
+            """
+        )
+        con.close()
+
+        db = ScannerDatabase(str(db_path))
+        with db.connect() as con:
+            columns = {row[1] for row in con.execute("PRAGMA table_info(clusters)")}
+            indexes = {row[1] for row in con.execute("PRAGMA index_list(clusters)")}
+
+        assert "priority_score" in columns
+        assert "profitability_score" in columns
+        assert "idx_clusters_priority" in indexes
+
+
 if __name__ == "__main__":
     print("Running tests...")
     test_persist_scan_and_summary()
     print("✓ test_persist_scan_and_summary")
     test_update_status_notes()
     print("✓ test_update_status_notes")
+    test_existing_database_migrates_ranking_columns_before_index_creation()
+    print("✓ test_existing_database_migrates_ranking_columns_before_index_creation")
     print("\nAll tests passed! ✓")
