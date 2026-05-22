@@ -77,6 +77,8 @@ We're building an automated pipeline to discover and validate new opportunities 
 **Key features:**
 - Automated discovery of repeated pain points
 - Evidence-based validation, not guesswork
+- Live Hacker News collection through the public Algolia API, with real `news.ycombinator.com/item?id=...` source links
+- Dashboard badges distinguish synthetic fixture rows from real source rows
 - Multi-agent workflow: local Qwen for extraction, Claude for strategy
 - Scored opportunities: intensity, frequency, buyer quality, MVP simplicity
 - Weekly reports with top 3-5 actionable ideas
@@ -92,7 +94,10 @@ python3 scripts/run_scanner.py
 # Specify custom fixture and output directory
 python3 scripts/run_scanner.py --fixture fixtures/custom.json --output reports/custom
 
-# Persist findings to a local SQLite DB for dashboard review
+# Collect real Hacker News posts/comments via the public Algolia API
+python3 scripts/run_scanner.py --source hn --query "manually updating" --limit 20 --output reports/hn --db data/scanner.sqlite
+
+# Persist fixture findings to a local SQLite DB for dashboard review
 python3 scripts/run_scanner.py --fixture fixtures/sample_pain_points.json --output reports --db data/scanner.sqlite
 
 # Start the local dashboard on 127.0.0.1 only
@@ -107,6 +112,7 @@ python3 tests/run_tests.py
 
 **Components:**
 - `src/scanner/` — Core scanner modules (models, scoring, extraction, reporting)
+- `src/scanner/collectors/` — Fixture, Hacker News, and future live-source collectors
 - `fixtures/sample_pain_points.json` — Synthetic test data
 - `scripts/run_scanner.py` — CLI entry point
 - `scripts/run_dashboard.py` — local-only dashboard for reviewing stored findings, ranked opportunities, and cluster detail pages
@@ -120,7 +126,7 @@ python3 tests/run_tests.py
 - `priority_score = profitability_score × build_probability_score`, which punishes sexy-but-hard ideas and easy-but-worthless ideas.
 - Priority bands: `validate immediately` (≥900), `promising` (650-899), `keep watching` (400-649), `ignore` (<400).
 
-**Current status:** Prototype v0.2.0 with heuristic extraction, SQLite dashboard storage, and opportunity ranking. Next steps: integrate local Qwen for LLM-based extraction, add real Reddit/HN collectors.
+**Current status:** Prototype v0.3.0 with heuristic extraction, SQLite dashboard storage, opportunity ranking, and live Hacker News collection. Next steps: improve extraction quality with local Qwen/LLM pass, add Reddit collectors, and deduplicate repeated source findings.
 
 ## Lifecycle
 

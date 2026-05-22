@@ -13,7 +13,7 @@ from typing import Optional
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from scanner.collectors import FixtureCollector
+from scanner.collectors import FixtureCollector, HackerNewsCollector
 from scanner.extractor import HeuristicExtractor
 from scanner.models import OpportunityCluster
 from scanner.scoring import score_pain_point, score_cluster, rank_clusters
@@ -22,23 +22,10 @@ from scanner.storage import PainPointStorage, ClusterStorage
 from scanner.sqlite_storage import ScannerDatabase
 
 
-def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: Optional[str] = None) -> str:
-    """
-    Run the scanner on a fixture file and generate a report.
-    
-    Args:
-        fixture_path: Path to JSON fixture file
-        output_dir: Directory for output reports
-    
-    Returns:
-        Path to generated report
-    """
-    print(f"📊 Market Problem Scanner v0.2.0")
-    print(f"📁 Loading fixture: {fixture_path}")
-    
-    # Collect data
-    collector = FixtureCollector(fixture_path)
-    sources = collector.collect()
+def scan_sources(sources, source_label: str, output_dir: str = "reports", db_path: Optional[str] = None) -> str:
+    """Run extraction/scoring/reporting for collected source dictionaries."""
+    print(f"📊 Market Problem Scanner v0.3.0")
+    print(f"📁 Source: {source_label}")
     print(f"✅ Loaded {len(sources)} source(s)")
     
     # Extract pain points
@@ -67,7 +54,7 @@ def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: O
             pain_points=all_pain_points,
             domain="multi-domain",
             audience="various",
-            executive_summary="Collection of pain points extracted from fixtures",
+            executive_summary=f"Collection of pain points extracted from {source_label}",
         )
         score_cluster(cluster)
         clusters = [cluster]
@@ -92,7 +79,7 @@ def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: O
     if db_path:
         db = ScannerDatabase(db_path)
         scan_run_id = db.persist_scan(
-            fixture_path=fixture_path,
+            fixture_path=source_label,
             report_path=str(report_file),
             source_count=len(sources),
             pain_points=all_pain_points,
@@ -110,6 +97,18 @@ def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: O
     return str(report_file)
 
 
+def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: Optional[str] = None) -> str:
+    """Run the scanner on a local fixture file and generate a report."""
+    collector = FixtureCollector(fixture_path)
+    return scan_sources(collector.collect(), fixture_path, output_dir, db_path)
+
+
+def scan_from_hn(query: str, output_dir: str = "reports", db_path: Optional[str] = None, limit: int = 20) -> str:
+    """Run the scanner against real Hacker News search results."""
+    collector = HackerNewsCollector(query=query, limit=limit)
+    return scan_sources(collector.collect(), f"hn:{query}", output_dir, db_path)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Market Problem Scanner - Discover monetizable pain points"
@@ -118,6 +117,23 @@ def main():
         "--fixture",
         default="fixtures/sample_pain_points.json",
         help="Path to fixture JSON file"
+    )
+    parser.add_argument(
+        "--source",
+        choices=["fixture", "hn"],
+        default="fixture",
+        help="Collector source: fixture for local demo data, hn for live Hacker News Algolia results"
+    )
+    parser.add_argument(
+        "--query",
+        default="manual spreadsheet",
+        help="Search query for live collectors such as --source hn"
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=20,
+        help="Maximum live-source results to collect"
     )
     parser.add_argument(
         "--output",
@@ -133,7 +149,10 @@ def main():
     args = parser.parse_args()
     
     try:
-        report_path = scan_from_fixture(args.fixture, args.output, args.db)
+        if args.source == "hn":
+            report_path = scan_from_hn(args.query, args.output, args.db, args.limit)
+        else:
+            report_path = scan_from_fixture(args.fixture, args.output, args.db)
         print(f"\n✅ Success! Report: {report_path}")
         return 0
     except FileNotFoundError as e:
