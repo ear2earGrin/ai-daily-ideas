@@ -148,6 +148,7 @@ def render_home(db: ScannerDatabase) -> str:
         <tr>
           <td>#{row['id']}</td>
           <td>{esc(row['created_at'])}</td>
+          <td><code>{esc(row['fixture_path'])}</code></td>
           <td>{esc(row['source_count'])}</td>
           <td>{esc(row['pain_point_count'])}</td>
           <td>{esc(row['cluster_count'])}</td>
@@ -155,7 +156,7 @@ def render_home(db: ScannerDatabase) -> str:
         </tr>
         """
         for row in runs
-    ) or '<tr><td colspan="6" class="small">No scan runs yet. Run the scanner with --db first.</td></tr>'
+    ) or '<tr><td colspan="7" class="small">No scan runs yet. Run the scanner with --db first.</td></tr>'
 
     cluster_rows = "".join(
         f"""
@@ -199,7 +200,7 @@ def render_home(db: ScannerDatabase) -> str:
 
         <h2>Recent Scan Runs</h2>
         <table>
-          <thead><tr><th>ID</th><th>Created</th><th>Sources</th><th>Pain points</th><th>Clusters</th><th>Report</th></tr></thead>
+          <thead><tr><th>ID</th><th>Created</th><th>Source</th><th>Sources</th><th>Pain points</th><th>Clusters</th><th>Report</th></tr></thead>
           <tbody>{run_rows}</tbody>
         </table>
     """

@@ -11,6 +11,8 @@ test_files = [
     "test_scoring.py",
     "test_extractor.py",
     "test_hn_collector.py",
+    "test_query_packs.py",
+    "test_pain_point_dedupe.py",
     "test_dashboard_source_labels.py",
     "test_dashboard_cluster_rollup.py",
     "test_structured_extractor.py",

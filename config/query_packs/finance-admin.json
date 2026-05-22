@@ -1,0 +1,16 @@
+{
+  "name": "finance-admin",
+  "description": "Bookkeeping, invoices, expenses, tax prep, failed payments, and other small-business finance admin pains.",
+  "queries": [
+    "manual invoice",
+    "manually create invoices",
+    "spreadsheet bookkeeping",
+    "manual bookkeeping",
+    "tracking expenses manually",
+    "receipts for tax purposes",
+    "failed payments dashboard",
+    "stripe dashboard every day",
+    "manual billing spreadsheet",
+    "accountant spreadsheet receipts"
+  ]
+}

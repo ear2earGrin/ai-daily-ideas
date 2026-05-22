@@ -69,6 +69,7 @@ def test_dashboard_home_and_update():
             assert "Profitability" in body
             assert "Build probability" in body
             assert "Dashboard review workflow" in body
+            assert "fixture.json" in body
 
             conn.request("GET", f"/cluster?id={cluster.id}")
             resp = conn.getresponse()

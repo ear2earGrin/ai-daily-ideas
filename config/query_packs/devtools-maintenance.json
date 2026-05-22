@@ -1,0 +1,16 @@
+{
+  "name": "devtools-maintenance",
+  "description": "Developer maintenance pains: screenshots, docs, release chores, deployments, migrations, and recurring code-adjacent busywork.",
+  "queries": [
+    "manually updating screenshots",
+    "manually update docs",
+    "release checklist manually",
+    "deployment checklist spreadsheet",
+    "API docs manually",
+    "migration scripts manually",
+    "keeping documentation in sync",
+    "screenshot testing painful",
+    "manual QA checklist",
+    "changelog manually"
+  ]
+}
