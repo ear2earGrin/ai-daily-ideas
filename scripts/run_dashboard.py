@@ -50,7 +50,9 @@ button:hover { background: #1d4ed8; }
 .detail-grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr); gap: 14px; }
 .kv { display: grid; grid-template-columns: 180px 1fr; gap: 8px; margin: 8px 0; }
 .kv strong { color: #9ca3af; }
-.back { display: inline-block; margin-bottom: 16px; }
+.source-label { display: inline-block; margin-top: 4px; padding: 2px 6px; border-radius: 999px; font-size: 11px; background: #1f2937; color: #d1d5db; }
+.source-label.synthetic { background: #4a2504; color: #fed7aa; }
+.source-label.real { background: #064e3b; color: #a7f3d0; }
 """
 
 
@@ -83,6 +85,35 @@ def status_form(kind: str, item_id: str, status: str, notes: str) -> str:
       <button type="submit">Save</button>
     </form>
     """
+
+
+def source_badge(source_url: str) -> str:
+    url = source_url or ""
+    if "/synthetic/" in url or url.endswith("/synthetic"):
+        return '<div class="source-label synthetic">synthetic fixture</div>'
+    return '<div class="source-label real">real source</div>'
+
+
+def pain_point_source_cell(row) -> str:
+    return (
+        f'<a href="{esc(row["source_url"])}" target="_blank" rel="noreferrer">source</a>'
+        f'<div class="small">{esc(row["source_type"])}</div>'
+        f'{source_badge(row["source_url"])}'
+    )
+
+
+def pain_point_row(row, include_review: bool = True) -> str:
+    review_cell = f"<td>{status_form('pain', row['id'], row['status'], row['notes'])}</td>" if include_review else ""
+    return f"""
+        <tr>
+          <td><span class="score">{esc(row['total_score'])}</span></td>
+          <td class="excerpt"><strong>{esc(row['pain'] or row['quote'])}</strong><div class="small">{esc(row['quote'])}</div></td>
+          <td>{esc(row['audience'])}</td>
+          <td>{pain_point_source_cell(row)}</td>
+          <td><span class="badge">{esc(row['status'])}</span></td>
+          {review_cell}
+        </tr>
+        """
 
 
 def render_shell(title: str, body: str) -> str:
@@ -142,19 +173,7 @@ def render_home(db: ScannerDatabase) -> str:
         for row in clusters
     ) or '<tr><td colspan="8" class="small">No clusters yet.</td></tr>'
 
-    pain_rows = "".join(
-        f"""
-        <tr>
-          <td><span class="score">{esc(row['total_score'])}</span></td>
-          <td class="excerpt"><strong>{esc(row['pain'] or row['quote'])}</strong><div class="small">{esc(row['quote'])}</div></td>
-          <td>{esc(row['audience'])}</td>
-          <td><a href="{esc(row['source_url'])}" target="_blank" rel="noreferrer">source</a><div class="small">{esc(row['source_type'])}</div></td>
-          <td><span class="badge">{esc(row['status'])}</span></td>
-          <td>{status_form('pain', row['id'], row['status'], row['notes'])}</td>
-        </tr>
-        """
-        for row in pains
-    ) or '<tr><td colspan="6" class="small">No pain points yet.</td></tr>'
+    pain_rows = "".join(pain_point_row(row) for row in pains) or '<tr><td colspan="6" class="small">No pain points yet.</td></tr>'
 
     body = f"""
         <section class="grid">
@@ -192,17 +211,7 @@ def render_cluster_detail(db: ScannerDatabase, cluster_id: str) -> str:
     if cluster is None:
         return render_shell("Cluster Not Found", '<a class="back" href="/">← Back</a><div class="empty">No cluster found.</div>')
     pains = db.pain_points_for_cluster(cluster_id)
-    pain_rows = "".join(
-        f"""
-        <tr>
-          <td><span class="score">{esc(row['total_score'])}</span></td>
-          <td class="excerpt"><strong>{esc(row['pain'] or row['quote'])}</strong><div class="small">{esc(row['quote'])}</div></td>
-          <td>{esc(row['audience'])}</td>
-          <td><a href="{esc(row['source_url'])}" target="_blank" rel="noreferrer">source</a></td>
-        </tr>
-        """
-        for row in pains
-    ) or '<tr><td colspan="4" class="small">No linked evidence.</td></tr>'
+    pain_rows = "".join(pain_point_row(row, include_review=False) for row in pains) or '<tr><td colspan="5" class="small">No linked evidence.</td></tr>'
 
     body = f"""
       <a class="back" href="/">← Back to dashboard</a>
@@ -231,7 +240,7 @@ def render_cluster_detail(db: ScannerDatabase, cluster_id: str) -> str:
 
       <h2>Evidence</h2>
       <table>
-        <thead><tr><th>Score</th><th>Pain</th><th>Audience</th><th>Source</th></tr></thead>
+        <thead><tr><th>Score</th><th>Pain</th><th>Audience</th><th>Source</th><th>Status</th></tr></thead>
         <tbody>{pain_rows}</tbody>
       </table>
     """
