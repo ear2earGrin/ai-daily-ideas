@@ -97,6 +97,10 @@ python3 scripts/run_scanner.py --fixture fixtures/custom.json --output reports/c
 # Collect real Hacker News posts/comments via the public Algolia API
 python3 scripts/run_scanner.py --source hn --query "manually updating" --limit 20 --output reports/hn --db data/scanner.sqlite
 
+# Use a structured LLM/agent command for better extraction. The command reads the prompt on stdin
+# and must print strict JSON with a top-level pain_points array.
+python3 scripts/run_scanner.py --source hn --query "manually updating" --extractor structured --llm-command 'your-llm-json-command' --db data/scanner.sqlite
+
 # Persist fixture findings to a local SQLite DB for dashboard review
 python3 scripts/run_scanner.py --fixture fixtures/sample_pain_points.json --output reports --db data/scanner.sqlite
 
@@ -126,7 +130,7 @@ python3 tests/run_tests.py
 - `priority_score = profitability_score × build_probability_score`, which punishes sexy-but-hard ideas and easy-but-worthless ideas.
 - Priority bands: `validate immediately` (≥900), `promising` (650-899), `keep watching` (400-649), `ignore` (<400).
 
-**Current status:** Prototype v0.3.0 with heuristic extraction, SQLite dashboard storage, opportunity ranking, and live Hacker News collection. Next steps: improve extraction quality with local Qwen/LLM pass, add Reddit collectors, and deduplicate repeated source findings.
+**Current status:** Prototype v0.4.0 with heuristic extraction, optional structured command/LLM extraction, SQLite dashboard storage, opportunity rollups, opportunity ranking, and live Hacker News collection. Next steps: wire a preferred local Qwen/LLM command, add Reddit collectors, and deduplicate repeated source findings at write time.
 
 ## Lifecycle
 

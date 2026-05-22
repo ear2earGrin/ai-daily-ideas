@@ -14,7 +14,7 @@ from typing import Optional
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from scanner.collectors import FixtureCollector, HackerNewsCollector
-from scanner.extractor import HeuristicExtractor
+from scanner.extractor import HeuristicExtractor, StructuredExtractor
 from scanner.models import OpportunityCluster
 from scanner.scoring import score_pain_point, score_cluster, rank_clusters
 from scanner.reporter import generate_report
@@ -22,14 +22,32 @@ from scanner.storage import PainPointStorage, ClusterStorage
 from scanner.sqlite_storage import ScannerDatabase
 
 
-def scan_sources(sources, source_label: str, output_dir: str = "reports", db_path: Optional[str] = None) -> str:
+def make_extractor(mode: str, llm_command: Optional[str] = None):
+    if mode == "structured":
+        if not llm_command:
+            raise ValueError("--extractor structured requires --llm-command")
+        return StructuredExtractor(llm_command)
+    if mode == "heuristic":
+        return HeuristicExtractor()
+    raise ValueError("extractor must be heuristic or structured")
+
+
+def scan_sources(
+    sources,
+    source_label: str,
+    output_dir: str = "reports",
+    db_path: Optional[str] = None,
+    extractor_mode: str = "heuristic",
+    llm_command: Optional[str] = None,
+) -> str:
     """Run extraction/scoring/reporting for collected source dictionaries."""
-    print(f"📊 Market Problem Scanner v0.3.0")
+    print(f"📊 Market Problem Scanner v0.4.0")
     print(f"📁 Source: {source_label}")
     print(f"✅ Loaded {len(sources)} source(s)")
     
     # Extract pain points
-    extractor = HeuristicExtractor()
+    extractor = make_extractor(extractor_mode, llm_command)
+    print(f"🧠 Extractor: {extractor_mode}")
     all_pain_points = []
     
     for source in sources:
@@ -97,16 +115,29 @@ def scan_sources(sources, source_label: str, output_dir: str = "reports", db_pat
     return str(report_file)
 
 
-def scan_from_fixture(fixture_path: str, output_dir: str = "reports", db_path: Optional[str] = None) -> str:
+def scan_from_fixture(
+    fixture_path: str,
+    output_dir: str = "reports",
+    db_path: Optional[str] = None,
+    extractor_mode: str = "heuristic",
+    llm_command: Optional[str] = None,
+) -> str:
     """Run the scanner on a local fixture file and generate a report."""
     collector = FixtureCollector(fixture_path)
-    return scan_sources(collector.collect(), fixture_path, output_dir, db_path)
+    return scan_sources(collector.collect(), fixture_path, output_dir, db_path, extractor_mode, llm_command)
 
 
-def scan_from_hn(query: str, output_dir: str = "reports", db_path: Optional[str] = None, limit: int = 20) -> str:
+def scan_from_hn(
+    query: str,
+    output_dir: str = "reports",
+    db_path: Optional[str] = None,
+    limit: int = 20,
+    extractor_mode: str = "heuristic",
+    llm_command: Optional[str] = None,
+) -> str:
     """Run the scanner against real Hacker News search results."""
     collector = HackerNewsCollector(query=query, limit=limit)
-    return scan_sources(collector.collect(), f"hn:{query}", output_dir, db_path)
+    return scan_sources(collector.collect(), f"hn:{query}", output_dir, db_path, extractor_mode, llm_command)
 
 
 def main():
@@ -141,6 +172,17 @@ def main():
         help="Output directory for reports"
     )
     parser.add_argument(
+        "--extractor",
+        choices=["heuristic", "structured"],
+        default="heuristic",
+        help="Extraction mode. structured calls --llm-command and expects strict JSON."
+    )
+    parser.add_argument(
+        "--llm-command",
+        default=None,
+        help="Shell command for --extractor structured. Prompt is passed on stdin; stdout must be JSON."
+    )
+    parser.add_argument(
         "--db",
         default=None,
         help="Optional SQLite database path for persisted dashboard findings"
@@ -150,9 +192,9 @@ def main():
     
     try:
         if args.source == "hn":
-            report_path = scan_from_hn(args.query, args.output, args.db, args.limit)
+            report_path = scan_from_hn(args.query, args.output, args.db, args.limit, args.extractor, args.llm_command)
         else:
-            report_path = scan_from_fixture(args.fixture, args.output, args.db)
+            report_path = scan_from_fixture(args.fixture, args.output, args.db, args.extractor, args.llm_command)
         print(f"\n✅ Success! Report: {report_path}")
         return 0
     except FileNotFoundError as e:

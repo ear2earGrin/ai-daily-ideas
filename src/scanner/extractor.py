@@ -1,7 +1,9 @@
 """Extraction and classification logic for pain points (v1: heuristic/deterministic)."""
 
+import json
 import re
-from typing import List, Dict, Optional
+import subprocess
+from typing import Callable, List, Dict, Optional
 from .models import PainPoint
 
 
@@ -208,8 +210,118 @@ class HeuristicExtractor:
         
         # MVP simplicity: default medium (requires human judgment)
         pain.mvp_simplicity = 3
-        
+
         # Competition gap: default medium (requires research)
         pain.competition_gap = 3
         
+        return pain
+
+
+def default_command_runner(command: str, prompt: str) -> str:
+    """Run an external LLM command with the extraction prompt on stdin."""
+    result = subprocess.run(
+        command,
+        input=prompt,
+        text=True,
+        shell=True,
+        capture_output=True,
+        timeout=120,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(result.stderr.strip() or f"extractor command failed with exit {result.returncode}")
+    return result.stdout
+
+
+class StructuredExtractor:
+    """Extract pain points from text using a structured JSON-producing LLM command."""
+
+    def __init__(self, command: str, runner: Optional[Callable[[str, str], str]] = None):
+        if not command:
+            raise ValueError("StructuredExtractor requires a command")
+        self.command = command
+        self.runner = runner or default_command_runner
+
+    def extract(self, text: str, source_url: str = "", source_type: str = "text") -> List[PainPoint]:
+        prompt = self._build_prompt(text, source_url, source_type)
+        raw = self.runner(self.command, prompt)
+        payload = self._parse_json(raw)
+        pains = []
+        for item in payload.get("pain_points", []):
+            pain = self._item_to_pain(item, source_url, source_type)
+            if pain is not None:
+                pains.append(pain)
+        return pains
+
+    def _build_prompt(self, text: str, source_url: str, source_type: str) -> str:
+        return f"""You extract monetizable B2B/SaaS pain points from public posts.
+Return strict JSON only, no markdown, no prose.
+Schema:
+{{
+  "pain_points": [
+    {{
+      "quote": "verbatim sentence or compact excerpt from source",
+      "pain": "specific painful workflow",
+      "audience": "who has the pain",
+      "workaround": "current workaround if present, else empty string",
+      "existing_tools": ["tools mentioned"],
+      "confidence": "high|medium|low"
+    }}
+  ]
+}}
+Rules:
+- Only extract concrete workflow pains, not vague opinions.
+- Prefer business, productivity, compliance, devtool, finance, ops, or admin pains.
+- Quote must be grounded in the source text.
+- If no concrete pain exists, return {{"pain_points": []}}.
+
+Source URL: {source_url}
+Source type: {source_type}
+Source text:
+{text[:12000]}
+"""
+
+    def _parse_json(self, raw: str) -> Dict:
+        raw = raw.strip()
+        if raw.startswith("```"):
+            raw = re.sub(r"^```(?:json)?\s*", "", raw)
+            raw = re.sub(r"\s*```$", "", raw)
+        data = json.loads(raw)
+        if not isinstance(data, dict):
+            raise ValueError("structured extractor output must be a JSON object")
+        if not isinstance(data.get("pain_points", []), list):
+            raise ValueError("pain_points must be a list")
+        return data
+
+    def _item_to_pain(self, item: Dict, source_url: str, source_type: str) -> Optional[PainPoint]:
+        quote = str(item.get("quote") or "").strip()
+        pain_desc = str(item.get("pain") or "").strip()
+        audience = str(item.get("audience") or "").strip() or "general users"
+        if len(quote) < 25 or len(pain_desc) < 3:
+            return None
+        existing_tools = item.get("existing_tools") or []
+        if not isinstance(existing_tools, list):
+            existing_tools = []
+        pain = PainPoint(
+            source_url=source_url,
+            source_type=source_type,
+            quote=quote,
+            audience=audience,
+            pain=pain_desc,
+            workaround=str(item.get("workaround") or "").strip(),
+            existing_tools=[str(tool) for tool in existing_tools[:5]],
+            confidence=str(item.get("confidence") or "medium").strip() or "medium",
+            processed_by="structured-extractor-v1",
+        )
+        HeuristicExtractor()._apply_heuristic_scores(pain)
+        pain.total_score = sum([
+            pain.intensity,
+            pain.frequency,
+            pain.buyer_quality,
+            pain.workaround_cost,
+            pain.existing_spend,
+            pain.reachability,
+            pain.mvp_simplicity,
+            pain.competition_gap,
+        ])
         return pain
