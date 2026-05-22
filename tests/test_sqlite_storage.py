@@ -123,6 +123,8 @@ def test_existing_database_migrates_pain_fingerprint_before_index_creation():
             );
             INSERT INTO pain_points (id, quote, source_url, updated_at)
             VALUES ('pain_old', 'I manually copy invoices.', 'https://news.ycombinator.com/item?id=1', '2026-01-01T00:00:00');
+            INSERT INTO pain_points (id, quote, source_url, updated_at)
+            VALUES ('pain_dup', ' I   manually copy invoices. ', 'https://news.ycombinator.com/item?id=1&utm_source=x', '2026-01-01T00:00:00');
             """
         )
         con.close()
@@ -132,10 +134,12 @@ def test_existing_database_migrates_pain_fingerprint_before_index_creation():
             columns = {row[1] for row in con.execute("PRAGMA table_info(pain_points)")}
             indexes = {row[1] for row in con.execute("PRAGMA index_list(pain_points)")}
             fingerprint = con.execute("SELECT fingerprint FROM pain_points WHERE id='pain_old'").fetchone()[0]
+            fingerprint_count = con.execute("SELECT COUNT(DISTINCT fingerprint) FROM pain_points").fetchone()[0]
 
         assert "fingerprint" in columns
         assert "idx_pain_points_fingerprint" in indexes
         assert fingerprint
+        assert fingerprint_count == 2
 
 
 if __name__ == "__main__":
