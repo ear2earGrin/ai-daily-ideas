@@ -14,6 +14,7 @@ test_files = [
     "test_dashboard_source_labels.py",
     "test_dashboard_cluster_rollup.py",
     "test_structured_extractor.py",
+    "test_opportunity_builder.py",
     "test_opportunity_ranking.py",
     "test_sqlite_storage.py",
     "test_dashboard.py",

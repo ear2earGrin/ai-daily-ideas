@@ -15,8 +15,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from scanner.collectors import FixtureCollector, HackerNewsCollector
 from scanner.extractor import HeuristicExtractor, StructuredExtractor
-from scanner.models import OpportunityCluster
-from scanner.scoring import score_pain_point, score_cluster, rank_clusters
+from scanner.opportunity_builder import build_opportunity_clusters
+from scanner.scoring import score_pain_point, rank_clusters
 from scanner.reporter import generate_report
 from scanner.storage import PainPointStorage, ClusterStorage
 from scanner.sqlite_storage import ScannerDatabase
@@ -64,20 +64,8 @@ def scan_sources(
     for pain in all_pain_points:
         score_pain_point(pain)
     
-    # Simple clustering: group all pain points into one cluster for prototype
-    # (Real clustering would use similarity/domain grouping)
-    if all_pain_points:
-        cluster = OpportunityCluster(
-            title="Automated Pain Point Opportunities",
-            pain_points=all_pain_points,
-            domain="multi-domain",
-            audience="various",
-            executive_summary=f"Collection of pain points extracted from {source_label}",
-        )
-        score_cluster(cluster)
-        clusters = [cluster]
-    else:
-        clusters = []
+    # Build named opportunity clusters from related pain points.
+    clusters = build_opportunity_clusters(all_pain_points, source_label)
     
     print(f"✅ Created {len(clusters)} opportunity cluster(s)")
     
