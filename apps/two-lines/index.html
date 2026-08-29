@@ -119,7 +119,7 @@
       <button id="reset" type="button">Rack up</button>
     </span>
   </header>
-  <p class="hint" id="hint">Drag a finger down a line</p>
+  <p class="hint" id="hint">Move a finger over a line</p>
 </div>
 
 <script>
@@ -385,35 +385,24 @@
     return {x:e.clientX - r.left, y:e.clientY - r.top};
   }
 
-  stage.addEventListener('pointerdown', function(e){
-    stage.setPointerCapture(e.pointerId);
-    var p = pos(e);
-    pointer.x = p.x; pointer.y = p.y; pointer.down = true;
-    last = p;
-    audioOn();
-    e.preventDefault();
-  });
-
-  stage.addEventListener('pointermove', function(e){
-    var p = pos(e);
-    pointer.x = p.x; pointer.y = p.y;
-    if (!pointer.down){ last = p; return; }
-
+  // no press needed: passing over a line is enough, held down or not
+  function sweep(p){
     var from = last || p;
     var dist = Math.hypot(p.x - from.x, p.y - from.y);
+    if (dist > 220){ from = p; dist = 0; }        // a jump onto the screen is not a stroke
+    last = p;
+    pointer.x = p.x; pointer.y = p.y;
+
     var steps = Math.max(1, Math.ceil(dist / 4));
     var took = 0;
     for (var s = 1; s <= steps; s++){
       var t = s / steps;
       var x = from.x + (p.x - from.x) * t;
       var y = from.y + (p.y - from.y) * t;
-      var hit = 0;
       for (var i = 0; i < lines.length; i++){
-        if (!lines[i].done) hit += eat(lines[i], x, y);
+        if (!lines[i].done) took += eat(lines[i], x, y);
       }
-      took += hit;
     }
-    last = p;
 
     if (took > 0){
       suction = Math.min(1, suction + took * 12);
@@ -426,6 +415,24 @@
     }
     for (var j = 0; j < lines.length; j++){
       if (!lines[j].done && lines[j].remaining < 0.05) finish(lines[j]);
+    }
+  }
+
+  stage.addEventListener('pointerdown', function(e){
+    if (stage.setPointerCapture) stage.setPointerCapture(e.pointerId);
+    pointer.down = true;
+    audioOn();
+    sweep(pos(e));
+    e.preventDefault();
+  });
+
+  stage.addEventListener('pointermove', function(e){
+    if (e.getCoalescedEvents){
+      var all = e.getCoalescedEvents();
+      for (var i = 0; i < all.length; i++) sweep(pos(all[i]));
+      if (!all.length) sweep(pos(e));
+    } else {
+      sweep(pos(e));
     }
     e.preventDefault();
   });
@@ -544,7 +551,7 @@
   function rack(){
     build();
     room.classList.remove('busy');
-    hintEl.textContent = 'Drag a finger down a line';
+    hintEl.textContent = 'Move a finger over a line';
     hintEl.classList.remove('gone');
     started = false;
     audioOn();
@@ -590,7 +597,7 @@
 
     suction = Math.max(0, suction - dt * 3.2);
     if (hiss && ac && !muted){
-      var target = pointer.down ? suction * 0.28 : 0;
+      var target = suction * 0.3;
       hiss.gain.value += (target - hiss.gain.value) * 0.25;
       band.frequency.value = 700 + suction * 1500;
     }

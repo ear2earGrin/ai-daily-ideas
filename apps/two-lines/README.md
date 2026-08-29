@@ -6,8 +6,9 @@ two long lines racked vertically down it.
 The two lines are not twins: one is longer, fatter and coarsely chopped, the
 other shorter, thinner, finer and racked a little lower.
 
-Drag a finger (or the mouse) down a line and it goes wherever the finger passed,
-at the speed the finger moves, and it stays gone — no ghost, no smear, no dust
+Move a finger over a line and it goes wherever the finger passed, at the speed
+the finger moves, and it stays gone. Nothing has to be pressed or held — on a
+trackpad or mouse, simply moving the cursor across a line takes it — no ghost, no smear, no dust
 left on the black. Stop halfway and the rest of the line is still sitting there.
 Specks lift off toward your fingertip, an intake hiss rises with the sweep, and
 the phone buzzes.
@@ -31,6 +32,10 @@ Best on a phone: it uses pointer events, so it wants a finger.
   interpolated every 4px so fast swipes do not leave gaps. The brush is fully
   opaque out to 82% of its radius and wider than the powder is, so one pass
   wipes the whole channel back to black.
+- **Movement is the whole input.** Every `pointermove` sweeps, whether or not a
+  button or finger is down, and coalesced events are replayed so a fast flick
+  is not sampled down to a few points. A jump of more than 220px is treated as
+  the cursor arriving rather than a stroke, so it carves nothing.
 - **Reach** is decoupled from the brush: a line answers to a finger anywhere
   within ~63px of it, far outside the powder itself, and the brush is then
   stamped on the line rather than under the finger. The reach is capped at 44%
