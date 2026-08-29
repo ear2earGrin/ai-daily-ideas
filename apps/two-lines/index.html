@@ -172,7 +172,7 @@
 
   function paintPowder(line){
     var p0 = line.p0, p1 = line.p1, half = line.half;
-    var st = line.style;
+    var sty = line.style;
     var nx = -Math.sin(line.ang), ny = Math.cos(line.ang);
 
     // the pile's soft body, so the powder reads as volume and not just specks
@@ -189,7 +189,7 @@
     strokeLine(pctx, p0, p1);
     pctx.restore();
 
-    var count = Math.min(19000, Math.round(line.len * 26 * st.density));
+    var count = Math.min(19000, Math.round(line.len * 26 * sty.density));
     for (var i = 0; i < count; i++){
       var t = Math.random();
       var body = Math.pow(Math.sin(Math.PI * t), 0.32);          // tapers at both ends
@@ -199,7 +199,7 @@
       var y = p0.y + (p1.y - p0.y) * t + ny * off;
       var edge = 1 - clamp(Math.abs(n), 0, 1);
       var a = (0.3 + Math.random() * 0.68) * (0.42 + edge * 0.58) * (0.45 + body * 0.55);
-      var r = (0.4 + Math.random() * Math.random() * 1.9) * st.grain;
+      var r = (0.4 + Math.random() * Math.random() * 1.9) * sty.grain;
       pctx.fillStyle = 'rgba(246,249,255,' + a.toFixed(3) + ')';
       pctx.beginPath();
       pctx.arc(x, y, r, 0, 6.2832);
@@ -207,19 +207,19 @@
     }
 
     // a few coarse clumps along the ridge
-    for (var c = 0; c < Math.round(line.len / 4.5 * st.clumps); c++){
+    for (var c = 0; c < Math.round(line.len / 4.5 * sty.clumps); c++){
       var ct = rnd(0.06, 0.94);
       var cn = rnd(-0.5, 0.5) * half;
       var cxp = p0.x + (p1.x - p0.x) * ct + nx * cn;
       var cyp = p0.y + (p1.y - p0.y) * ct + ny * cn;
       pctx.fillStyle = 'rgba(252,254,255,' + rnd(0.5, 0.95).toFixed(3) + ')';
       pctx.beginPath();
-      pctx.arc(cxp, cyp, rnd(1.3, 3.1) * st.grain, 0, 6.2832);
+      pctx.arc(cxp, cyp, rnd(1.3, 3.1) * sty.grain, 0, 6.2832);
       pctx.fill();
     }
 
     // stray dust the rack-up left behind
-    for (var s = 0; s < Math.round(60 * st.dust); s++){
+    for (var s = 0; s < Math.round(60 * sty.dust); s++){
       var st = rnd(-0.02, 1.02);
       var so = rnd(-1.7, 1.7) * half;
       pctx.fillStyle = 'rgba(232,240,255,' + rnd(0.05, 0.3).toFixed(3) + ')';
