@@ -140,7 +140,7 @@
   var lines = [];
   var flying = [];
   var powder, pctx, residue, rctx;
-  var pointer = {x:0, y:0, down:false, speed:0};
+  var pointer = {x:0, y:0, down:false};
   var suction = 0;
   var started = false;
   var rushed = false;
@@ -216,25 +216,28 @@
     // the pile's soft body, so the powder reads as volume and not just specks
     pctx.save();
     pctx.lineCap = 'round';
-    pctx.strokeStyle = 'rgba(206,220,248,0.028)';
+    pctx.strokeStyle = 'rgba(206,220,248,0.05)';
     pctx.lineWidth = half * 2.1;
     strokeLine(pctx, p0, p1);
-    pctx.strokeStyle = 'rgba(228,238,255,0.10)';
-    pctx.lineWidth = half * 1.6;
+    pctx.strokeStyle = 'rgba(228,238,255,0.16)';
+    pctx.lineWidth = half * 1.55;
+    strokeLine(pctx, p0, p1);
+    pctx.strokeStyle = 'rgba(240,246,255,0.28)';
+    pctx.lineWidth = half * 0.95;
     strokeLine(pctx, p0, p1);
     pctx.restore();
 
-    var count = Math.min(5200, Math.round(line.len * 12));
+    var count = Math.min(17000, Math.round(line.len * 26));
     for (var i = 0; i < count; i++){
       var t = Math.random();
       var body = Math.pow(Math.sin(Math.PI * t), 0.32);          // tapers at both ends
       var n = (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
-      var off = n * half * 1.25 * (0.45 + body * 0.55);
+      var off = n * half * 1.05 * (0.5 + body * 0.5);
       var x = p0.x + (p1.x - p0.x) * t + nx * off;
       var y = p0.y + (p1.y - p0.y) * t + ny * off;
       var edge = 1 - clamp(Math.abs(n), 0, 1);
-      var a = (0.16 + Math.random() * 0.62) * (0.3 + edge * 0.7) * (0.35 + body * 0.65);
-      var r = 0.32 + Math.random() * Math.random() * 1.5;
+      var a = (0.3 + Math.random() * 0.68) * (0.42 + edge * 0.58) * (0.45 + body * 0.55);
+      var r = 0.4 + Math.random() * Math.random() * 1.9;
       pctx.fillStyle = 'rgba(246,249,255,' + a.toFixed(3) + ')';
       pctx.beginPath();
       pctx.arc(x, y, r, 0, 6.2832);
@@ -242,14 +245,14 @@
     }
 
     // a few coarse clumps along the ridge
-    for (var c = 0; c < Math.round(line.len / 9); c++){
+    for (var c = 0; c < Math.round(line.len / 4.5); c++){
       var ct = rnd(0.06, 0.94);
       var cn = rnd(-0.5, 0.5) * half;
       var cxp = p0.x + (p1.x - p0.x) * ct + nx * cn;
       var cyp = p0.y + (p1.y - p0.y) * ct + ny * cn;
-      pctx.fillStyle = 'rgba(252,254,255,' + rnd(0.4, 0.85).toFixed(3) + ')';
+      pctx.fillStyle = 'rgba(252,254,255,' + rnd(0.5, 0.95).toFixed(3) + ')';
       pctx.beginPath();
-      pctx.arc(cxp, cyp, rnd(1.1, 2.6), 0, 6.2832);
+      pctx.arc(cxp, cyp, rnd(1.3, 3.1), 0, 6.2832);
       pctx.fill();
     }
 
@@ -273,11 +276,10 @@
 
   /* ---------- taking it ---------- */
 
-  function stamp(x, y, force){
-    var a = clamp(force * 0.18, 0.02, 0.26);
+  function stamp(x, y){
     var g = pctx.createRadialGradient(x, y, 0, x, y, BRUSH);
-    g.addColorStop(0, 'rgba(0,0,0,' + a.toFixed(3) + ')');
-    g.addColorStop(0.5, 'rgba(0,0,0,' + (a * 0.95).toFixed(3) + ')');
+    g.addColorStop(0, 'rgba(0,0,0,1)');
+    g.addColorStop(0.62, 'rgba(0,0,0,0.98)');
     g.addColorStop(1, 'rgba(0,0,0,0)');
     pctx.globalCompositeOperation = 'destination-out';
     pctx.fillStyle = g;
@@ -287,7 +289,7 @@
     pctx.globalCompositeOperation = 'source-over';
   }
 
-  function eat(line, x, y, force){
+  function eat(line, x, y){
     var dx = line.p1.x - line.p0.x, dy = line.p1.y - line.p0.y;
     var L2 = dx * dx + dy * dy;
     var u = ((x - line.p0.x) * dx + (y - line.p0.y) * dy) / L2;
@@ -304,7 +306,7 @@
     for (var i = i0; i <= i1; i++){
       var cu = (i + 0.5) / SEG;
       var f = 1 - clamp(Math.abs(cu - u) / uR, 0, 1);
-      var take = Math.min(line.cells[i], f * fall * 0.22 * force);
+      var take = Math.min(line.cells[i], f * fall * 0.9);
       line.cells[i] -= take;
       removed += take;
     }
@@ -372,7 +374,7 @@
     stateEl.textContent = left === 0 ? 'gone' : (left === 1 ? '1 left' : '2 waiting');
     resetBtn.dataset.armed = left === 0 ? 'true' : 'false';
     if (left === 0){
-      hintEl.textContent = 'Double-tap to rack up two more';
+      hintEl.textContent = 'Gone';
       room.classList.remove('busy');
       window.setTimeout(function(){ hintEl.classList.remove('gone'); }, reduced ? 200 : 1500);
     }
@@ -380,8 +382,7 @@
 
   /* ---------- pointer ---------- */
 
-  var last = null, lastAt = 0;
-  var tapStart = null, lastTap = 0, lastTapX = 0, lastTapY = 0;
+  var last = null;
 
   function pos(e){
     var r = stage.getBoundingClientRect();
@@ -393,24 +394,17 @@
     var p = pos(e);
     pointer.x = p.x; pointer.y = p.y; pointer.down = true;
     last = p;
-    lastAt = e.timeStamp || (window.performance && performance.now()) || Date.now();
-    tapStart = {x:p.x, y:p.y, t:Date.now()};
     audioOn();
     e.preventDefault();
   });
 
   stage.addEventListener('pointermove', function(e){
     var p = pos(e);
-    var now = e.timeStamp || (window.performance && performance.now()) || Date.now();
     pointer.x = p.x; pointer.y = p.y;
-    if (!pointer.down){ last = p; lastAt = now; return; }
+    if (!pointer.down){ last = p; return; }
 
     var from = last || p;
     var dist = Math.hypot(p.x - from.x, p.y - from.y);
-    // it goes at the speed you take it: a slow drag only thins the line
-    var speed = dist / clamp(now - lastAt, 8, 140) * 1000;
-    var force = clamp(speed / 1400, 0.1, 1.35);
-    pointer.speed = speed;
     var steps = Math.max(1, Math.ceil(dist / 4));
     var took = 0;
     for (var s = 1; s <= steps; s++){
@@ -419,13 +413,12 @@
       var y = from.y + (p.y - from.y) * t;
       var hit = 0;
       for (var i = 0; i < lines.length; i++){
-        if (!lines[i].done) hit += eat(lines[i], x, y, force);
+        if (!lines[i].done) hit += eat(lines[i], x, y);
       }
-      if (hit > 0) stamp(x, y, force);
+      if (hit > 0) stamp(x, y);
       took += hit;
     }
     last = p;
-    lastAt = now;
 
     if (took > 0){
       suction = Math.min(1, suction + took * 12);
@@ -445,29 +438,10 @@
   function release(e){
     pointer.down = false;
     last = null;
-    tap();
     if (e && e.pointerId !== undefined && stage.hasPointerCapture && stage.hasPointerCapture(e.pointerId)){
       stage.releasePointerCapture(e.pointerId);
     }
   }
-  // a tap is a press that neither travelled nor lingered; two of them rack up again
-  function tap(){
-    if (!tapStart) return;
-    var moved = Math.hypot(pointer.x - tapStart.x, pointer.y - tapStart.y);
-    var quick = Date.now() - tapStart.t < 320;
-    var start = tapStart;
-    tapStart = null;
-    if (moved > 14 || !quick){ lastTap = 0; return; }
-    if (Date.now() - lastTap < 420 && Math.hypot(pointer.x - lastTapX, pointer.y - lastTapY) < 60){
-      lastTap = 0;
-      rack();
-      return;
-    }
-    lastTap = Date.now();
-    lastTapX = start.x;
-    lastTapY = start.y;
-  }
-
   stage.addEventListener('pointerup', release);
   stage.addEventListener('pointercancel', release);
   stage.addEventListener('pointerleave', function(){ pointer.down = false; last = null; });
