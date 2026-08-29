@@ -401,7 +401,7 @@
   }
 
   function audioOn(){
-    if (!AC ) return;
+    if (!AC) return;
     if (!ac){
       ac = new AC();
       master = ac.createGain();
@@ -425,7 +425,7 @@
   }
 
   function sniff(){
-    if (!ac ) return;
+    if (!ac) return;
     var t = ac.currentTime;
     var src = ac.createBufferSource();
     src.buffer = noiseBuffer(0.8);
@@ -444,7 +444,7 @@
   }
 
   function rush(){
-    if (!ac ) return;
+    if (!ac) return;
     var t = ac.currentTime;
     var o = ac.createOscillator();
     o.type = 'sine';
@@ -475,7 +475,7 @@
   }
 
   function buzz(pattern){
-        if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch (err) {} }
+    if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch (err) {} }
   }
 
   /* ---------- render ---------- */
