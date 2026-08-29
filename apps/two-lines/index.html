@@ -71,7 +71,6 @@
   }
   button:hover{color:#e6ecfa;border-color:rgba(196,210,238,0.3);}
   button:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-  button[data-armed="true"]{color:var(--brass);border-color:rgba(216,164,65,0.5);background:rgba(216,164,65,0.08);}
 
   .room.busy .rail{opacity:.22;}
   .hint{
@@ -116,7 +115,6 @@
     <span class="state" id="state">2 waiting</span>
     <span class="controls">
       <button id="sound" type="button" aria-pressed="true">Sound on</button>
-      <button id="reset" type="button">Rack up</button>
     </span>
   </header>
   <p class="hint" id="hint">Move a finger over a line</p>
@@ -131,7 +129,6 @@
   var stateEl = document.getElementById('state');
   var hintEl = document.getElementById('hint');
   var soundBtn = document.getElementById('sound');
-  var resetBtn = document.getElementById('reset');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var DPR = 1, W = 0, H = 0;
@@ -160,6 +157,8 @@
   /* ---------- geometry + powder ---------- */
 
   function layout(){
+    var oldW = W, oldH = H, oldPowder = powder;
+
     DPR = Math.min(window.devicePixelRatio || 1, 2.5);
     W = window.innerWidth;
     H = window.innerHeight;
@@ -168,9 +167,35 @@
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 
     var l = layer(); powder = l[0]; pctx = l[1];
-
     BRUSH = clamp(Math.min(W, H) * 0.095, 28, 52);
-    build();
+
+    if (!oldPowder || !lines.length || oldW < 1 || oldH < 1){
+      build();
+      return;
+    }
+
+    // a resize (a phone hiding its address bar, a rotation) carries the powder
+    // across as it stands — whatever has been taken stays taken. Scaled evenly
+    // and re-centred, so the rack shrinks or grows but never stretches.
+    // the rack runs vertically, so it follows the height and only gives way to
+    // the width when there is not room — which makes a rotation reversible
+    var ox = oldW / 2, oy = oldH / 2, nx = W / 2, ny = H / 2;
+    var sm = H / oldH;
+    var out = 0;
+    for (var k = 0; k < lines.length; k++){
+      var lk = lines[k], edge = lk.half + lk.reach;
+      out = Math.max(out, Math.abs(lk.p0.x - ox) + edge, Math.abs(lk.p1.x - ox) + edge);
+    }
+    if (out * sm > W * 0.47) sm = (W * 0.47) / out;
+    pctx.drawImage(oldPowder, nx - ox * sm, ny - oy * sm, oldW * sm, oldH * sm);
+    for (var i = 0; i < lines.length; i++){
+      var ln = lines[i];
+      ln.p0.x = nx + (ln.p0.x - ox) * sm; ln.p0.y = ny + (ln.p0.y - oy) * sm;
+      ln.p1.x = nx + (ln.p1.x - ox) * sm; ln.p1.y = ny + (ln.p1.y - oy) * sm;
+      ln.len *= sm;
+      ln.half *= sm;
+      ln.reach *= sm;
+    }
   }
 
   function build(){
@@ -368,7 +393,6 @@
   function updateState(){
     var left = lines.filter(function(l){ return !l.done; }).length;
     stateEl.textContent = left === 0 ? 'gone' : (left === 1 ? '1 left' : '2 waiting');
-    resetBtn.dataset.armed = left === 0 ? 'true' : 'false';
     if (left === 0){
       hintEl.textContent = 'Gone';
       room.classList.remove('busy');
@@ -547,17 +571,6 @@
     if (muted && hiss) hiss.gain.value = 0;
     if (!muted) audioOn();
   });
-
-  function rack(){
-    build();
-    room.classList.remove('busy');
-    hintEl.textContent = 'Move a finger over a line';
-    hintEl.classList.remove('gone');
-    started = false;
-    audioOn();
-  }
-
-  resetBtn.addEventListener('click', rack);
 
   /* ---------- render ---------- */
 

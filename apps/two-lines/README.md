@@ -13,8 +13,9 @@ left on the black. Stop halfway and the rest of the line is still sitting there.
 Specks lift off toward your fingertip, an intake hiss rises with the sweep, and
 the phone buzzes.
 
-Nothing comes back on its own and no gesture brings it back. Two fresh lines only
-if you press **Rack up**.
+Nothing brings them back. No tap, no gesture, no button, and not a resize or a
+rotation either — a resize carries the powder across exactly as it stands. Two
+lines, once, until the page is reloaded.
 
 ## Run it
 
@@ -46,4 +47,8 @@ Best on a phone: it uses pointer events, so it wants a finger.
 - **Sound** is synthesized in WebAudio (looping filtered noise for the intake, a
   bandpass sweep for the finishing sniff, a sine drop plus a lowpass swell for
   the rush). Nothing is loaded; the context starts on first touch.
+- **Resizing preserves state.** A phone hiding its address bar used to re-run
+  layout and rack two fresh lines; now the powder bitmap and the line geometry
+  are carried over, scaled evenly from the height and re-centred, so a rotation
+  there and back lands exactly where it started.
 - Honors `prefers-reduced-motion` and can be muted from the rail.
