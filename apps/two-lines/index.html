@@ -139,7 +139,7 @@
   var BRUSH = 30;
   var lines = [];
   var flying = [];
-  var powder, pctx, residue, rctx;
+  var powder, pctx;
   var pointer = {x:0, y:0, down:false};
   var suction = 0;
   var started = false;
@@ -168,15 +168,13 @@
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 
     var l = layer(); powder = l[0]; pctx = l[1];
-    l = layer(); residue = l[0]; rctx = l[1];
 
-    BRUSH = clamp(Math.min(W, H) * 0.075, 22, 40);
+    BRUSH = clamp(Math.min(W, H) * 0.095, 28, 52);
     build();
   }
 
   function build(){
     pctx.clearRect(0, 0, W, H);
-    rctx.clearRect(0, 0, W, H);
     flying.length = 0;
     lines = [];
     rushed = false;
@@ -257,9 +255,9 @@
     }
 
     // stray dust the rack-up left behind
-    for (var s = 0; s < 90; s++){
-      var st = rnd(-0.04, 1.04);
-      var so = rnd(-4.5, 4.5) * half;
+    for (var s = 0; s < 60; s++){
+      var st = rnd(-0.02, 1.02);
+      var so = rnd(-1.7, 1.7) * half;
       pctx.fillStyle = 'rgba(232,240,255,' + rnd(0.05, 0.3).toFixed(3) + ')';
       pctx.beginPath();
       pctx.arc(p0.x + (p1.x - p0.x) * st + nx * so, p0.y + (p1.y - p0.y) * st + ny * so, rnd(0.3, 0.9), 0, 6.2832);
@@ -279,7 +277,7 @@
   function stamp(x, y){
     var g = pctx.createRadialGradient(x, y, 0, x, y, BRUSH);
     g.addColorStop(0, 'rgba(0,0,0,1)');
-    g.addColorStop(0.62, 'rgba(0,0,0,0.98)');
+    g.addColorStop(0.82, 'rgba(0,0,0,1)');
     g.addColorStop(1, 'rgba(0,0,0,0)');
     pctx.globalCompositeOperation = 'destination-out';
     pctx.fillStyle = g;
@@ -313,19 +311,8 @@
     if (removed <= 0) return 0;
 
     line.remaining = Math.max(0, line.remaining - removed / SEG);
-    smear(px, py, fall);
     spill(line, px, py, u, removed / SEG);
     return removed / SEG;
-  }
-
-  function smear(x, y, strength){
-    var g = rctx.createRadialGradient(x, y, 0, x, y, BRUSH * 0.75);
-    g.addColorStop(0, 'rgba(228,238,255,' + (0.035 * strength).toFixed(4) + ')');
-    g.addColorStop(1, 'rgba(228,238,255,0)');
-    rctx.fillStyle = g;
-    rctx.beginPath();
-    rctx.arc(x, y, BRUSH * 0.75, 0, 6.2832);
-    rctx.fill();
   }
 
   function spill(line, px, py, u, amount){
@@ -353,7 +340,7 @@
     pctx.globalCompositeOperation = 'destination-out';
     pctx.lineCap = 'round';
     pctx.strokeStyle = 'rgba(0,0,0,1)';
-    pctx.lineWidth = (line.half + BRUSH * 0.5) * 2;
+    pctx.lineWidth = (line.half + BRUSH) * 2;
     strokeLine(pctx, line.p0, line.p1);
     pctx.restore();
 
@@ -563,9 +550,6 @@
     // nothing but black glass: no tray, no gradient, no sheen
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, W, H);
-    ctx.globalAlpha = 0.5;
-    ctx.drawImage(residue, 0, 0, W, H);
-    ctx.globalAlpha = 1;
     ctx.drawImage(powder, 0, 0, W, H);
   }
 
