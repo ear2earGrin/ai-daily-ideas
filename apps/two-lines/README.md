@@ -3,6 +3,9 @@
 A single-file novelty toy. Totally black screen, as if it were switched off, with
 two long lines racked vertically down it.
 
+The two lines are not twins: one is longer, fatter and coarsely chopped, the
+other shorter, thinner, finer and racked a little lower.
+
 Drag a finger (or the mouse) down a line and it goes wherever the finger passed,
 at the speed the finger moves, and it stays gone — no ghost, no smear, no dust
 left on the black. Stop halfway and the rest of the line is still sitting there.
@@ -27,8 +30,11 @@ Best on a phone: it uses pointer events, so it wants a finger.
 - **Taking it** stamps a `destination-out` brush along the pointer path,
   interpolated every 4px so fast swipes do not leave gaps. The brush is fully
   opaque out to 82% of its radius and wider than the powder is, so one pass
-  wipes the whole channel back to black even when the finger tracks well off
-  centre.
+  wipes the whole channel back to black.
+- **Reach** is decoupled from the brush: a line answers to a finger anywhere
+  within ~63px of it, far outside the powder itself, and the brush is then
+  stamped on the line rather than under the finger. The reach is capped at 44%
+  of the gap between the lines, so a stroke can never be near both at once.
 - **Progress** is tracked analytically, not by reading pixels: each line owns 96
   mass cells along its length, reduced by proximity to the stroke. Under 5%
   remaining counts as gone.
