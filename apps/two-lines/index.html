@@ -174,11 +174,10 @@
       return;
     }
 
-    // a resize (a phone hiding its address bar, a rotation) carries the powder
-    // across as it stands — whatever has been taken stays taken. Scaled evenly
-    // and re-centred, so the rack shrinks or grows but never stretches.
-    // the rack runs vertically, so it follows the height and only gives way to
-    // the width when there is not room — which makes a rotation reversible
+    // A resize (a phone hiding its address bar, a rotation) carries the powder
+    // across as it stands — whatever has been taken stays taken. The rack runs
+    // vertically, so it scales with the height and gives way to the width only
+    // when there is no room, which keeps a rotation reversible.
     var ox = oldW / 2, oy = oldH / 2, nx = W / 2, ny = H / 2;
     var sm = H / oldH;
     var out = 0;
