@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="A dark mirror, two lines, and a finger. Drag along each one and it goes.">
+<title>Two Lines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+  :root{
+    --ink:#05060a;
+    --room-hi:#0d0f17;
+    --edge:rgba(196,210,238,0.13);
+    --powder:#f2f6ff;
+    --haze:#8b96ad;
+    --haze-dim:#535c70;
+    --brass:#d8a441;
+    --display:"Big Shoulders Display","Haettenschweiler","Arial Narrow",sans-serif;
+    --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--haze);
+    font-family:var(--mono);
+    overscroll-behavior:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .room{position:fixed;inset:0;overflow:hidden;background:var(--ink);}
+  #stage{
+    position:absolute;inset:0;width:100%;height:100%;
+    touch-action:none;cursor:crosshair;display:block;
+    transition:filter 900ms cubic-bezier(.2,.7,.3,1);
+  }
+  .room.rushing #stage{filter:brightness(1.5) saturate(0.6) blur(2.5px);}
+
+  .rail{
+    position:absolute;top:0;left:0;right:0;z-index:3;
+    display:flex;align-items:baseline;gap:14px;
+    padding:16px 18px;
+    pointer-events:none;
+  }
+  .mark{
+    font-family:var(--display);font-weight:800;font-size:26px;line-height:1;
+    letter-spacing:.06em;text-transform:uppercase;
+    color:#dfe6f5;
+  }
+  .mark em{font-style:normal;color:var(--brass);}
+  .state{
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--haze-dim);
+    font-variant-numeric:tabular-nums;
+  }
+  .controls{margin-left:auto;display:flex;gap:8px;pointer-events:auto;}
+  button{
+    font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--haze);
+    background:rgba(150,168,200,0.06);
+    border:1px solid var(--edge);
+    border-radius:2px;
+    padding:8px 11px;
+    cursor:pointer;
+    transition:color 160ms,border-color 160ms,background 160ms;
+  }
+  button:hover{color:#e6ecfa;border-color:rgba(196,210,238,0.3);}
+  button:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  button[data-armed="true"]{color:var(--brass);border-color:rgba(216,164,65,0.5);background:rgba(216,164,65,0.08);}
+
+  .hint{
+    position:absolute;left:0;right:0;bottom:0;z-index:3;
+    margin:0;padding:0 20px 26px;
+    text-align:center;
+    font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--haze-dim);
+    transition:opacity 700ms ease;
+  }
+  .hint.gone{opacity:0;}
+
+  .flash{
+    position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;
+    background:radial-gradient(circle at 50% 52%,rgba(255,255,255,0.9),rgba(214,226,255,0.25) 34%,rgba(0,0,0,0) 68%);
+  }
+  .room.rushing .flash{animation:rush 1900ms cubic-bezier(.16,.8,.3,1) forwards;}
+  @keyframes rush{
+    0%{opacity:0;transform:scale(.4);}
+    12%{opacity:.85;}
+    100%{opacity:0;transform:scale(1.9);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .room.rushing #stage{filter:brightness(1.2);}
+    .room.rushing .flash{animation:none;opacity:0;}
+    #stage{transition:none;}
+  }
+  @media (max-width:420px){
+    .mark{font-size:21px;}
+    .rail{padding:13px 13px;gap:10px;}
+    button{padding:7px 9px;letter-spacing:.12em;}
+  }
+</style>
+
+</head>
+<body>
+<div class="room" id="room">
+  <canvas id="stage"></canvas>
+  <div class="flash" aria-hidden="true"></div>
+  <header class="rail">
+    <span class="mark">Two <em>Lines</em></span>
+    <span class="state" id="state">2 waiting</span>
+    <span class="controls">
+      <button id="sound" type="button" aria-pressed="true">Sound on</button>
+      <button id="reset" type="button">Rack up</button>
+    </span>
+  </header>
+  <p class="hint" id="hint">Drag a finger along a line</p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var stage = document.getElementById('stage');
+  var ctx = stage.getContext('2d');
+  var room = document.getElementById('room');
+  var stateEl = document.getElementById('state');
+  var hintEl = document.getElementById('hint');
+  var soundBtn = document.getElementById('sound');
+  var resetBtn = document.getElementById('reset');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var DPR = 1, W = 0, H = 0;
+  var SEG = 96;
+  var BRUSH = 30;
+  var lines = [];
+  var flying = [];
+  var powder, pctx, residue, rctx;
+  var slab = {x:0, y:0, w:0, h:0, r:0};
+  var pointer = {x:0, y:0, down:false, vx:0, vy:0};
+  var suction = 0;
+  var started = false;
+  var rushed = false;
+
+  function rnd(a, b){ return a + Math.random() * (b - a); }
+  function clamp(v, a, b){ return v < a ? a : (v > b ? b : v); }
+
+  function layer(){
+    var c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(W * DPR));
+    c.height = Math.max(1, Math.round(H * DPR));
+    var x = c.getContext('2d');
+    x.setTransform(DPR, 0, 0, DPR, 0, 0);
+    return [c, x];
+  }
+
+  /* ---------- geometry + powder ---------- */
+
+  function layout(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2.5);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    stage.width = Math.round(W * DPR);
+    stage.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+    var l = layer(); powder = l[0]; pctx = l[1];
+    l = layer(); residue = l[0]; rctx = l[1];
+
+    BRUSH = clamp(Math.min(W, H) * 0.075, 22, 40);
+    build();
+  }
+
+  function build(){
+    pctx.clearRect(0, 0, W, H);
+    rctx.clearRect(0, 0, W, H);
+    flying.length = 0;
+    lines = [];
+    rushed = false;
+    room.classList.remove('rushing');
+
+    var len = clamp(Math.min(W * 0.68, 520), 140, 520);
+    var gap = clamp(Math.min(H * 0.16, 142), 62, 142);
+    var pad = clamp(len * 0.17, 30, 78);
+    var half = clamp(len * 0.02, 4, 7.5);
+
+    // the mirror is a tray sized around the rack, not a panel filling the screen
+    var sw = Math.min(len + pad * 2, W - 24);
+    var sh = Math.min(gap + pad * 2.5, H - 150);
+    var cx = W / 2, cy = H / 2 + 8;
+    slab = {x:cx - sw / 2, y:cy - sh / 2, w:sw, h:sh, r:Math.min(20, sw * 0.05)};
+
+    addLine(cx - rnd(2, 10), cy - gap / 2, len * rnd(0.97, 1), -0.021, half);
+    addLine(cx + rnd(2, 12), cy + gap / 2, len * rnd(0.94, 1), 0.016, half * 0.94);
+    updateState();
+  }
+
+  function addLine(cx, cy, len, ang, half){
+    var hx = Math.cos(ang) * len / 2, hy = Math.sin(ang) * len / 2;
+    var line = {
+      p0:{x:cx - hx, y:cy - hy},
+      p1:{x:cx + hx, y:cy + hy},
+      len:len, half:half, ang:ang,
+      cells:new Float32Array(SEG),
+      remaining:1, done:false
+    };
+    for (var i = 0; i < SEG; i++) line.cells[i] = 1;
+    lines.push(line);
+    paintPowder(line);
+  }
+
+  function paintPowder(line){
+    var p0 = line.p0, p1 = line.p1, half = line.half;
+    var nx = -Math.sin(line.ang), ny = Math.cos(line.ang);
+
+    // the pile's soft body, so the powder reads as volume and not just specks
+    pctx.save();
+    pctx.lineCap = 'round';
+    pctx.strokeStyle = 'rgba(206,220,248,0.07)';
+    pctx.lineWidth = half * 3.4;
+    strokeLine(pctx, p0, p1);
+    pctx.strokeStyle = 'rgba(228,238,255,0.13)';
+    pctx.lineWidth = half * 1.9;
+    strokeLine(pctx, p0, p1);
+    pctx.restore();
+
+    var count = Math.min(5200, Math.round(line.len * 12));
+    for (var i = 0; i < count; i++){
+      var t = Math.random();
+      var body = Math.pow(Math.sin(Math.PI * t), 0.32);          // tapers at both ends
+      var n = (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
+      var off = n * half * 1.25 * (0.45 + body * 0.55);
+      var x = p0.x + (p1.x - p0.x) * t + nx * off;
+      var y = p0.y + (p1.y - p0.y) * t + ny * off;
+      var edge = 1 - clamp(Math.abs(n), 0, 1);
+      var a = (0.16 + Math.random() * 0.62) * (0.3 + edge * 0.7) * (0.35 + body * 0.65);
+      var r = 0.32 + Math.random() * Math.random() * 1.5;
+      pctx.fillStyle = 'rgba(246,249,255,' + a.toFixed(3) + ')';
+      pctx.beginPath();
+      pctx.arc(x, y, r, 0, 6.2832);
+      pctx.fill();
+    }
+
+    // a few coarse clumps along the ridge
+    for (var c = 0; c < Math.round(line.len / 9); c++){
+      var ct = rnd(0.06, 0.94);
+      var cn = rnd(-0.5, 0.5) * half;
+      var cxp = p0.x + (p1.x - p0.x) * ct + nx * cn;
+      var cyp = p0.y + (p1.y - p0.y) * ct + ny * cn;
+      pctx.fillStyle = 'rgba(252,254,255,' + rnd(0.4, 0.85).toFixed(3) + ')';
+      pctx.beginPath();
+      pctx.arc(cxp, cyp, rnd(1.1, 2.6), 0, 6.2832);
+      pctx.fill();
+    }
+
+    // stray dust the rack-up left behind
+    for (var s = 0; s < 90; s++){
+      var st = rnd(-0.04, 1.04);
+      var so = rnd(-4.5, 4.5) * half;
+      pctx.fillStyle = 'rgba(232,240,255,' + rnd(0.05, 0.3).toFixed(3) + ')';
+      pctx.beginPath();
+      pctx.arc(p0.x + (p1.x - p0.x) * st + nx * so, p0.y + (p1.y - p0.y) * st + ny * so, rnd(0.3, 0.9), 0, 6.2832);
+      pctx.fill();
+    }
+  }
+
+  function strokeLine(c, p0, p1){
+    c.beginPath();
+    c.moveTo(p0.x, p0.y);
+    c.lineTo(p1.x, p1.y);
+    c.stroke();
+  }
+
+  /* ---------- taking it ---------- */
+
+  function stamp(x, y){
+    var g = pctx.createRadialGradient(x, y, 0, x, y, BRUSH);
+    g.addColorStop(0, 'rgba(0,0,0,1)');
+    g.addColorStop(0.5, 'rgba(0,0,0,0.95)');
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    pctx.globalCompositeOperation = 'destination-out';
+    pctx.fillStyle = g;
+    pctx.beginPath();
+    pctx.arc(x, y, BRUSH, 0, 6.2832);
+    pctx.fill();
+    pctx.globalCompositeOperation = 'source-over';
+  }
+
+  function eat(line, x, y){
+    var dx = line.p1.x - line.p0.x, dy = line.p1.y - line.p0.y;
+    var L2 = dx * dx + dy * dy;
+    var u = ((x - line.p0.x) * dx + (y - line.p0.y) * dy) / L2;
+    var px = line.p0.x + dx * u, py = line.p0.y + dy * u;
+    var d = Math.hypot(x - px, y - py);
+    var band = line.half + BRUSH * 0.6;
+    if (d > band) return 0;
+
+    var uR = (BRUSH * 0.85) / line.len;
+    var fall = 1 - clamp(d / band, 0, 1);
+    var i0 = Math.max(0, Math.floor((u - uR) * SEG));
+    var i1 = Math.min(SEG - 1, Math.ceil((u + uR) * SEG));
+    var removed = 0;
+    for (var i = i0; i <= i1; i++){
+      var cu = (i + 0.5) / SEG;
+      var f = 1 - clamp(Math.abs(cu - u) / uR, 0, 1);
+      var take = Math.min(line.cells[i], f * fall * 0.75);
+      line.cells[i] -= take;
+      removed += take;
+    }
+    if (removed <= 0) return 0;
+
+    line.remaining = Math.max(0, line.remaining - removed / SEG);
+    smear(px, py, fall);
+    spill(line, px, py, u, removed / SEG);
+    return removed / SEG;
+  }
+
+  function smear(x, y, strength){
+    var g = rctx.createRadialGradient(x, y, 0, x, y, BRUSH * 0.75);
+    g.addColorStop(0, 'rgba(228,238,255,' + (0.035 * strength).toFixed(4) + ')');
+    g.addColorStop(1, 'rgba(228,238,255,0)');
+    rctx.fillStyle = g;
+    rctx.beginPath();
+    rctx.arc(x, y, BRUSH * 0.75, 0, 6.2832);
+    rctx.fill();
+  }
+
+  function spill(line, px, py, u, amount){
+    var n = Math.min(7, Math.round(amount * SEG * 9));
+    var nx = -Math.sin(line.ang), ny = Math.cos(line.ang);
+    for (var i = 0; i < n; i++){
+      var off = rnd(-1.4, 1.4) * line.half;
+      var along = rnd(-1, 1) * BRUSH * 0.7;
+      flying.push({
+        x:px + nx * off + Math.cos(line.ang) * along,
+        y:py + ny * off + Math.sin(line.ang) * along,
+        vx:rnd(-40, 40), vy:rnd(-70, -10),
+        r:rnd(0.5, 1.9), life:1
+      });
+    }
+    if (flying.length > 420) flying.splice(0, flying.length - 420);
+  }
+
+  function finish(line){
+    line.done = true;
+    for (var i = 0; i < SEG; i++) line.cells[i] = 0;
+    line.remaining = 0;
+    // sweep the last specks out of the channel
+    pctx.save();
+    pctx.globalCompositeOperation = 'destination-out';
+    pctx.lineCap = 'round';
+    pctx.strokeStyle = 'rgba(0,0,0,1)';
+    pctx.lineWidth = (line.half + BRUSH * 0.5) * 2;
+    strokeLine(pctx, line.p0, line.p1);
+    pctx.restore();
+
+    sniff();
+    buzz([26, 40, 70]);
+    updateState();
+
+    if (lines.every(function(l){ return l.done; }) && !rushed){
+      rushed = true;
+      room.classList.add('rushing');
+      rush();
+      window.setTimeout(function(){ room.classList.remove('rushing'); }, 1900);
+    }
+  }
+
+  function updateState(){
+    var left = lines.filter(function(l){ return !l.done; }).length;
+    stateEl.textContent = left === 0 ? 'gone' : (left === 1 ? '1 left' : '2 waiting');
+    resetBtn.dataset.armed = left === 0 ? 'true' : 'false';
+    if (left === 0){
+      hintEl.textContent = 'Rack up two more';
+      window.setTimeout(function(){ hintEl.classList.remove('gone'); }, reduced ? 200 : 1500);
+    }
+  }
+
+  /* ---------- pointer ---------- */
+
+  var last = null;
+
+  function pos(e){
+    var r = stage.getBoundingClientRect();
+    return {x:e.clientX - r.left, y:e.clientY - r.top};
+  }
+
+  stage.addEventListener('pointerdown', function(e){
+    stage.setPointerCapture(e.pointerId);
+    var p = pos(e);
+    pointer.x = p.x; pointer.y = p.y; pointer.down = true;
+    last = p;
+    audioOn();
+    e.preventDefault();
+  });
+
+  stage.addEventListener('pointermove', function(e){
+    var p = pos(e);
+    pointer.vx = p.x - pointer.x;
+    pointer.vy = p.y - pointer.y;
+    pointer.x = p.x; pointer.y = p.y;
+    if (!pointer.down){ last = p; return; }
+
+    var from = last || p;
+    var dist = Math.hypot(p.x - from.x, p.y - from.y);
+    var steps = Math.max(1, Math.ceil(dist / 4));
+    var took = 0;
+    for (var s = 1; s <= steps; s++){
+      var t = s / steps;
+      var x = from.x + (p.x - from.x) * t;
+      var y = from.y + (p.y - from.y) * t;
+      var hit = 0;
+      for (var i = 0; i < lines.length; i++){
+        if (!lines[i].done) hit += eat(lines[i], x, y);
+      }
+      if (hit > 0) stamp(x, y);
+      took += hit;
+    }
+    last = p;
+
+    if (took > 0){
+      suction = Math.min(1, suction + took * 12);
+      if (!started){
+        started = true;
+        hintEl.classList.add('gone');
+      }
+      buzz(5);
+    }
+    for (var j = 0; j < lines.length; j++){
+      if (!lines[j].done && lines[j].remaining < 0.05) finish(lines[j]);
+    }
+    e.preventDefault();
+  });
+
+  function release(e){
+    pointer.down = false;
+    last = null;
+    if (e && e.pointerId !== undefined && stage.hasPointerCapture && stage.hasPointerCapture(e.pointerId)){
+      stage.releasePointerCapture(e.pointerId);
+    }
+  }
+  stage.addEventListener('pointerup', release);
+  stage.addEventListener('pointercancel', release);
+  stage.addEventListener('pointerleave', function(){ pointer.down = false; last = null; });
+
+  /* ---------- sound ---------- */
+
+  var AC = window.AudioContext || window.webkitAudioContext;
+  var ac = null, master = null, noise = null, band = null, hiss = null, muted = false;
+
+  function noiseBuffer(seconds){
+    var n = Math.floor(ac.sampleRate * seconds);
+    var buf = ac.createBuffer(1, n, ac.sampleRate);
+    var data = buf.getChannelData(0);
+    for (var i = 0; i < n; i++) data[i] = Math.random() * 2 - 1;
+    return buf;
+  }
+
+  function audioOn(){
+    if (!AC || muted) return;
+    if (!ac){
+      ac = new AC();
+      master = ac.createGain();
+      master.gain.value = 0.9;
+      master.connect(ac.destination);
+
+      // continuous intake hiss, opened only while powder is actually moving
+      noise = ac.createBufferSource();
+      noise.buffer = noiseBuffer(2);
+      noise.loop = true;
+      band = ac.createBiquadFilter();
+      band.type = 'bandpass';
+      band.frequency.value = 900;
+      band.Q.value = 1.1;
+      hiss = ac.createGain();
+      hiss.gain.value = 0;
+      noise.connect(band).connect(hiss).connect(master);
+      noise.start();
+    }
+    if (ac.state === 'suspended') ac.resume();
+  }
+
+  function sniff(){
+    if (!ac || muted) return;
+    var t = ac.currentTime;
+    var src = ac.createBufferSource();
+    src.buffer = noiseBuffer(0.8);
+    var f = ac.createBiquadFilter();
+    f.type = 'bandpass';
+    f.Q.value = 1.6;
+    f.frequency.setValueAtTime(420, t);
+    f.frequency.exponentialRampToValueAtTime(2600, t + 0.32);
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.5, t + 0.06);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.44);
+    src.connect(f).connect(g).connect(master);
+    src.start(t);
+    src.stop(t + 0.5);
+  }
+
+  function rush(){
+    if (!ac || muted) return;
+    var t = ac.currentTime;
+    var o = ac.createOscillator();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(74, t);
+    o.frequency.exponentialRampToValueAtTime(38, t + 1.5);
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.55, t + 0.18);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.7);
+    o.connect(g).connect(master);
+    o.start(t);
+    o.stop(t + 1.8);
+
+    var src = ac.createBufferSource();
+    src.buffer = noiseBuffer(2);
+    var lp = ac.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.setValueAtTime(260, t);
+    lp.frequency.exponentialRampToValueAtTime(4200, t + 0.9);
+    lp.frequency.exponentialRampToValueAtTime(300, t + 1.8);
+    var ng = ac.createGain();
+    ng.gain.setValueAtTime(0.0001, t);
+    ng.gain.exponentialRampToValueAtTime(0.16, t + 0.7);
+    ng.gain.exponentialRampToValueAtTime(0.0001, t + 1.8);
+    src.connect(lp).connect(ng).connect(master);
+    src.start(t);
+    src.stop(t + 1.9);
+  }
+
+  function buzz(pattern){
+    if (muted) return;
+    if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch (err) {} }
+  }
+
+  soundBtn.addEventListener('click', function(){
+    muted = !muted;
+    soundBtn.textContent = muted ? 'Sound off' : 'Sound on';
+    soundBtn.setAttribute('aria-pressed', String(!muted));
+    if (muted && hiss) hiss.gain.value = 0;
+    if (!muted) audioOn();
+  });
+
+  resetBtn.addEventListener('click', function(){
+    build();
+    hintEl.textContent = 'Drag a finger along a line';
+    hintEl.classList.remove('gone');
+    started = false;
+    audioOn();
+  });
+
+  /* ---------- render ---------- */
+
+  function drawRoom(time){
+    var bg = ctx.createRadialGradient(W * 0.5, H * 0.16, 10, W * 0.5, H * 0.5, Math.max(W, H) * 0.85);
+    bg.addColorStop(0, '#0e1119');
+    bg.addColorStop(0.55, '#07080d');
+    bg.addColorStop(1, '#030408');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // the mirror
+    roundRect(ctx, slab.x, slab.y, slab.w, slab.h, slab.r);
+    var g = ctx.createLinearGradient(0, slab.y, 0, slab.y + slab.h);
+    g.addColorStop(0, '#151824');
+    g.addColorStop(0.5, '#0b0d15');
+    g.addColorStop(1, '#06070d');
+    ctx.fillStyle = g;
+    ctx.fill();
+
+    ctx.save();
+    ctx.clip();
+    // slow specular drift across the glass
+    var t = time * 0.00006;
+    var sweep = (Math.sin(t) * 0.5 + 0.5) * (slab.w + 600) - 300 + slab.x;
+    var sg = ctx.createLinearGradient(sweep - 220, slab.y, sweep + 220, slab.y + slab.h);
+    sg.addColorStop(0, 'rgba(150,175,225,0)');
+    sg.addColorStop(0.5, 'rgba(150,175,225,0.045)');
+    sg.addColorStop(1, 'rgba(150,175,225,0)');
+    ctx.fillStyle = sg;
+    ctx.fillRect(slab.x, slab.y, slab.w, slab.h);
+
+    ctx.globalAlpha = 0.55;
+    ctx.drawImage(residue, 0, 0, W, H);
+    ctx.globalAlpha = 1;
+    ctx.drawImage(powder, 0, 0, W, H);
+    ctx.restore();
+
+    ctx.strokeStyle = 'rgba(196,210,238,0.14)';
+    ctx.lineWidth = 1;
+    roundRect(ctx, slab.x + 0.5, slab.y + 0.5, slab.w - 1, slab.h - 1, slab.r);
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(226,236,255,0.07)';
+    ctx.beginPath();
+    ctx.moveTo(slab.x + slab.r, slab.y + 1.5);
+    ctx.lineTo(slab.x + slab.w - slab.r, slab.y + 1.5);
+    ctx.stroke();
+  }
+
+  function roundRect(c, x, y, w, h, r){
+    c.beginPath();
+    c.moveTo(x + r, y);
+    c.arcTo(x + w, y, x + w, y + h, r);
+    c.arcTo(x + w, y + h, x, y + h, r);
+    c.arcTo(x, y + h, x, y, r);
+    c.arcTo(x, y, x + w, y, r);
+    c.closePath();
+  }
+
+  function drawFlying(dt){
+    for (var i = flying.length - 1; i >= 0; i--){
+      var p = flying[i];
+      var dx = pointer.x - p.x, dy = pointer.y - p.y;
+      var d = Math.hypot(dx, dy) || 1;
+      var pull = 2600 / Math.max(28, d);
+      p.vx += (dx / d) * pull * dt;
+      p.vy += (dy / d) * pull * dt;
+      p.vx *= 0.9; p.vy *= 0.9;
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      p.life -= dt * 1.5;
+      if (p.life <= 0 || d < 9){ flying.splice(i, 1); continue; }
+      ctx.fillStyle = 'rgba(246,250,255,' + (p.life * 0.75).toFixed(3) + ')';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * p.life, 0, 6.2832);
+      ctx.fill();
+    }
+  }
+
+  function drawStraw(){
+    if (!pointer.down) return;
+    var lean = clamp(pointer.vx * 0.03, -0.35, 0.35);
+    var ang = -1.02 + lean;
+    var L = clamp(Math.min(W, H) * 0.3, 90, 190);
+    var w = L * 0.085;
+    ctx.save();
+    ctx.translate(pointer.x, pointer.y);
+    ctx.rotate(ang);
+
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = 18;
+    ctx.shadowOffsetY = 8;
+    var g = ctx.createLinearGradient(0, -w / 2, 0, w / 2);
+    g.addColorStop(0, '#8c9484');
+    g.addColorStop(0.35, '#d9dcc9');
+    g.addColorStop(0.75, '#9aa28d');
+    g.addColorStop(1, '#5d6455');
+    ctx.fillStyle = g;
+    roundRect(ctx, 0, -w / 2, L, w, w / 2);
+    ctx.fill();
+    ctx.shadowColor = 'transparent';
+
+    // the rolled seam
+    ctx.strokeStyle = 'rgba(60,68,55,0.5)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(w * 0.6, -w * 0.06);
+    ctx.lineTo(L - w * 0.6, w * 0.1);
+    ctx.stroke();
+
+    // the open mouth at the tip
+    ctx.fillStyle = '#14160f';
+    ctx.beginPath();
+    ctx.ellipse(1, 0, w * 0.2, w * 0.46, 0, 0, 6.2832);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(224,228,208,0.6)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawVignette(){
+    var g = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.28, W / 2, H / 2, Math.max(W, H) * 0.78);
+    g.addColorStop(0, 'rgba(2,2,5,0)');
+    g.addColorStop(1, 'rgba(2,2,5,0.8)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  var prev = 0;
+  function frame(time){
+    var dt = Math.min(0.05, (time - prev) / 1000) || 0.016;
+    prev = time;
+
+    drawRoom(time);
+    drawFlying(dt);
+    drawStraw();
+    drawVignette();
+
+    suction = Math.max(0, suction - dt * 3.2);
+    if (hiss && ac && !muted){
+      var target = pointer.down ? suction * 0.28 : 0;
+      hiss.gain.value += (target - hiss.gain.value) * 0.25;
+      band.frequency.value = 700 + suction * 1500;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function(){
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(layout, 180);
+  });
+
+  layout();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
