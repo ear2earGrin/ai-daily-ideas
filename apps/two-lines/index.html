@@ -4,28 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="A dark mirror, two lines, and a finger. Drag along each one and it goes.">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Two lines on a black screen. Move a finger over one and it goes.">
 <title>Two Lines</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Two Lines">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
 <style>
-  :root{
-    --ink:#000000;
-    --edge:rgba(196,210,238,0.13);
-    --powder:#f2f6ff;
-    --haze:#8b96ad;
-    --haze-dim:#535c70;
-    --brass:#d8a441;
-    --display:"Big Shoulders Display","Haettenschweiler","Arial Narrow",sans-serif;
-    --mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  }
+  :root{ --ink:#000000; }
   html,body{height:100%;}
   body{
     margin:0;
     background:var(--ink);
-    color:var(--haze);
-    font-family:var(--mono);
     overscroll-behavior:none;
     -webkit-tap-highlight-color:transparent;
     -webkit-user-select:none;
@@ -38,50 +32,6 @@
     transition:filter 900ms cubic-bezier(.2,.7,.3,1);
   }
   .room.rushing #stage{filter:brightness(1.5) saturate(0.6) blur(2.5px);}
-
-  .rail{
-    position:absolute;top:0;left:0;right:0;z-index:3;
-    transition:opacity 900ms ease;
-    display:flex;align-items:baseline;gap:14px;
-    padding:16px 18px;
-    pointer-events:none;
-  }
-  .mark{
-    font-family:var(--display);font-weight:800;font-size:26px;line-height:1;
-    letter-spacing:.06em;text-transform:uppercase;
-    color:#dfe6f5;
-  }
-  .mark em{font-style:normal;color:var(--brass);}
-  .state{
-    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--haze-dim);
-    font-variant-numeric:tabular-nums;
-  }
-  .controls{margin-left:auto;display:flex;gap:8px;pointer-events:auto;}
-  button{
-    font-family:var(--mono);font-size:10px;font-weight:700;
-    letter-spacing:.18em;text-transform:uppercase;
-    color:var(--haze);
-    background:rgba(150,168,200,0.06);
-    border:1px solid var(--edge);
-    border-radius:2px;
-    padding:8px 11px;
-    cursor:pointer;
-    transition:color 160ms,border-color 160ms,background 160ms;
-  }
-  button:hover{color:#e6ecfa;border-color:rgba(196,210,238,0.3);}
-  button:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-
-  .room.busy .rail{opacity:.22;}
-  .hint{
-    position:absolute;left:0;right:0;bottom:0;z-index:3;
-    margin:0;padding:0 20px 26px;
-    text-align:center;
-    font-size:10px;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--haze-dim);
-    transition:opacity 700ms ease;
-  }
-  .hint.gone{opacity:0;}
 
   .flash{
     position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;
@@ -98,11 +48,6 @@
     .room.rushing .flash{animation:none;opacity:0;}
     #stage{transition:none;}
   }
-  @media (max-width:420px){
-    .mark{font-size:21px;}
-    .rail{padding:13px 13px;gap:10px;}
-    button{padding:7px 9px;letter-spacing:.12em;}
-  }
 </style>
 
 </head>
@@ -110,14 +55,6 @@
 <div class="room" id="room">
   <canvas id="stage"></canvas>
   <div class="flash" aria-hidden="true"></div>
-  <header class="rail">
-    <span class="mark">Two <em>Lines</em></span>
-    <span class="state" id="state">2 waiting</span>
-    <span class="controls">
-      <button id="sound" type="button" aria-pressed="true">Sound on</button>
-    </span>
-  </header>
-  <p class="hint" id="hint">Move a finger over a line</p>
 </div>
 
 <script>
@@ -126,9 +63,6 @@
   var stage = document.getElementById('stage');
   var ctx = stage.getContext('2d');
   var room = document.getElementById('room');
-  var stateEl = document.getElementById('state');
-  var hintEl = document.getElementById('hint');
-  var soundBtn = document.getElementById('sound');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var DPR = 1, W = 0, H = 0;
@@ -139,7 +73,6 @@
   var powder, pctx;
   var pointer = {x:0, y:0, down:false};
   var suction = 0;
-  var started = false;
   var rushed = false;
 
   function rnd(a, b){ return a + Math.random() * (b - a); }
@@ -221,7 +154,6 @@
     // and a shorter, tighter, finer one
     addLine(cx + gap / 2, cy + rnd(12, 24), len * rnd(0.84, 0.89), V + 0.011, half * 0.82, reach,
             {density:1.3, grain:0.78, clumps:0.5, dust:1.5});
-    updateState();
   }
 
   function addLine(cx, cy, len, ang, half, reach, style){
@@ -379,23 +311,12 @@
 
     sniff();
     buzz([26, 40, 70]);
-    updateState();
 
     if (lines.every(function(l){ return l.done; }) && !rushed){
       rushed = true;
       room.classList.add('rushing');
       rush();
       window.setTimeout(function(){ room.classList.remove('rushing'); }, 1900);
-    }
-  }
-
-  function updateState(){
-    var left = lines.filter(function(l){ return !l.done; }).length;
-    stateEl.textContent = left === 0 ? 'gone' : (left === 1 ? '1 left' : '2 waiting');
-    if (left === 0){
-      hintEl.textContent = 'Gone';
-      room.classList.remove('busy');
-      window.setTimeout(function(){ hintEl.classList.remove('gone'); }, reduced ? 200 : 1500);
     }
   }
 
@@ -429,11 +350,6 @@
 
     if (took > 0){
       suction = Math.min(1, suction + took * 12);
-      if (!started){
-        started = true;
-        hintEl.classList.add('gone');
-        room.classList.add('busy');
-      }
       buzz(5);
     }
     for (var j = 0; j < lines.length; j++){
@@ -474,7 +390,7 @@
   /* ---------- sound ---------- */
 
   var AC = window.AudioContext || window.webkitAudioContext;
-  var ac = null, master = null, noise = null, band = null, hiss = null, muted = false;
+  var ac = null, master = null, noise = null, band = null, hiss = null;
 
   function noiseBuffer(seconds){
     var n = Math.floor(ac.sampleRate * seconds);
@@ -485,7 +401,7 @@
   }
 
   function audioOn(){
-    if (!AC || muted) return;
+    if (!AC ) return;
     if (!ac){
       ac = new AC();
       master = ac.createGain();
@@ -509,7 +425,7 @@
   }
 
   function sniff(){
-    if (!ac || muted) return;
+    if (!ac ) return;
     var t = ac.currentTime;
     var src = ac.createBufferSource();
     src.buffer = noiseBuffer(0.8);
@@ -528,7 +444,7 @@
   }
 
   function rush(){
-    if (!ac || muted) return;
+    if (!ac ) return;
     var t = ac.currentTime;
     var o = ac.createOscillator();
     o.type = 'sine';
@@ -559,17 +475,8 @@
   }
 
   function buzz(pattern){
-    if (muted) return;
-    if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch (err) {} }
+        if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch (err) {} }
   }
-
-  soundBtn.addEventListener('click', function(){
-    muted = !muted;
-    soundBtn.textContent = muted ? 'Sound off' : 'Sound on';
-    soundBtn.setAttribute('aria-pressed', String(!muted));
-    if (muted && hiss) hiss.gain.value = 0;
-    if (!muted) audioOn();
-  });
 
   /* ---------- render ---------- */
 
@@ -608,7 +515,7 @@
     drawFlying(dt);
 
     suction = Math.max(0, suction - dt * 3.2);
-    if (hiss && ac && !muted){
+    if (hiss && ac){
       var target = suction * 0.3;
       hiss.gain.value += (target - hiss.gain.value) * 0.25;
       band.frequency.value = 700 + suction * 1500;
@@ -624,6 +531,13 @@
 
   layout();
   requestAnimationFrame(frame);
+
+  // installed to the home screen, it runs with no network at all
+  if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js')['catch'](function(){});
+    });
+  }
 })();
 </script>
 </body>

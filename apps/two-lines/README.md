@@ -17,12 +17,29 @@ Nothing brings them back. No tap, no gesture, no button, and not a resize or a
 rotation either — a resize carries the powder across exactly as it stands. Two
 lines, once, until the page is reloaded.
 
-## Run it
+There is no text, no button and no chrome of any kind on the screen — just black
+and the two lines.
 
-Open `index.html` in a browser. No build, no dependencies, no network beyond the
-Google Fonts stylesheet (it degrades to system faces offline).
+## Install it on a phone
 
-Best on a phone: it uses pointer events, so it wants a finger.
+It is a PWA, so it installs from the browser rather than a store, and once it is
+on the home screen it launches fullscreen with its own icon and runs with the
+phone in airplane mode.
+
+1. Serve this folder over HTTPS (any static host — the service worker needs a
+   real origin, `file://` will not do).
+2. Open that URL on the phone.
+3. **iPhone:** Share → *Add to Home Screen*. **Android:** the ⋮ menu →
+   *Install app* / *Add to Home screen*.
+
+Relaunching the app gives you two fresh lines; nothing refills them while it is
+open.
+
+## Run it locally
+
+Open `index.html` in a browser, or serve the folder (`npx http-server`) if you
+want the service worker and install prompt too. No build, no dependencies, and
+nothing is fetched from the network — every asset ships with the app.
 
 ## How it works
 
@@ -51,4 +68,4 @@ Best on a phone: it uses pointer events, so it wants a finger.
   layout and rack two fresh lines; now the powder bitmap and the line geometry
   are carried over, scaled evenly from the height and re-centred, so a rotation
   there and back lands exactly where it started.
-- Honors `prefers-reduced-motion` and can be muted from the rail.
+- Honors `prefers-reduced-motion`.
