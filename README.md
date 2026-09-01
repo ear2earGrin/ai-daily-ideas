@@ -12,7 +12,10 @@ A repository of validated, evidence-backed AI agent project ideas that solo deve
 - `docs/lifecycle.md` — the capture → normalize → validate → execute workflow.
 - `docs/daily-idea-automation.md` — automation scaffold for adding ideas from CLI flags or JSON payloads.
 - `docs/plans/market-problem-scanner.md` — plan for mining evidence-backed monetizable pain points from public sources.
+- `assessments/` — one scored assessment per idea: viability, buildability, cost, tools, and a development plan.
+- `docs/idea-assessment-rubric.md` — the scoring model behind `RANKING.md`.
 - `INDEX.md` — generated catalog of all ideas.
+- `RANKING.md` — generated ranking answering which idea to build first.
 
 ## Current Ideas
 
@@ -67,6 +70,51 @@ python3 scripts/add_daily_idea.py --from-json templates/example_idea_payload.jso
 ```
 
 See `docs/daily-idea-automation.md` for the full workflow, verification commands, and the GitHub Actions stub for future LLM wiring.
+
+## Ranking: which idea to build first
+
+Ideas arrive daily; only one can be built first. `RANKING.md` answers that question, and
+it is generated rather than argued over.
+
+Each idea gets exactly one assessment in `assessments/<slug>.md` carrying ten 0-5
+judgements and three cost estimates. `scripts/rank_ideas.py` computes everything derived:
+
+```
+viability_score    = sum(5 viability axes) x 4        # 0-100
+buildability_score = sum(5 buildability axes) x 4     # 0-100
+cost_index         = setup/1000 + monthly/100 + days/7
+priority_score     = viability x buildability / 100 x cost_multiplier
+```
+
+The multiplication is inherited from the scanner's ranking model: an idea that is lucrative
+but unbuildable and an idea that is trivial but worthless both collapse toward zero, and
+the cost multiplier then discounts whatever needs real capital to start.
+
+Alongside the scores, every assessment carries the parts you actually execute from: a
+verdict, the named tools with real prices split into build and run, a phased development
+plan whose first phase involves no product code, and explicit kill criteria.
+
+```bash
+python3 scripts/rank_ideas.py            # regenerate RANKING.md
+python3 scripts/rank_ideas.py --check    # CI: assessments valid, RANKING.md current
+python3 scripts/rank_ideas.py --next     # the oldest idea with no assessment
+python3 scripts/rank_ideas.py --json     # machine-readable ranking
+```
+
+- `docs/idea-assessment-rubric.md` — the scoring model, band by band
+- `templates/idea-assessment.md` — copy-paste assessment skeleton
+- `RANKING.md` — generated; never hand-edit
+- `.claude/skills/rank-daily-idea/SKILL.md` — the procedure the daily routine follows
+
+### The daily ranking routine
+
+A scheduled Claude session runs `rank-daily-idea` once a day. It takes the **oldest**
+unassessed idea, normalizes it if it arrived as a raw drop, scores it, writes the
+assessment, regenerates `RANKING.md`, and opens a single PR for review. When every idea is
+assessed it does nothing and opens no PR.
+
+Ranking is FIFO on ties by design, so an idea can never rot at the bottom of the queue
+just because it arrived early.
 
 ## Next Phase: Market Problem Scanner
 
