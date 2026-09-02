@@ -2,16 +2,21 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 4
+Total ideas: 5
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-02 | [Playbook Redline Desk for Freelancers and Small Vendors](ideas/2026-09-02-playbook-redline-desk.md) | ready | legal operations | small | per-contract fees and monthly retainers | `agents`, `contracts`, `legal`, `services`, `b2b` |
 | 2026-09-01 | [Data-Center Hearing Pack Agent for Local Stakeholders](ideas/2026-09-01-data-center-hearing-pack.md) | ready | civic intelligence | small | per-brief fees and retainers | `agents`, `data-centers`, `local-gov`, `reports`, `services` |
 | 2026-05-18 | [AI Agent-Powered Niche Trend Report & Content Bundle Generator](ideas/2026-05-18-niche-trend-report-agent.md) | ready | content intelligence | medium | freemium subscription and one-off bundles | `agents`, `content`, `trends`, `reports`, `saas` |
 | 2026-05-17 | [Niche Legacy Story Weaver](ideas/2026-05-17-niche-legacy-story-weaver.md) | ready | consumer memory | medium | project fees and subscriptions | `agents`, `storytelling`, `family`, `media`, `b2c` |
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Playbook Redline Desk for Freelancers and Small Vendors](ideas/2026-09-02-playbook-redline-desk.md)
+
+A one-person legal operator plus agents redlines inbound vendor contracts against a reusable playbook and ships a cited markup in hours, not days.
 
 ### [Data-Center Hearing Pack Agent for Local Stakeholders](ideas/2026-09-01-data-center-hearing-pack.md)
 
