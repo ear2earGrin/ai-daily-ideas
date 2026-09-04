@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 6
+Total ideas: 7
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-04 | [Scope Change-Order Desk for Live Freelance Jobs](ideas/2026-09-04-scope-change-order-desk.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `scope`, `billing`, `services`, `b2b` |
 | 2026-09-03 | [Deliverable Verdict Desk for Freelance Disputes](ideas/2026-09-03-deliverable-verdict-desk.md) | ready | dispute operations | small | per-dispute fees and monthly retainers | `agents`, `freelance`, `disputes`, `legal`, `services`, `b2b` |
 | 2026-09-02 | [Playbook Redline Desk for Freelancers and Small Vendors](ideas/2026-09-02-playbook-redline-desk.md) | ready | legal operations | small | per-contract fees and monthly retainers | `agents`, `contracts`, `legal`, `services`, `b2b` |
 | 2026-09-01 | [Data-Center Hearing Pack Agent for Local Stakeholders](ideas/2026-09-01-data-center-hearing-pack.md) | ready | civic intelligence | small | per-brief fees and retainers | `agents`, `data-centers`, `local-gov`, `reports`, `services` |
@@ -14,6 +15,10 @@ Total ideas: 6
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Scope Change-Order Desk for Live Freelance Jobs](ideas/2026-09-04-scope-change-order-desk.md)
+
+A one-person operator plus agents turns a live brief, thread, and extra requests into a cited change-order pack so the freelancer can price the new work before it becomes a fight.
 
 ### [Deliverable Verdict Desk for Freelance Disputes](ideas/2026-09-03-deliverable-verdict-desk.md)
 
