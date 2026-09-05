@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 8
+Total ideas: 9
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-05 | [Stale-Quote Revival Desk for Freelancers and Local Vendors](ideas/2026-09-05-stale-quote-revival-desk.md) | ready | sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `quotes`, `follow-up`, `services`, `b2b` |
 | 2026-09-04 | [Agent Work Receipt Desk for Computer-Use Runs](ideas/2026-09-04-agent-work-receipt-desk.md) | ready | agent operations | small | per-run fees and monthly retainers | `agents`, `computer-use`, `audit`, `receipts`, `services`, `b2b` |
 | 2026-09-04 | [Scope Change-Order Desk for Live Freelance Jobs](ideas/2026-09-04-scope-change-order-desk.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `scope`, `billing`, `services`, `b2b` |
 | 2026-09-03 | [Deliverable Verdict Desk for Freelance Disputes](ideas/2026-09-03-deliverable-verdict-desk.md) | ready | dispute operations | small | per-dispute fees and monthly retainers | `agents`, `freelance`, `disputes`, `legal`, `services`, `b2b` |
@@ -16,6 +17,10 @@ Total ideas: 8
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Stale-Quote Revival Desk for Freelancers and Local Vendors](ideas/2026-09-05-stale-quote-revival-desk.md)
+
+A one-person operator plus agents turns a sent quote, thread, and silence window into a cited revival pack so the seller can follow up once with a price, expiry, and three-touch sequence instead of guessing.
 
 ### [Agent Work Receipt Desk for Computer-Use Runs](ideas/2026-09-04-agent-work-receipt-desk.md)
 
