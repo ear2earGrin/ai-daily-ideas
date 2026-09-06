@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 10
+Total ideas: 11
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-06 | [Closed-Job Review Harvest Desk for Freelancers and Local Shops](ideas/2026-09-06-closed-job-review-harvest-desk.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `reviews`, `reputation`, `services`, `b2b` |
 | 2026-09-05 | [Cited Signal Pack Desk for Niche Operators](ideas/2026-09-05-cited-signal-pack-desk.md) | ready | distribution operations | small | weekly packs and monthly retainers | `agents`, `content`, `x`, `distribution`, `services`, `b2b` |
 | 2026-09-05 | [Stale-Quote Revival Desk for Freelancers and Local Vendors](ideas/2026-09-05-stale-quote-revival-desk.md) | ready | sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `quotes`, `follow-up`, `services`, `b2b` |
 | 2026-09-04 | [Agent Work Receipt Desk for Computer-Use Runs](ideas/2026-09-04-agent-work-receipt-desk.md) | ready | agent operations | small | per-run fees and monthly retainers | `agents`, `computer-use`, `audit`, `receipts`, `services`, `b2b` |
@@ -18,6 +19,10 @@ Total ideas: 10
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Closed-Job Review Harvest Desk for Freelancers and Local Shops](ideas/2026-09-06-closed-job-review-harvest-desk.md)
+
+A one-person operator plus agents turns a closed job, thread, and invoice into a cited review-harvest pack so the seller can ask once, reply once, and stop losing the proof that wins the next job.
 
 ### [Cited Signal Pack Desk for Niche Operators](ideas/2026-09-05-cited-signal-pack-desk.md)
 
