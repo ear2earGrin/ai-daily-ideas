@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 12
+Total ideas: 13
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-07 | [Late-Invoice Chase Desk for Freelancers and Small Studios](ideas/2026-09-07-late-invoice-chase-desk.md) | ready | collections operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `invoices`, `collections`, `services`, `b2b` |
 | 2026-09-06 | [Agent Hire Listing Pack for Solo Builders](ideas/2026-09-06-agent-hire-listing-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `marketplace`, `x402`, `identity`, `services`, `b2b` |
 | 2026-09-06 | [Closed-Job Review Harvest Desk for Freelancers and Local Shops](ideas/2026-09-06-closed-job-review-harvest-desk.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `reviews`, `reputation`, `services`, `b2b` |
 | 2026-09-05 | [Cited Signal Pack Desk for Niche Operators](ideas/2026-09-05-cited-signal-pack-desk.md) | ready | distribution operations | small | weekly packs and monthly retainers | `agents`, `content`, `x`, `distribution`, `services`, `b2b` |
@@ -20,6 +21,10 @@ Total ideas: 12
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Late-Invoice Chase Desk for Freelancers and Small Studios](ideas/2026-09-07-late-invoice-chase-desk.md)
+
+A one-person operator plus agents turns a sent invoice, thread, and payment record into a cited chase pack so the seller can ask once, escalate once, and stop doing unbilled collections after hours.
 
 ### [Agent Hire Listing Pack for Solo Builders](ideas/2026-09-06-agent-hire-listing-pack.md)
 
