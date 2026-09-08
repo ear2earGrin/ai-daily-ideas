@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 14
+Total ideas: 15
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-08 | [Next-Day Crew Brief Pack for Trade Shops](ideas/2026-09-08-next-day-crew-brief-pack.md) | ready | field operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `dispatch`, `group-chat`, `services`, `b2b` |
 | 2026-09-07 | [Missed-Call Booking Pack for Clinics and Local Shops](ideas/2026-09-07-missed-call-booking-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `bookings`, `voicemail`, `services`, `b2b` |
 | 2026-09-07 | [Late-Invoice Chase Desk for Freelancers and Small Studios](ideas/2026-09-07-late-invoice-chase-desk.md) | ready | collections operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `invoices`, `collections`, `services`, `b2b` |
 | 2026-09-06 | [Agent Hire Listing Pack for Solo Builders](ideas/2026-09-06-agent-hire-listing-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `marketplace`, `x402`, `identity`, `services`, `b2b` |
@@ -22,6 +23,10 @@ Total ideas: 14
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Next-Day Crew Brief Pack for Trade Shops](ideas/2026-09-08-next-day-crew-brief-pack.md)
+
+A one-person operator plus agents turns messy job-group chats, a calendar, and a parts note into a cited next-day crew brief so the shop owner stops being the human AI at 21:00.
 
 ### [Missed-Call Booking Pack for Clinics and Local Shops](ideas/2026-09-07-missed-call-booking-pack.md)
 
