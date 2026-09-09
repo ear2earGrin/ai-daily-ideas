@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 16
+Total ideas: 17
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-09 | [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md) | ready | inbound sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `intent`, `x`, `reddit`, `services`, `b2b` |
 | 2026-09-08 | [Labor-Weekend Inquiry Dump Pack for Local Shops](ideas/2026-09-08-weekend-inquiry-dump-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `leads`, `labor-day`, `services`, `b2b` |
 | 2026-09-08 | [Next-Day Crew Brief Pack for Trade Shops](ideas/2026-09-08-next-day-crew-brief-pack.md) | ready | field operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `dispatch`, `group-chat`, `services`, `b2b` |
 | 2026-09-07 | [Missed-Call Booking Pack for Clinics and Local Shops](ideas/2026-09-07-missed-call-booking-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `bookings`, `voicemail`, `services`, `b2b` |
@@ -24,6 +25,10 @@ Total ideas: 16
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md)
+
+A one-person operator plus agents turns a week's public posts where people describe the seller's exact problem into a cited reply pack so the solo can answer five real humans instead of guessing who to DM.
 
 ### [Labor-Weekend Inquiry Dump Pack for Local Shops](ideas/2026-09-08-weekend-inquiry-dump-pack.md)
 
