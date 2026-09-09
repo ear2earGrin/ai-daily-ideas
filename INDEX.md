@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 17
+Total ideas: 18
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-09 | [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md) | ready | agency billing operations | small | per-pack fees and monthly retainers | `agents`, `billing`, `inference`, `receipts`, `freelance`, `services`, `b2b` |
 | 2026-09-09 | [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md) | ready | inbound sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `intent`, `x`, `reddit`, `services`, `b2b` |
 | 2026-09-08 | [Labor-Weekend Inquiry Dump Pack for Local Shops](ideas/2026-09-08-weekend-inquiry-dump-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `leads`, `labor-day`, `services`, `b2b` |
 | 2026-09-08 | [Next-Day Crew Brief Pack for Trade Shops](ideas/2026-09-08-next-day-crew-brief-pack.md) | ready | field operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `dispatch`, `group-chat`, `services`, `b2b` |
@@ -25,6 +26,10 @@ Total ideas: 17
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md)
+
+A one-person operator plus agents turns a week's model invoices and agent traces into cited per-client inference receipts so the solo can pass through AI spend instead of eating the bill.
 
 ### [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md)
 
