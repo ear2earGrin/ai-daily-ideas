@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 18
+Total ideas: 19
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-10 | [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md) | ready | vendor admin operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `saas`, `renewals`, `finance`, `services`, `b2b` |
 | 2026-09-09 | [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md) | ready | agency billing operations | small | per-pack fees and monthly retainers | `agents`, `billing`, `inference`, `receipts`, `freelance`, `services`, `b2b` |
 | 2026-09-09 | [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md) | ready | inbound sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `intent`, `x`, `reddit`, `services`, `b2b` |
 | 2026-09-08 | [Labor-Weekend Inquiry Dump Pack for Local Shops](ideas/2026-09-08-weekend-inquiry-dump-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `leads`, `labor-day`, `services`, `b2b` |
@@ -26,6 +27,10 @@ Total ideas: 18
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md)
+
+A one-person operator plus agents turns SaaS invoices, terms PDFs, and usage notes into a cited cancel-or-keep pack so the solo can send notice before the dark-pattern lock-in date.
 
 ### [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md)
 
