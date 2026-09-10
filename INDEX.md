@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 19
+Total ideas: 20
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-10 | [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md) | ready | product intelligence | small | per-pack fees and seasonal retainers | `agents`, `hardware`, `accessories`, `apple`, `sony`, `xbox`, `indie`, `services`, `b2b` |
 | 2026-09-10 | [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md) | ready | vendor admin operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `saas`, `renewals`, `finance`, `services`, `b2b` |
 | 2026-09-09 | [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md) | ready | agency billing operations | small | per-pack fees and monthly retainers | `agents`, `billing`, `inference`, `receipts`, `freelance`, `services`, `b2b` |
 | 2026-09-09 | [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md) | ready | inbound sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `intent`, `x`, `reddit`, `services`, `b2b` |
@@ -27,6 +28,10 @@ Total ideas: 19
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md)
+
+A one-person operator plus agents turns a hardware launch day's official pages, teardown notes, and X rumor pile into a cited SKU-diff pack so an accessory seller knows what to keep, reprint, or kill before they spend on molds.
 
 ### [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md)
 
