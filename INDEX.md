@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 21
+Total ideas: 22
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-11 | [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `reviews`, `reputation`, `google`, `services`, `b2b` |
 | 2026-09-11 | [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `no-shows`, `bookings`, `deposits`, `services`, `b2b` |
 | 2026-09-10 | [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md) | ready | product intelligence | small | per-pack fees and seasonal retainers | `agents`, `hardware`, `accessories`, `apple`, `sony`, `xbox`, `indie`, `services`, `b2b` |
 | 2026-09-10 | [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md) | ready | vendor admin operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `saas`, `renewals`, `finance`, `services`, `b2b` |
@@ -29,6 +30,10 @@ Total ideas: 21
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md)
+
+A one-person operator plus agents turns a fresh 1-star review, the job record, and the shop policy into a cited public reply plus private recovery note so the owner does not improvise at 22:14.
 
 ### [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md)
 
