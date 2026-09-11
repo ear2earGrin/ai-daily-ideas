@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 20
+Total ideas: 21
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-11 | [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `no-shows`, `bookings`, `deposits`, `services`, `b2b` |
 | 2026-09-10 | [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md) | ready | product intelligence | small | per-pack fees and seasonal retainers | `agents`, `hardware`, `accessories`, `apple`, `sony`, `xbox`, `indie`, `services`, `b2b` |
 | 2026-09-10 | [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md) | ready | vendor admin operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `saas`, `renewals`, `finance`, `services`, `b2b` |
 | 2026-09-09 | [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md) | ready | agency billing operations | small | per-pack fees and monthly retainers | `agents`, `billing`, `inference`, `receipts`, `freelance`, `services`, `b2b` |
@@ -28,6 +29,10 @@ Total ideas: 20
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md)
+
+A one-person operator plus agents turns a no-show, calendar hole, waitlist, and deposit policy into a cited same-day fill pack so the shop can text three names and keep or waive the deposit without guessing.
 
 ### [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md)
 
