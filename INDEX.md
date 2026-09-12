@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 23
+Total ideas: 24
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-12 | [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md) | ready | local distribution operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `short-form`, `tiktok`, `instagram`, `proof`, `services`, `b2b` |
 | 2026-09-12 | [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md) | ready | field compliance operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `compliance`, `coi`, `insurance`, `licenses`, `services`, `b2b` |
 | 2026-09-11 | [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `reviews`, `reputation`, `google`, `services`, `b2b` |
 | 2026-09-11 | [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `no-shows`, `bookings`, `deposits`, `services`, `b2b` |
@@ -31,6 +32,10 @@ Total ideas: 23
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md)
+
+A one-person operator plus agents turns eight job photos, a shop policy, and one niche format into a cited seven-clip pack so the owner can post proof this week instead of hiring a content agency.
 
 ### [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md)
 
