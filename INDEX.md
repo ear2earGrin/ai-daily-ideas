@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 22
+Total ideas: 23
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-12 | [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md) | ready | field compliance operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `compliance`, `coi`, `insurance`, `licenses`, `services`, `b2b` |
 | 2026-09-11 | [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `reviews`, `reputation`, `google`, `services`, `b2b` |
 | 2026-09-11 | [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md) | ready | front-desk operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `no-shows`, `bookings`, `deposits`, `services`, `b2b` |
 | 2026-09-10 | [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md) | ready | product intelligence | small | per-pack fees and seasonal retainers | `agents`, `hardware`, `accessories`, `apple`, `sony`, `xbox`, `indie`, `services`, `b2b` |
@@ -19,7 +20,7 @@ Total ideas: 22
 | 2026-09-06 | [Agent Hire Listing Pack for Solo Builders](ideas/2026-09-06-agent-hire-listing-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `marketplace`, `x402`, `identity`, `services`, `b2b` |
 | 2026-09-06 | [Closed-Job Review Harvest Desk for Freelancers and Local Shops](ideas/2026-09-06-closed-job-review-harvest-desk.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `reviews`, `reputation`, `services`, `b2b` |
 | 2026-09-05 | [Cited Signal Pack Desk for Niche Operators](ideas/2026-09-05-cited-signal-pack-desk.md) | ready | distribution operations | small | weekly packs and monthly retainers | `agents`, `content`, `x`, `distribution`, `services`, `b2b` |
-| 2026-09-05 | [Stale-Quote Revival Desk for Freelancers and Local Vendors](ideas/2026-09-05-stale-quote-revival-desk.md) | ready | sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `quotes`, `follow-up`, `services`, `b2b` |
+| 2026-09-05 | [Stale-Quote Revival Desk for Freelancers and Local Vendors](ideas/2026-09-05-stale-quote-revival-pack.md) | ready | sales operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `quotes`, `follow-up`, `services`, `b2b` |
 | 2026-09-04 | [Agent Work Receipt Desk for Computer-Use Runs](ideas/2026-09-04-agent-work-receipt-desk.md) | ready | agent operations | small | per-run fees and monthly retainers | `agents`, `computer-use`, `audit`, `receipts`, `services`, `b2b` |
 | 2026-09-04 | [Scope Change-Order Desk for Live Freelance Jobs](ideas/2026-09-04-scope-change-order-desk.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `scope`, `billing`, `services`, `b2b` |
 | 2026-09-03 | [Deliverable Verdict Desk for Freelance Disputes](ideas/2026-09-03-deliverable-verdict-desk.md) | ready | dispute operations | small | per-dispute fees and monthly retainers | `agents`, `freelance`, `disputes`, `legal`, `services`, `b2b` |
@@ -30,6 +31,10 @@ Total ideas: 22
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md)
+
+A one-person operator plus agents turns a GC gate email, insurance PDFs, and license scans into a cited same-night compliance pack so the shop can send the packet or the broker request before the 07:00 cutoff.
 
 ### [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md)
 
