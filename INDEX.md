@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 25
+Total ideas: 26
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-13 | [Same-Hour Form-Wall Finish Pack for Agent Operators](ideas/2026-09-13-form-wall-finish-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `forms`, `computer-use`, `receipts`, `handoff`, `services`, `b2b` |
 | 2026-09-13 | [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md) | ready | freelance onboarding operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `onboarding`, `kickoff`, `assets`, `services`, `b2b` |
 | 2026-09-12 | [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md) | ready | local distribution operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `short-form`, `tiktok`, `instagram`, `proof`, `services`, `b2b` |
 | 2026-09-12 | [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md) | ready | field compliance operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `compliance`, `coi`, `insurance`, `licenses`, `services`, `b2b` |
@@ -33,6 +34,10 @@ Total ideas: 25
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Hour Form-Wall Finish Pack for Agent Operators](ideas/2026-09-13-form-wall-finish-pack.md)
+
+A one-person operator plus agents turns a failed form/captcha run into a cited same-hour finish pack so the human spends two minutes on the wall, not twenty restarting the job.
 
 ### [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md)
 
