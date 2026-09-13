@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 24
+Total ideas: 25
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-13 | [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md) | ready | freelance onboarding operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `onboarding`, `kickoff`, `assets`, `services`, `b2b` |
 | 2026-09-12 | [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md) | ready | local distribution operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `short-form`, `tiktok`, `instagram`, `proof`, `services`, `b2b` |
 | 2026-09-12 | [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md) | ready | field compliance operations | small | per-pack fees and monthly retainers | `agents`, `trades`, `compliance`, `coi`, `insurance`, `licenses`, `services`, `b2b` |
 | 2026-09-11 | [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md) | ready | reputation operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `reviews`, `reputation`, `google`, `services`, `b2b` |
@@ -32,6 +33,10 @@ Total ideas: 24
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md)
+
+A one-person operator plus agents turns a yes-email, SOW, and empty drive into a cited same-week asset-chase pack so the freelancer can start Monday instead of waiting a week for logos and logins.
 
 ### [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md)
 
