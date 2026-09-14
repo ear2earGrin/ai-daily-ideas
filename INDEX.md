@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 27
+Total ideas: 28
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-14 | [Same-Week Niche Directory + Ad-Slot Pack for Solo Sellers](ideas/2026-09-14-niche-directory-adslot-pack.md) | ready | distribution operations | small | per-pack fees and monthly refresh retainers | `agents`, `directory`, `seo`, `leads`, `x`, `services`, `b2b` |
 | 2026-09-14 | [Same-Week Quarterly Estimated-Tax Folder Pack for Freelancers](ideas/2026-09-14-quarterly-tax-folder-pack.md) | ready | freelance finance operations | small | per-pack fees and quarterly retainers | `agents`, `freelance`, `taxes`, `bookkeeping`, `receipts`, `services`, `b2b` |
 | 2026-09-13 | [Same-Hour Form-Wall Finish Pack for Agent Operators](ideas/2026-09-13-form-wall-finish-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `forms`, `computer-use`, `receipts`, `handoff`, `services`, `b2b` |
 | 2026-09-13 | [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md) | ready | freelance onboarding operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `onboarding`, `kickoff`, `assets`, `services`, `b2b` |
@@ -35,6 +36,10 @@ Total ideas: 27
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Niche Directory + Ad-Slot Pack for Solo Sellers](ideas/2026-09-14-niche-directory-adslot-pack.md)
+
+A one-person operator plus agents turns a niche definition and a scrape brief into a cited 80-firm directory page plus three ad-slot drafts so a solo seller can own a list instead of renting ads on someone else's feed.
 
 ### [Same-Week Quarterly Estimated-Tax Folder Pack for Freelancers](ideas/2026-09-14-quarterly-tax-folder-pack.md)
 
