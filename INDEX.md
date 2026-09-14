@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 26
+Total ideas: 27
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-14 | [Same-Week Quarterly Estimated-Tax Folder Pack for Freelancers](ideas/2026-09-14-quarterly-tax-folder-pack.md) | ready | freelance finance operations | small | per-pack fees and quarterly retainers | `agents`, `freelance`, `taxes`, `bookkeeping`, `receipts`, `services`, `b2b` |
 | 2026-09-13 | [Same-Hour Form-Wall Finish Pack for Agent Operators](ideas/2026-09-13-form-wall-finish-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `forms`, `computer-use`, `receipts`, `handoff`, `services`, `b2b` |
 | 2026-09-13 | [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md) | ready | freelance onboarding operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `onboarding`, `kickoff`, `assets`, `services`, `b2b` |
 | 2026-09-12 | [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md) | ready | local distribution operations | small | per-pack fees and monthly retainers | `agents`, `local-business`, `short-form`, `tiktok`, `instagram`, `proof`, `services`, `b2b` |
@@ -34,6 +35,10 @@ Total ideas: 26
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Quarterly Estimated-Tax Folder Pack for Freelancers](ideas/2026-09-14-quarterly-tax-folder-pack.md)
+
+A one-person operator plus agents turns invoices, payouts, and a receipt dump into a cited estimated-tax folder so the freelancer can pay or book a CPA instead of postponing another quarter.
 
 ### [Same-Hour Form-Wall Finish Pack for Agent Operators](ideas/2026-09-13-form-wall-finish-pack.md)
 
