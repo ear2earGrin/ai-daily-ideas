@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 29
+Total ideas: 30
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-15 | [Same-Week Unread-Inbox Floor Pack for Solo Operators](ideas/2026-09-15-unread-inbox-floor-pack.md) | ready | back-office operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `support`, `refunds`, `email`, `services`, `b2b` |
 | 2026-09-15 | [Same-Week Agent Exception + Cost Control Pack for Solopreneurs](ideas/2026-09-15-agent-exception-control-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `observability`, `costs`, `services`, `b2b` |
 | 2026-09-14 | [Same-Week Niche Directory + Ad-Slot Pack for Solo Sellers](ideas/2026-09-14-niche-directory-adslot-pack.md) | ready | distribution operations | small | per-pack fees and monthly refresh retainers | `agents`, `directory`, `seo`, `leads`, `x`, `services`, `b2b` |
 | 2026-09-14 | [Same-Week Quarterly Estimated-Tax Folder Pack for Freelancers](ideas/2026-09-14-quarterly-tax-folder-pack.md) | ready | freelance finance operations | small | per-pack fees and quarterly retainers | `agents`, `freelance`, `taxes`, `bookkeeping`, `receipts`, `services`, `b2b` |
@@ -37,6 +38,10 @@ Total ideas: 29
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Unread-Inbox Floor Pack for Solo Operators](ideas/2026-09-15-unread-inbox-floor-pack.md)
+
+A one-person operator plus agents turns a week's unread support mail, refund threads, and claim dumps into a cited floor pack so the solo can reply, chase, or archive instead of living in the inbox on Sunday.
 
 ### [Same-Week Agent Exception + Cost Control Pack for Solopreneurs](ideas/2026-09-15-agent-exception-control-pack.md)
 
