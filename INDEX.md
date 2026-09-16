@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 30
+Total ideas: 31
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-16 | [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md) | ready | knowledge operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `playbooks`, `judgment`, `services`, `b2b` |
 | 2026-09-15 | [Same-Week Unread-Inbox Floor Pack for Solo Operators](ideas/2026-09-15-unread-inbox-floor-pack.md) | ready | back-office operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `support`, `refunds`, `email`, `services`, `b2b` |
 | 2026-09-15 | [Same-Week Agent Exception + Cost Control Pack for Solopreneurs](ideas/2026-09-15-agent-exception-control-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `observability`, `costs`, `services`, `b2b` |
 | 2026-09-14 | [Same-Week Niche Directory + Ad-Slot Pack for Solo Sellers](ideas/2026-09-14-niche-directory-adslot-pack.md) | ready | distribution operations | small | per-pack fees and monthly refresh retainers | `agents`, `directory`, `seo`, `leads`, `x`, `services`, `b2b` |
@@ -38,6 +39,10 @@ Total ideas: 30
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md)
+
+A one-person operator plus agents turns a week's threads, quotes, and a 20-minute voice dump into a cited judgment-rule pack so the solo can hand exceptions to an agent instead of living in approval pings.
 
 ### [Same-Week Unread-Inbox Floor Pack for Solo Operators](ideas/2026-09-15-unread-inbox-floor-pack.md)
 
