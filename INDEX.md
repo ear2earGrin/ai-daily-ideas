@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 32
+Total ideas: 33
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-17 | [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md) | ready | operator diagnosis | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `diagnosis`, `ads`, `services`, `b2b` |
 | 2026-09-16 | [Same-Week Agent-Payable Tool Listing Pack for Solo Builders](ideas/2026-09-16-agent-payable-tool-listing-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `marketplace`, `apis`, `metering`, `grok-bot`, `hermes`, `openclaw`, `services`, `b2b` |
 | 2026-09-16 | [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md) | ready | knowledge operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `playbooks`, `judgment`, `services`, `b2b` |
 | 2026-09-15 | [Same-Week Unread-Inbox Floor Pack for Solo Operators](ideas/2026-09-15-unread-inbox-floor-pack.md) | ready | back-office operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `support`, `refunds`, `email`, `services`, `b2b` |
@@ -40,6 +41,10 @@ Total ideas: 32
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md)
+
+A one-person operator plus agents turns a week's bank, ads, CRM, and agent traces into a cited diagnosis pack so the solo can change one lever instead of letting agents keep a sick shop moving.
 
 ### [Same-Week Agent-Payable Tool Listing Pack for Solo Builders](ideas/2026-09-16-agent-payable-tool-listing-pack.md)
 
