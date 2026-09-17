@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 33
+Total ideas: 34
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-17 | [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md) | ready | agent collaboration | small | per-pack fees and monthly retainers | `agents`, `sessions`, `handoff`, `developer-tools`, `freelance`, `indie-hackers`, `services`, `b2b` |
 | 2026-09-17 | [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md) | ready | operator diagnosis | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `diagnosis`, `ads`, `services`, `b2b` |
 | 2026-09-16 | [Same-Week Agent-Payable Tool Listing Pack for Solo Builders](ideas/2026-09-16-agent-payable-tool-listing-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `marketplace`, `apis`, `metering`, `grok-bot`, `hermes`, `openclaw`, `services`, `b2b` |
 | 2026-09-16 | [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md) | ready | knowledge operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `playbooks`, `judgment`, `services`, `b2b` |
@@ -41,6 +42,10 @@ Total ideas: 33
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md)
+
+A one-person operator plus agents turns a dead agent run into a cited resume pack so the next human or agent can continue the work instead of restarting from a chat dump.
 
 ### [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md)
 
