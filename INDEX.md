@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 35
+Total ideas: 36
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-18 | [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md) | ready | agent evaluation | small | per-pack fees and weekly regression retainers | `agents`, `evals`, `qa`, `freelance`, `indie-hackers`, `developer-tools`, `services`, `b2b` |
 | 2026-09-18 | [Same-Week Close-the-Loop Audit Pack for Solo Operators](ideas/2026-09-18-close-the-loop-audit-pack.md) | ready | agent verification | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `verification`, `workflows`, `services`, `b2b` |
 | 2026-09-17 | [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md) | ready | agent collaboration | small | per-pack fees and monthly retainers | `agents`, `sessions`, `handoff`, `developer-tools`, `freelance`, `indie-hackers`, `services`, `b2b` |
 | 2026-09-17 | [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md) | ready | operator diagnosis | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `diagnosis`, `ads`, `services`, `b2b` |
@@ -44,142 +45,10 @@ Total ideas: 35
 
 ## Summaries
 
+### [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md)
+
+A one-person operator plus agents turns a week's traces and product spec into a 30-item cited golden set plus a one-pass regression so the solo can score the agent instead of trusting a demo.
+
 ### [Same-Week Close-the-Loop Audit Pack for Solo Operators](ideas/2026-09-18-close-the-loop-audit-pack.md)
 
 A one-person operator plus agents turns a week's "done" drafts, tool logs, and outboxes into a cited close-the-loop pack so the solo can see what actually shipped instead of trusting a green check.
-
-### [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md)
-
-A one-person operator plus agents turns a dead agent run into a cited resume pack so the next human or agent can continue the work instead of restarting from a chat dump.
-
-### [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md)
-
-A one-person operator plus agents turns a week's bank, ads, CRM, and agent traces into a cited diagnosis pack so the solo can change one lever instead of letting agents keep a sick shop moving.
-
-### [Same-Week Agent-Payable Tool Listing Pack for Solo Builders](ideas/2026-09-16-agent-payable-tool-listing-pack.md)
-
-A one-person operator plus agents turns a one-job capability into a cited, agent-readable tool listing with test key, docs, and meter so other agents can pay per call instead of the builder shipping another demo.
-
-### [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md)
-
-A one-person operator plus agents turns a week's threads, quotes, and a 20-minute voice dump into a cited judgment-rule pack so the solo can hand exceptions to an agent instead of living in approval pings.
-
-### [Same-Week Unread-Inbox Floor Pack for Solo Operators](ideas/2026-09-15-unread-inbox-floor-pack.md)
-
-A one-person operator plus agents turns a week's unread support mail, refund threads, and claim dumps into a cited floor pack so the solo can reply, chase, or archive instead of living in the inbox on Sunday.
-
-### [Same-Week Agent Exception + Cost Control Pack for Solopreneurs](ideas/2026-09-15-agent-exception-control-pack.md)
-
-A one-person operator plus agents turns a week's traces, model bills, and failed jobs into a cited exception-and-cost pack so the solo can freeze, fix, or keep an agent instead of flying blind.
-
-### [Same-Week Niche Directory + Ad-Slot Pack for Solo Sellers](ideas/2026-09-14-niche-directory-adslot-pack.md)
-
-A one-person operator plus agents turns a niche definition and a scrape brief into a cited 80-firm directory page plus three ad-slot drafts so a solo seller can own a list instead of renting ads on someone else's feed.
-
-### [Same-Week Quarterly Estimated-Tax Folder Pack for Freelancers](ideas/2026-09-14-quarterly-tax-folder-pack.md)
-
-A one-person operator plus agents turns invoices, payouts, and a receipt dump into a cited estimated-tax folder so the freelancer can pay or book a CPA instead of postponing another quarter.
-
-### [Same-Hour Form-Wall Finish Pack for Agent Operators](ideas/2026-09-13-form-wall-finish-pack.md)
-
-A one-person operator plus agents turns a failed form/captcha run into a cited same-hour finish pack so the human spends two minutes on the wall, not twenty restarting the job.
-
-### [Same-Week Kickoff Asset Chase Pack for Freelancers](ideas/2026-09-13-kickoff-asset-chase-pack.md)
-
-A one-person operator plus agents turns a yes-email, SOW, and empty drive into a cited same-week asset-chase pack so the freelancer can start Monday instead of waiting a week for logos and logins.
-
-### [Same-Week Proof-Clip Farm Pack for Local Shops](ideas/2026-09-12-proof-clip-farm-pack.md)
-
-A one-person operator plus agents turns eight job photos, a shop policy, and one niche format into a cited seven-clip pack so the owner can post proof this week instead of hiring a content agency.
-
-### [Same-Night Job-Gate Compliance Pack for Trade Shops](ideas/2026-09-12-job-gate-compliance-pack.md)
-
-A one-person operator plus agents turns a GC gate email, insurance PDFs, and license scans into a cited same-night compliance pack so the shop can send the packet or the broker request before the 07:00 cutoff.
-
-### [Same-Day Review Ambush Reply Pack for Local Shops](ideas/2026-09-11-review-ambush-reply-pack.md)
-
-A one-person operator plus agents turns a fresh 1-star review, the job record, and the shop policy into a cited public reply plus private recovery note so the owner does not improvise at 22:14.
-
-### [Same-Day No-Show Fill Pack for Clinics and Local Shops](ideas/2026-09-11-same-day-noshow-fill-pack.md)
-
-A one-person operator plus agents turns a no-show, calendar hole, waitlist, and deposit policy into a cited same-day fill pack so the shop can text three names and keep or waive the deposit without guessing.
-
-### [Launch-Week SKU Diff Pack for Indie Accessory Sellers](ideas/2026-09-10-launch-week-sku-diff-pack.md)
-
-A one-person operator plus agents turns a hardware launch day's official pages, teardown notes, and X rumor pile into a cited SKU-diff pack so an accessory seller knows what to keep, reprint, or kill before they spend on molds.
-
-### [Vendor Auto-Renewal Notice Desk for Solos and Small Shops](ideas/2026-09-10-vendor-renewal-notice-desk.md)
-
-A one-person operator plus agents turns SaaS invoices, terms PDFs, and usage notes into a cited cancel-or-keep pack so the solo can send notice before the dark-pattern lock-in date.
-
-### [Client Inference Receipt Desk for Solo Agent Shops](ideas/2026-09-09-client-inference-receipt-desk.md)
-
-A one-person operator plus agents turns a week's model invoices and agent traces into cited per-client inference receipts so the solo can pass through AI spend instead of eating the bill.
-
-### [Problem-Intent Reply Pack for Solo Sellers](ideas/2026-09-09-problem-intent-reply-pack.md)
-
-A one-person operator plus agents turns a week's public posts where people describe the seller's exact problem into a cited reply pack so the solo can answer five real humans instead of guessing who to DM.
-
-### [Labor-Weekend Inquiry Dump Pack for Local Shops](ideas/2026-09-08-weekend-inquiry-dump-pack.md)
-
-A one-person operator plus agents turns the pile of DMs, forms, and missed calls from a closed long weekend into a cited Monday call list so the shop owner does not lose the holiday leads to whoever answers first.
-
-### [Next-Day Crew Brief Pack for Trade Shops](ideas/2026-09-08-next-day-crew-brief-pack.md)
-
-A one-person operator plus agents turns messy job-group chats, a calendar, and a parts note into a cited next-day crew brief so the shop owner stops being the human AI at 21:00.
-
-### [Missed-Call Booking Pack for Clinics and Local Shops](ideas/2026-09-07-missed-call-booking-pack.md)
-
-A one-person operator plus agents turns a missed call, voicemail, and calendar snapshot into a cited first-reply and booking pack so the shop can recover the lead before it books a competitor.
-
-### [Late-Invoice Chase Desk for Freelancers and Small Studios](ideas/2026-09-07-late-invoice-chase-desk.md)
-
-A one-person operator plus agents turns a sent invoice, thread, and payment record into a cited chase pack so the seller can ask once, escalate once, and stop doing unbilled collections after hours.
-
-### [Agent Hire Listing Pack for Solo Builders](ideas/2026-09-06-agent-hire-listing-pack.md)
-
-A one-person operator plus agents turns a working agent, sample run, and price intent into a hireable listing pack so a builder can sell the agent as a service instead of a demo.
-
-### [Closed-Job Review Harvest Desk for Freelancers and Local Shops](ideas/2026-09-06-closed-job-review-harvest-desk.md)
-
-A one-person operator plus agents turns a closed job, thread, and invoice into a cited review-harvest pack so the seller can ask once, reply once, and stop losing the proof that wins the next job.
-
-### [Cited Signal Pack Desk for Niche Operators](ideas/2026-09-05-cited-signal-pack-desk.md)
-
-A one-person operator plus agents turns a week's X and web chatter in one niche into a cited signal pack with five post drafts, one email, and sources the owner can actually ship.
-
-### [Stale-Quote Revival Desk for Freelancers and Local Vendors](ideas/2026-09-05-stale-quote-revival-desk.md)
-
-A one-person operator plus agents turns a sent quote, thread, and silence window into a cited revival pack so the seller can follow up once with a price, expiry, and three-touch sequence instead of guessing.
-
-### [Agent Work Receipt Desk for Computer-Use Runs](ideas/2026-09-04-agent-work-receipt-desk.md)
-
-A one-person operator plus agents turns a task brief and a computer-use trace into a cited work receipt so the buyer can see what the agent actually did, what was out of scope, and how to roll back.
-
-### [Scope Change-Order Desk for Live Freelance Jobs](ideas/2026-09-04-scope-change-order-desk.md)
-
-A one-person operator plus agents turns a live brief, thread, and extra requests into a cited change-order pack so the freelancer can price the new work before it becomes a fight.
-
-### [Deliverable Verdict Desk for Freelance Disputes](ideas/2026-09-03-deliverable-verdict-desk.md)
-
-A one-person operator plus agents turns a brief, deliverable, and message thread into a cited verdict pack so client and freelancer can settle without a platform chargeback.
-
-### [Playbook Redline Desk for Freelancers and Small Vendors](ideas/2026-09-02-playbook-redline-desk.md)
-
-A one-person legal operator plus agents redlines inbound vendor contracts against a reusable playbook and ships a cited markup in hours, not days.
-
-### [Data-Center Hearing Pack Agent for Local Stakeholders](ideas/2026-09-01-data-center-hearing-pack.md)
-
-A one-person team with agents turns X chatter, filings, and utility data into a 6-page hearing pack that locals, journalists, and councils can actually use.
-
-### [AI Agent-Powered Niche Trend Report & Content Bundle Generator](ideas/2026-05-18-niche-trend-report-agent.md)
-
-Users enter a niche and AI agents produce trend reports plus reusable content bundles for newsletters and social channels.
-
-### [Niche Legacy Story Weaver](ideas/2026-05-17-niche-legacy-story-weaver.md)
-
-AI agents transform family photos, voice notes, documents, and anecdotes into legacy books, videos, podcasts, or memory vaults.
-
-### [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md)
-
-A done-for-you AI automation service handles repetitive admin for solo or small real estate teams on a recurring retainer.
