@@ -52,3 +52,19 @@ A one-person operator plus agents turns a week's traces and product spec into a 
 ### [Same-Week Close-the-Loop Audit Pack for Solo Operators](ideas/2026-09-18-close-the-loop-audit-pack.md)
 
 A one-person operator plus agents turns a week's "done" drafts, tool logs, and outboxes into a cited close-the-loop pack so the solo can see what actually shipped instead of trusting a green check.
+
+### [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md)
+
+A one-person operator plus agents turns a dead agent run into a cited resume pack so the next human or agent can continue the work instead of restarting from a chat dump.
+
+### [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md)
+
+A one-person operator plus agents turns a week's bank, ads, CRM, and agent traces into a cited diagnosis pack so the solo can change one lever instead of letting agents keep a sick shop moving.
+
+### [Same-Week Agent-Payable Tool Listing Pack for Solo Builders](ideas/2026-09-16-agent-payable-tool-listing-pack.md)
+
+A one-person operator plus agents turns a one-job capability into a cited, agent-readable tool listing with test key, docs, and meter so other agents can pay per call instead of the builder shipping another demo.
+
+### [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md)
+
+A one-person operator plus agents turns a week's threads, quotes, and a 20-minute voice dump into a cited judgment-rule pack so the solo can hand exceptions to an agent instead of living in approval pings.
