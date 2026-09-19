@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 37
+Total ideas: 38
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-19 | [Same-Week Agent Skill Harvest Pack for Solo Shops](ideas/2026-09-19-skill-harvest-pack.md) | ready | agent skills | small | per-pack fees and monthly retainers | `agents`, `skills`, `gtm`, `freelance`, `indie-hackers`, `small-business`, `services`, `b2b` |
 | 2026-09-19 | [Same-Week Agent Approval-Lane Pack for Solo Operators](ideas/2026-09-19-agent-approval-lane-pack.md) | ready | agent governance | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `approvals`, `guardrails`, `services`, `b2b` |
 | 2026-09-18 | [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md) | ready | agent evaluation | small | per-pack fees and weekly regression retainers | `agents`, `evals`, `qa`, `freelance`, `indie-hackers`, `developer-tools`, `services`, `b2b` |
 | 2026-09-18 | [Same-Week Close-the-Loop Audit Pack for Solo Operators](ideas/2026-09-18-close-the-loop-audit-pack.md) | ready | agent verification | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `verification`, `workflows`, `services`, `b2b` |
@@ -46,6 +47,10 @@ Total ideas: 37
 
 ## Summaries
 
+### [Same-Week Agent Skill Harvest Pack for Solo Shops](ideas/2026-09-19-skill-harvest-pack.md)
+
+A one-person operator plus agents turns a week's real jobs, tool traces, and voice notes into three cited, paste-ready agent skills so the solo stops collecting other people's skill files and starts shipping their own.
+
 ### [Same-Week Agent Approval-Lane Pack for Solo Operators](ideas/2026-09-19-agent-approval-lane-pack.md)
 
 A one-person operator plus agents turns a week's tools, send rights, and high-risk actions into a cited approval-lane pack so the solo can let agents prepare work without giving them execute rights.
@@ -53,23 +58,3 @@ A one-person operator plus agents turns a week's tools, send rights, and high-ri
 ### [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md)
 
 A one-person operator plus agents turns a week's traces and product spec into a 30-item cited golden set plus a one-pass regression so the solo can score the agent instead of trusting a demo.
-
-### [Same-Week Close-the-Loop Audit Pack for Solo Operators](ideas/2026-09-18-close-the-loop-audit-pack.md)
-
-A one-person operator plus agents turns a week's "done" drafts, tool logs, and outboxes into a cited close-the-loop pack so the solo can see what actually shipped instead of trusting a green check.
-
-### [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md)
-
-A one-person operator plus agents turns a dead agent run into a cited resume pack so the next human or agent can continue the work instead of restarting from a chat dump.
-
-### [Same-Week Why-It's-Not-Working Diagnosis Pack for Solo Shops](ideas/2026-09-17-why-not-working-diagnosis-pack.md)
-
-A one-person operator plus agents turns a week's bank, ads, CRM, and agent traces into a cited diagnosis pack so the solo can change one lever instead of letting agents keep a sick shop moving.
-
-### [Same-Week Agent-Payable Tool Listing Pack for Solo Builders](ideas/2026-09-16-agent-payable-tool-listing-pack.md)
-
-A one-person operator plus agents turns a one-job capability into a cited, agent-readable tool listing with test key, docs, and meter so other agents can pay per call instead of the builder shipping another demo.
-
-### [Same-Week Judgment-Rule Harvest Pack for Solopreneurs](ideas/2026-09-16-judgment-rule-harvest-pack.md)
-
-A one-person operator plus agents turns a week's threads, quotes, and a 20-minute voice dump into a cited judgment-rule pack so the solo can hand exceptions to an agent instead of living in approval pings.
