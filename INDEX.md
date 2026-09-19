@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 36
+Total ideas: 37
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-19 | [Same-Week Agent Approval-Lane Pack for Solo Operators](ideas/2026-09-19-agent-approval-lane-pack.md) | ready | agent governance | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `approvals`, `guardrails`, `services`, `b2b` |
 | 2026-09-18 | [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md) | ready | agent evaluation | small | per-pack fees and weekly regression retainers | `agents`, `evals`, `qa`, `freelance`, `indie-hackers`, `developer-tools`, `services`, `b2b` |
 | 2026-09-18 | [Same-Week Close-the-Loop Audit Pack for Solo Operators](ideas/2026-09-18-close-the-loop-audit-pack.md) | ready | agent verification | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `verification`, `workflows`, `services`, `b2b` |
 | 2026-09-17 | [Same-Week Agent Session Handoff Pack for Solo Operators](ideas/2026-09-17-agent-session-handoff-pack.md) | ready | agent collaboration | small | per-pack fees and monthly retainers | `agents`, `sessions`, `handoff`, `developer-tools`, `freelance`, `indie-hackers`, `services`, `b2b` |
@@ -44,6 +45,10 @@ Total ideas: 36
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Approval-Lane Pack for Solo Operators](ideas/2026-09-19-agent-approval-lane-pack.md)
+
+A one-person operator plus agents turns a week's tools, send rights, and high-risk actions into a cited approval-lane pack so the solo can let agents prepare work without giving them execute rights.
 
 ### [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md)
 
