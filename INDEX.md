@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 38
+Total ideas: 39
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-20 | [Same-Week Agent Undo Pack for Solo Operators](ideas/2026-09-20-agent-undo-pack.md) | ready | agent recovery | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `rollback`, `kill-switch`, `cms`, `services`, `b2b` |
 | 2026-09-19 | [Same-Week Agent Skill Harvest Pack for Solo Shops](ideas/2026-09-19-skill-harvest-pack.md) | ready | agent skills | small | per-pack fees and monthly retainers | `agents`, `skills`, `gtm`, `freelance`, `indie-hackers`, `small-business`, `services`, `b2b` |
 | 2026-09-19 | [Same-Week Agent Approval-Lane Pack for Solo Operators](ideas/2026-09-19-agent-approval-lane-pack.md) | ready | agent governance | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `approvals`, `guardrails`, `services`, `b2b` |
 | 2026-09-18 | [Same-Week Golden-Set Eval Pack for Solo Agent Shops](ideas/2026-09-18-golden-set-eval-pack.md) | ready | agent evaluation | small | per-pack fees and weekly regression retainers | `agents`, `evals`, `qa`, `freelance`, `indie-hackers`, `developer-tools`, `services`, `b2b` |
@@ -46,6 +47,10 @@ Total ideas: 38
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Undo Pack for Solo Operators](ideas/2026-09-20-agent-undo-pack.md)
+
+A one-person operator plus agents turns a week's live writes into a cited undo pack so the solo can reverse, freeze, or stop an agent that already touched a site, CRM, or repo.
 
 ### [Same-Week Agent Skill Harvest Pack for Solo Shops](ideas/2026-09-19-skill-harvest-pack.md)
 
