@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 40
+Total ideas: 41
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-21 | [Same-Week Agent Spend Attribution Pack for Solo Operators](ideas/2026-09-21-agent-spend-attribution-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `costs`, `invoices`, `attribution`, `services`, `b2b` |
 | 2026-09-20 | [Same-Week Niche Growth Autopsy + AI Monologue Pack](ideas/2026-09-20-niche-growth-autopsy-pack.md) | ready | content intelligence | small | per-pack fees and weekly podcast retainers | `agents`, `ecom`, `podcast`, `research`, `gtm`, `freelance`, `indie-hackers`, `services`, `b2b` |
 | 2026-09-20 | [Same-Week Agent Undo Pack for Solo Operators](ideas/2026-09-20-agent-undo-pack.md) | ready | agent recovery | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `rollback`, `kill-switch`, `cms`, `services`, `b2b` |
 | 2026-09-19 | [Same-Week Agent Skill Harvest Pack for Solo Shops](ideas/2026-09-19-skill-harvest-pack.md) | ready | agent skills | small | per-pack fees and monthly retainers | `agents`, `skills`, `gtm`, `freelance`, `indie-hackers`, `small-business`, `services`, `b2b` |
@@ -48,6 +49,10 @@ Total ideas: 40
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Spend Attribution Pack for Solo Operators](ideas/2026-09-21-agent-spend-attribution-pack.md)
+
+A one-person operator plus agents turns a week's model invoices and run logs into a cited spend map so the solo can see which agent, job, and loop burned the tokens before the next bill.
 
 ### [Same-Week Niche Growth Autopsy + AI Monologue Pack](ideas/2026-09-20-niche-growth-autopsy-pack.md)
 
