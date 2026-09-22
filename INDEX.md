@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 42
+Total ideas: 43
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-09-22 | [Same-Week Agent Collision Map Pack for Solo Operators](ideas/2026-09-22-agent-collision-map-pack.md) | ready | agent coordination | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `coordination`, `ownership`, `collisions`, `services`, `b2b` |
 | 2026-09-21 | [Same-Night Game-Thread Local Offer Pack](ideas/2026-09-21-game-night-local-offer-pack.md) | ready | local distribution operations | small | per-pack fees and game-week retainers | `agents`, `local-business`, `sports`, `x`, `content`, `newsletters`, `services`, `b2b` |
 | 2026-09-21 | [Same-Week Agent Spend Attribution Pack for Solo Operators](ideas/2026-09-21-agent-spend-attribution-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `costs`, `invoices`, `attribution`, `services`, `b2b` |
 | 2026-09-20 | [Same-Week Niche Growth Autopsy + AI Monologue Pack](ideas/2026-09-20-niche-growth-autopsy-pack.md) | ready | content intelligence | small | per-pack fees and weekly podcast retainers | `agents`, `ecom`, `podcast`, `research`, `gtm`, `freelance`, `indie-hackers`, `services`, `b2b` |
@@ -50,6 +51,10 @@ Total ideas: 42
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Collision Map Pack for Solo Operators](ideas/2026-09-22-agent-collision-map-pack.md)
+
+A one-person operator plus agents turns a solo's agent roster and shared surfaces into a cited collision map so two agents stop editing the same inbox, calendar, CMS, or repo.
 
 ### [Same-Night Game-Thread Local Offer Pack](ideas/2026-09-21-game-night-local-offer-pack.md)
 
