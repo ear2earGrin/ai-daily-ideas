@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 44
+Total ideas: 45
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | ---
+| 2026-09-23 | [Same-Week Agent Probation Onboarding Pack for Solo Operators](ideas/2026-09-23-agent-probation-onboarding-pack.md) | ready | agent onboarding | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `onboarding`, `probation`, `permissions`, `services`, `b2b` |
 | 2026-09-22 | [Same-Week Reddit Reality-Check Pack for AI Product Recs](ideas/2026-09-22-reddit-reality-check-pack.md) | ready | purchase verification | small | per-pack fees and monthly retainers | `agents`, `reddit`, `ecommerce`, `shopping`, `trust`, `reviews`, `indie-hackers`, `services`, `b2b`, `b2c` |
 | 2026-09-22 | [Same-Week Agent Collision Map Pack for Solo Operators](ideas/2026-09-22-agent-collision-map-pack.md) | ready | agent coordination | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `coordination`, `ownership`, `collisions`, `services`, `b2b` |
 | 2026-09-21 | [Same-Night Game-Thread Local Offer Pack](ideas/2026-09-21-game-night-local-offer-pack.md) | ready | local distribution operations | small | per-pack fees and game-week retainers | `agents`, `local-business`, `sports`, `x`, `content`, `newsletters`, `services`, `b2b` |
@@ -52,6 +53,10 @@ Total ideas: 44
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Probation Onboarding Pack for Solo Operators](ideas/2026-09-23-agent-probation-onboarding-pack.md)
+
+A one-person operator plus agents turns a new agent and its first-week traces into a cited probation pack so the solo can keep read-only access until the agent earns one write surface.
 
 ### [Same-Week Reddit Reality-Check Pack for AI Product Recs](ideas/2026-09-22-reddit-reality-check-pack.md)
 
