@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 46
+Total ideas: 47
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | ---
+| 2026-09-24 | [Same-Week Buyer-Agent Visibility Pack for Solo Shops](ideas/2026-09-24-buyer-agent-visibility-pack.md) | ready | agent discoverability | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `llms-txt`, `mcp`, `visibility`, `services`, `b2b` |
 | 2026-09-23 | [Same-Week Ship Receipt + Distribution Floor Pack for Solo Builders](ideas/2026-09-23-ship-receipt-distribution-floor-pack.md) | ready | launch distribution | small | per-pack fees and monthly retainers | `agents`, `indie-hackers`, `launch`, `x`, `content`, `marketplace`, `publishing`, `services`, `b2b` |
 | 2026-09-23 | [Same-Week Agent Probation Onboarding Pack for Solo Operators](ideas/2026-09-23-agent-probation-onboarding-pack.md) | ready | agent onboarding | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `onboarding`, `probation`, `permissions`, `services`, `b2b` |
 | 2026-09-22 | [Same-Week Reddit Reality-Check Pack for AI Product Recs](ideas/2026-09-22-reddit-reality-check-pack.md) | ready | purchase verification | small | per-pack fees and monthly retainers | `agents`, `reddit`, `ecommerce`, `shopping`, `trust`, `reviews`, `indie-hackers`, `services`, `b2b`, `b2c` |
@@ -54,6 +55,10 @@ Total ideas: 46
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Buyer-Agent Visibility Pack for Solo Shops](ideas/2026-09-24-buyer-agent-visibility-pack.md)
+
+A one-person operator plus agents turns a shop's public site, docs, and pricing into a cited buyer-agent visibility pack so purchasing agents and answer engines can find, trust, and choose them.
 
 ### [Same-Week Ship Receipt + Distribution Floor Pack for Solo Builders](ideas/2026-09-23-ship-receipt-distribution-floor-pack.md)
 
