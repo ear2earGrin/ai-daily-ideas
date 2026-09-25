@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 48
+Total ideas: 49
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | ---
+| 2026-09-25 | [Same-Week Overnight Ops Floor Pack for Solo Shops](ideas/2026-09-25-overnight-ops-floor-pack.md) | ready | overnight agent operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `shopify`, `spend-cap`, `scorecard`, `services`, `b2b` |
 | 2026-09-24 | [Same-Week Prompt-to-Fixture Spec Pack for Local Makers](ideas/2026-09-24-prompt-to-fixture-spec-pack.md) | ready | custom fabrication operations | small | per-pack fees and monthly retainers | `agents`, `makers`, `3d-print`, `hardware`, `local-business`, `quotes`, `bom`, `services`, `b2b` |
 | 2026-09-24 | [Same-Week Buyer-Agent Visibility Pack for Solo Shops](ideas/2026-09-24-buyer-agent-visibility-pack.md) | ready | agent discoverability | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `llms-txt`, `mcp`, `visibility`, `services`, `b2b` |
 | 2026-09-23 | [Same-Week Ship Receipt + Distribution Floor Pack for Solo Builders](ideas/2026-09-23-ship-receipt-distribution-floor-pack.md) | ready | launch distribution | small | per-pack fees and monthly retainers | `agents`, `indie-hackers`, `launch`, `x`, `content`, `marketplace`, `publishing`, `services`, `b2b` |
@@ -56,6 +57,10 @@ Total ideas: 48
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Overnight Ops Floor Pack for Solo Shops](ideas/2026-09-25-overnight-ops-floor-pack.md)
+
+A one-person operator plus agents turns a shop's live tools, spend history, and morning VA checklist into a cited overnight ops floor so agents can work while the owner sleeps without inventing spend or touching money-blind tasks.
 
 ### [Same-Week Prompt-to-Fixture Spec Pack for Local Makers](ideas/2026-09-24-prompt-to-fixture-spec-pack.md)
 
