@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 52
+Total ideas: 53
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- |
+| 2026-09-27 | [Same-Week Persona Landing Eval Pack for Solo Launches](ideas/2026-09-27-persona-landing-eval-pack.md) | ready | launch conversion operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `landing-page`, `personas`, `ab-test`, `gtm`, `services`, `b2b` |
 | 2026-09-27 | [Same-Week One-Job Agent Charter Pack for Solo Operators](ideas/2026-09-27-one-job-agent-charter-pack.md) | ready | agent job design | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `jobs`, `schedules`, `skills`, `governance`, `services`, `b2b` |
 | 2026-09-26 | [Same-Week Self-Heal Diff Pack for Solo Automation Shops](ideas/2026-09-26-self-heal-diff-pack.md) | ready | workflow self-heal operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `n8n`, `zapier`, `make`, `workflows`, `self-heal`, `services`, `b2b` |
 | 2026-09-25 | [Same-Week Holiday Gift-Window Floor Pack for Makers and Local Shops](ideas/2026-09-25-holiday-gift-window-floor-pack.md) | ready | seasonal fulfillment operations | small | per-pack fees and seasonal retainers | `agents`, `makers`, `etsy`, `local-business`, `mid-autumn`, `holidays`, `preorders`, `gift-wrap`, `services`, `b2b` |
@@ -61,6 +62,10 @@ Total ideas: 52
 
 ## Summaries
 
+### [Same-Week Persona Landing Eval Pack for Solo Launches](ideas/2026-09-27-persona-landing-eval-pack.md)
+
+A one-person operator plus agents turns a live landing page, three buyer personas, and last-week traffic notes into a cited persona-eval pack so copy and CTA changes are scored against named buyers instead of vibes.
+
 ### [Same-Week One-Job Agent Charter Pack for Solo Operators](ideas/2026-09-27-one-job-agent-charter-pack.md)
 
 A one-person operator plus agents turns a solo's live bots, tool list, and last-week traces into a cited one-job charter so each agent has one job, one schedule, and a human review gate instead of a personality.
@@ -76,19 +81,3 @@ A one-person operator plus agents turns a shop's live SKUs, cutoff dates, pickup
 ### [Same-Week Overnight Ops Floor Pack for Solo Shops](ideas/2026-09-25-overnight-ops-floor-pack.md)
 
 A one-person operator plus agents turns a shop's live tools, spend history, and morning VA checklist into a cited overnight ops floor so agents can work while the owner sleeps without inventing spend or touching money-blind tasks.
-
-### [Same-Week Prompt-to-Fixture Spec Pack for Local Makers](ideas/2026-09-24-prompt-to-fixture-spec-pack.md)
-
-A one-person operator plus agents turns a customer's photo, dimensions, and a one-line request into a cited fixture spec, printable-or-source BOM, and quote card a local maker can send the same week.
-
-### [Same-Week Buyer-Agent Visibility Pack for Solo Shops](ideas/2026-09-24-buyer-agent-visibility-pack.md)
-
-A one-person operator plus agents turns a shop's public site, docs, and pricing into a cited buyer-agent visibility pack so purchasing agents and answer engines can find, trust, and choose them.
-
-### [Same-Week Ship Receipt + Distribution Floor Pack for Solo Builders](ideas/2026-09-23-ship-receipt-distribution-floor-pack.md)
-
-A one-person operator plus agents turns this week's actual ship artifacts into a cited ship receipt and a 7-day distribution floor so a solo can post, list, and follow up without inventing metrics.
-
-### [Same-Week Agent Probation Onboarding Pack for Solo Operators](ideas/2026-09-23-agent-probation-onboarding-pack.md)
-
-A one-person operator plus agents turns a new agent and its first-week traces into a cited probation pack so the solo can keep read-only access until the agent earns one write surface.
