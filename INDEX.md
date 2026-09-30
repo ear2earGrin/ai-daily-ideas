@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 57
+Total ideas: 58
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
+| 2026-09-30 | [Same-Week Connector Blast-Radius Pack for Solo Shops](ideas/2026-09-30-connector-blast-radius-pack.md) | ready | agent permission operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `oauth`, `connectors`, `shopify`, `stripe`, `slack`, `muse`, `safety`, `services`, `b2b` |
 | 2026-09-29 | [Same-Week Model-Drop Positioning Pack for Indie AI Sellers](ideas/2026-09-29-model-drop-positioning-pack.md) | ready | launch conversion operations | small | per-pack fees and monthly retainers | `agents`, `indie-hackers`, `saas`, `gtm`, `landing-page`, `models`, `sonnet`, `devday`, `x`, `services`, `b2b` |
 | 2026-09-29 | [Same-Week Sticky-Portal Runbook Pack for Solo Shops](ideas/2026-09-29-sticky-portal-runbook-pack.md) | ready | portal operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `browser-automation`, `portals`, `logins`, `selectors`, `prior-auth`, `services`, `b2b` |
 | 2026-09-28 | [Same-Week Cross-Border VAT Packet Desk for EU Solo Sellers](ideas/2026-09-28-cross-border-vat-packet-desk.md) | ready | freelance finance operations | small | per-pack fees and quarterly retainers | `agents`, `freelance`, `indie-hackers`, `ecommerce`, `vat`, `oss`, `ioss`, `stripe`, `eu`, `bookkeeping`, `services`, `b2b` |
@@ -65,6 +66,10 @@ Total ideas: 57
 | 2026-05-14 | [AI Automation Digital Plumber Service for Small Real Estate Agents](ideas/2026-05-14-real-estate-digital-plumber.md) | ready | real estate operations | medium | monthly retainers | `agents`, `real-estate`, `automation`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Connector Blast-Radius Pack for Solo Shops](ideas/2026-09-30-connector-blast-radius-pack.md)
+
+A one-person operator plus agents turns last week's OAuth and connector grants into a cited blast-radius pack so solos stop giving one agent write access to Shopify, Stripe, Slack, and the books at the same time.
 
 ### [Same-Week Model-Drop Positioning Pack for Indie AI Sellers](ideas/2026-09-29-model-drop-positioning-pack.md)
 
