@@ -2,15 +2,20 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 60
+Total ideas: 61
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-01 | [Same-Day Odd-Job Proof Listing Pack for Agent Marketplaces](ideas/2026-10-01-odd-job-proof-listing-pack.md) | ready | agent marketplace reputation | small | per-pack fees and proof-job retainers | `agents`, `freelance`, `indie-hackers`, `marketplace`, `reputation`, `micro-job`, `skills`, `services`, `fun` |
 | 2026-10-01 | [Same-Week Client Experiment Freeze Pack for Agency Stacks](ideas/2026-10-01-client-experiment-freeze-pack.md) | ready | client change-window operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `sandbox`, `freeze`, `access`, `change-window`, `services`, `b2b` |
 | 2026-09-30 | [Same-Week SKILL.md Hire-Surface Pack for Solo Shops](ideas/2026-09-30-skillmd-hire-surface-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `skill-md`, `marketplace`, `x402`, `near`, `bounties`, `services`, `b2b` |
 | 2026-09-30 | [Same-Week Connector Blast-Radius Pack for Solo Shops](ideas/2026-09-30-connector-blast-radius-pack.md) | ready | agent permission operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `oauth`, `connectors`, `shopify`, `stripe`, `slack`, `muse`, `safety`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Day Odd-Job Proof Listing Pack for Agent Marketplaces](ideas/2026-10-01-odd-job-proof-listing-pack.md)
+
+A one-person operator plus agents turns one oddly specific skill into a cited $1–$20 proof listing so a solo can seed marketplace reputation before selling the real service.
 
 ### [Same-Week Client Experiment Freeze Pack for Agency Stacks](ideas/2026-10-01-client-experiment-freeze-pack.md)
 
