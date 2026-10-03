@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 63
+Total ideas: 64
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-03 | [Same-Day Confidence-Trap Floor for Solo Service Agents](ideas/2026-10-03-confidence-trap-floor.md) | ready | agent answer boundaries | small | per-floor fees and monthly refusal retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `chat`, `pricing`, `booking`, `refusal`, `evals`, `services`, `b2b` |
 | 2026-10-02 | [Same-Day Chat Try-On Claim Card for Small Apparel](ideas/2026-10-02-chat-tryon-claim-card.md) | ready | chat commerce fit claims | small | per-SKU pack fees and monthly claim-desk retainers | `agents`, `ecommerce`, `apparel`, `shopify`, `chatgpt`, `try-on`, `returns`, `support`, `services`, `b2b` |
 | 2026-10-02 | [Same-Day Agent Counterparty Card for Solo Hires](ideas/2026-10-02-agent-counterparty-card.md) | ready | agent hire due diligence | small | per-card fees and hire-review retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `identity`, `reputation`, `escrow`, `invoice`, `services`, `b2b` |
 | 2026-10-01 | [Same-Day Odd-Job Proof Listing Pack for Agent Marketplaces](ideas/2026-10-01-odd-job-proof-listing-pack.md) | ready | agent marketplace reputation | small | per-pack fees and proof-job retainers | `agents`, `freelance`, `indie-hackers`, `marketplace`, `reputation`, `micro-job`, `skills`, `services`, `fun` |
@@ -14,6 +15,10 @@ Total ideas: 63
 | 2026-09-30 | [Same-Week Connector Blast-Radius Pack for Solo Shops](ideas/2026-09-30-connector-blast-radius-pack.md) | ready | agent permission operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `oauth`, `connectors`, `shopify`, `stripe`, `slack`, `muse`, `safety`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Day Confidence-Trap Floor for Solo Service Agents](ideas/2026-10-03-confidence-trap-floor.md)
+
+A one-person operator plus agents turns a solo service bot into a cited refusal floor so it stops inventing prices, deadlines, and policies and says when it does not know or does not understand.
 
 ### [Same-Day Chat Try-On Claim Card for Small Apparel](ideas/2026-10-02-chat-tryon-claim-card.md)
 
