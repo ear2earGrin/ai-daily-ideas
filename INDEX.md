@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 66
+Total ideas: 67
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-04 | [Same-Day Handoff Loss Card for Client Threads](ideas/2026-10-04-handoff-loss-card.md) | ready | agent handoff compression | small | per-card fees and monthly thread retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `handoff`, `summaries`, `whatsapp`, `sales`, `services`, `b2b` |
 | 2026-10-04 | [Same-Day Checkout State Card for Small Shops](ideas/2026-10-04-checkout-state-card.md) | ready | agent checkout disagreement | small | per-card fees and weekly cart retainers | `agents`, `ecommerce`, `shopify`, `checkout`, `webmcp`, `indie-hackers`, `small-business`, `pricing`, `discounts`, `services`, `b2b` |
 | 2026-10-03 | [Same-Day Sideline Presence Card for Parents Who Ship From the Pitch](ideas/2026-10-03-sideline-presence-card.md) | ready | parent memory capture | small | per-card fees and a small monthly memory retainer | `agents`, `parents`, `memory`, `voice-notes`, `photos`, `indie-hackers`, `solo-founder`, `services`, `fun` |
 | 2026-10-03 | [Same-Day Confidence-Trap Floor for Solo Service Agents](ideas/2026-10-03-confidence-trap-floor.md) | ready | agent answer boundaries | small | per-floor fees and monthly refusal retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `chat`, `pricing`, `booking`, `refusal`, `evals`, `services`, `b2b` |
@@ -16,6 +17,10 @@ Total ideas: 66
 | 2026-09-30 | [Same-Week SKILL.md Hire-Surface Pack for Solo Shops](ideas/2026-09-30-skillmd-hire-surface-pack.md) | ready | agent marketplace operations | small | per-pack fees and monthly retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `skill-md`, `marketplace`, `x402`, `near`, `bounties`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Day Handoff Loss Card for Client Threads](ideas/2026-10-04-handoff-loss-card.md)
+
+A one-person operator plus agents turns one client thread and the two AI summaries already written from it into a cited handoff loss card so a solo shop can see which facts died between sales and the next brief before anyone acts on the compressed version.
 
 ### [Same-Day Checkout State Card for Small Shops](ideas/2026-10-04-checkout-state-card.md)
 
