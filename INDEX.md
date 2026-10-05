@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 69
+Total ideas: 70
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-05 | [Same-Day Booking Sideways Card for Voice and Front-Desk Agents](ideas/2026-10-05-booking-sideways-card.md) | ready | booking agent failure | small | per-card fees and weekly failure retainers | `agents`, `voice`, `booking`, `local-business`, `clinics`, `trades`, `indie-hackers`, `services`, `b2b` |
 | 2026-10-05 | [Same-Day Quiet Send Check for Solo Agent Stacks](ideas/2026-10-05-quiet-send-check.md) | ready | agent outbound audit | small | per-check fees and weekly send retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `email`, `quotes`, `booking`, `audit`, `services`, `b2b` |
 | 2026-10-04 | [Same-Day Checkout State Card for Small Shops](ideas/2026-10-04-checkout-state-card.md) | ready | agent checkout disagreement | small | per-card fees and weekly cart retainers | `agents`, `ecommerce`, `shopify`, `checkout`, `webmcp`, `indie-hackers`, `small-business`, `pricing`, `discounts`, `services`, `b2b` |
 | 2026-10-04 | [Same-Day Handoff Loss Card for Client Threads](ideas/2026-10-04-handoff-loss-card.md) | ready | agent handoff compression | small | per-card fees and monthly thread retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `handoff`, `summaries`, `whatsapp`, `sales`, `services`, `b2b` |
