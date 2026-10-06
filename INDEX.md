@@ -2,11 +2,12 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 71
+Total ideas: 72
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2026-10-06 | [Same-Day False-Explanation Card for Solo Agent Stacks](ideas/2026-10-06-false-explanation-card.md) | ready | agent action explanations | small | per-card fees and weekly explanation retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `muse`, `stripe`, `shopify`, `refunds`, `cancellations`, `audit`, `services`, `b2b` |
+| 2026-10-06 | [Same-Week NISSEF Readiness Pack for Bulgarian SMEs](ideas/2026-10-06-nissef-readiness-pack.md) | ready | tax compliance operations | small | per-pack fees and accountant retainers | `agents`, `bulgaria`, `e-invoicing`, `nissef`, `vat`, `accountants`, `sme`, `compliance`, `services`, `b2b` |
 | 2026-10-05 | [Same-Day Booking Sideways Card for Voice and Front-Desk Agents](ideas/2026-10-05-booking-sideways-card.md) | ready | booking agent failure | small | per-card fees and weekly failure retainers | `agents`, `voice`, `booking`, `local-business`, `clinics`, `trades`, `indie-hackers`, `services`, `b2b` |
 | 2026-10-05 | [Same-Day Quiet Send Check for Solo Agent Stacks](ideas/2026-10-05-quiet-send-check.md) | ready | agent outbound audit | small | per-check fees and weekly send retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `email`, `quotes`, `booking`, `audit`, `services`, `b2b` |
 | 2026-10-04 | [Same-Day Checkout State Card for Small Shops](ideas/2026-10-04-checkout-state-card.md) | ready | agent checkout disagreement | small | per-card fees and weekly cart retainers | `agents`, `ecommerce`, `shopify`, `checkout`, `webmcp`, `indie-hackers`, `small-business`, `pricing`, `discounts`, `services`, `b2b` |
@@ -83,6 +84,10 @@ Total ideas: 71
 ### [Same-Day False-Explanation Card for Solo Agent Stacks](ideas/2026-10-06-false-explanation-card.md)
 
 A one-person operator plus agents turns an agent's own story of what it cancelled, refunded, or changed into a cited false-explanation card so a solo shop can see where the recap disagrees with the log before the next approval.
+
+### [Same-Week NISSEF Readiness Pack for Bulgarian SMEs](ideas/2026-10-06-nissef-readiness-pack.md)
+
+A one-person operator plus agents turns a Bulgarian firm's current invoices and accounting-tool name into a cited NISSEF gap pack so an accountant can tell a client what still breaks if B2B e-invoicing becomes mandatory in 2028.
 
 ### [Same-Day Quiet Send Check for Solo Agent Stacks](ideas/2026-10-05-quiet-send-check.md)
 
