@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 74
+Total ideas: 75
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-08 | [Same-Day Ranking-Signal Posting Card for Solo Builders](ideas/2026-10-08-ranking-signal-posting-card.md) | ready | public posting operations | small | per-card fees and weekly posting retainers | `agents`, `indie-hackers`, `build-in-public`, `x`, `algorithm`, `content`, `distribution`, `services`, `b2b`, `fun` |
 | 2026-10-08 | [Same-Day Wrong-Room Card for Solo Agent Sends](ideas/2026-10-08-wrong-room-card.md) | ready | agent audience control | small | per-card fees and weekly send retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `privacy`, `crm`, `email`, `whatsapp`, `misread`, `services`, `b2b` |
 | 2026-10-07 | [Same-Day Automation Quote-Gap Card for Solo Sellers](ideas/2026-10-07-automation-quote-gap-card.md) | ready | automation sales operations | small | per-card fees and quote-desk retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `automation`, `quotes`, `roi`, `retainers`, `services`, `b2b` |
 | 2026-10-06 | [Same-Day False-Explanation Card for Solo Agent Stacks](ideas/2026-10-06-false-explanation-card.md) | ready | agent action explanations | small | per-card fees and weekly explanation retainers | `agents`, `freelance`, `indie-hackers`, `small-business`, `muse`, `stripe`, `shopify`, `refunds`, `cancellations`, `audit`, `services`, `b2b` |
