@@ -6,11 +6,16 @@ Total ideas: 70+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-12 | [Consumer Inertia Audit Pack](ideas/2026-10-12-consumer-inertia-audit-pack.md) | ready | consumer finance / subscriptions | small | per-audit fees and monthly retainers | `agents`, `consumer`, `subscriptions`, `refunds`, `savings`, `b2c`, `personal-finance` |
 | 2026-10-11 | [Agent-Ready Standardization Pack for Solopreneurs](ideas/2026-10-11-agent-ready-standardization-pack.md) | ready | business operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `standardization`, `workflows`, `templates`, `b2b` |
 | 2026-10-10 | [Speed-to-Lead Quote Pack for Local Service Pros](ideas/2026-10-10-speed-to-lead-quote-pack.md) | ready | lead response operations | small | per-pack fees and monthly retainers | `agents`, `local-services`, `leads`, `quotes`, `b2b`, `services` |
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Consumer Inertia Audit Pack](ideas/2026-10-12-consumer-inertia-audit-pack.md)
+
+A one-person operator plus agents turns a customer's email exports, statements, or inbox screenshots into a cited inertia audit listing active subscriptions, potential savings from cancels/negotiations/switches, ready-to-send action scripts, and comparison links.
 
 ### [Agent-Ready Standardization Pack for Solopreneurs](ideas/2026-10-11-agent-ready-standardization-pack.md)
 
