@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 71+
+Total ideas: 72+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-13 | [Pre-Run Certainty Boundary Pack for Agent Retainer Sellers](ideas/2026-10-13-agent-certainty-boundary-pack.md) | ready | agent service operations | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `certainty`, `reliability`, `n8n`, `services`, `b2b` |
 | 2026-10-12 | [Same-Week Agent Exception Review Pack for Solo Studios](ideas/2026-10-12-agent-exception-review-pack.md) | ready | agent governance operations | small | per-pack fees and weekly retainers | `agents`, `solopreneur`, `freelance`, `indie-hackers`, `small-business`, `governance`, `exceptions`, `oversight`, `review`, `safety`, `services`, `b2b` |
 | 2026-10-12 | [Consumer Inertia Audit Pack](ideas/2026-10-12-consumer-inertia-audit-pack.md) | ready | consumer finance / subscriptions | small | per-audit fees and monthly retainers | `agents`, `consumer`, `subscriptions`, `refunds`, `savings`, `b2c`, `personal-finance` |
 | 2026-10-11 | [Agent-Ready Standardization Pack for Solopreneurs](ideas/2026-10-11-agent-ready-standardization-pack.md) | ready | business operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `standardization`, `workflows`, `templates`, `b2b` |
@@ -13,6 +14,10 @@ Total ideas: 71+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Pre-Run Certainty Boundary Pack for Agent Retainer Sellers](ideas/2026-10-13-agent-certainty-boundary-pack.md)
+
+A one-person operator plus agents turns a proposed agent workflow description, tool list, and sample runs into a cited certainty boundary pack so an indie hacker can sell a monthly agent-running retainer without hidden babysitting or surprise blowups.
 
 ### [Same-Week Agent Exception Review Pack for Solo Studios](ideas/2026-10-12-agent-exception-review-pack.md)
 
