@@ -6,6 +6,7 @@ Total ideas: 73+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-15 | [Same-Week Agent Runtime Cost Estimate Pack for Retainer Sellers](ideas/2026-10-15-agent-runtime-cost-estimate-pack.md) | ready | agent economics | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `costs`, `pricing`, `estimates`, `services`, `b2b` |
 | 2026-10-14 | [Same-Week Agent Identity Boundary Pack for Solo Client Deployments](ideas/2026-10-14-agent-identity-boundary-pack.md) | ready | agent identity operations | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `identity`, `permissions`, `liability`, `off-switch`, `services`, `b2b` |
 | 2026-10-13 | [Pre-Run Certainty Boundary Pack for Agent Retainer Sellers](ideas/2026-10-13-agent-certainty-boundary-pack.md) | ready | agent service operations | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `certainty`, `reliability`, `n8n`, `services`, `b2b` |
 | 2026-10-12 | [Same-Week Agent Exception Review Pack for Solo Studios](ideas/2026-10-12-agent-exception-review-pack.md) | ready | agent governance operations | small | per-pack fees and weekly retainers | `agents`, `solopreneur`, `freelance`, `indie-hackers`, `small-business`, `governance`, `exceptions`, `oversight`, `review`, `safety`, `services`, `b2b` |
@@ -15,6 +16,10 @@ Total ideas: 73+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Runtime Cost Estimate Pack for Retainer Sellers](ideas/2026-10-15-agent-runtime-cost-estimate-pack.md)
+
+A one-person operator plus agents turns a proposed agent workflow description, expected volume, and tool list into a cited monthly runtime cost estimate pack so an indie hacker can price retainers without surprise API bills or undercharging clients.
 
 ### [Same-Week Agent Identity Boundary Pack for Solo Client Deployments](ideas/2026-10-14-agent-identity-boundary-pack.md)
 
