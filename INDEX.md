@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 73+
+Total ideas: 74+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-16 | [Same-Week Cash Basis Books Reconstruction Pack from Bank PDFs for Solopreneurs](ideas/2026-10-16-cash-books-reconstruction-pack.md) | ready | finance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `accounting`, `bookkeeping`, `cash-basis`, `PDFs`, `bank-statements`, `services`, `b2b` |
 | 2026-10-15 | [Same-Week Agent Runtime Cost Estimate Pack for Retainer Sellers](ideas/2026-10-15-agent-runtime-cost-estimate-pack.md) | ready | agent economics | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `costs`, `pricing`, `estimates`, `services`, `b2b` |
 | 2026-10-14 | [Same-Week Agent Identity Boundary Pack for Solo Client Deployments](ideas/2026-10-14-agent-identity-boundary-pack.md) | ready | agent identity operations | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `identity`, `permissions`, `liability`, `off-switch`, `services`, `b2b` |
 | 2026-10-13 | [Pre-Run Certainty Boundary Pack for Agent Retainer Sellers](ideas/2026-10-13-agent-certainty-boundary-pack.md) | ready | agent service operations | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `certainty`, `reliability`, `n8n`, `services`, `b2b` |
@@ -16,6 +17,10 @@ Total ideas: 73+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Cash Basis Books Reconstruction Pack from Bank PDFs for Solopreneurs](ideas/2026-10-16-cash-books-reconstruction-pack.md)
+
+A one-person operator plus agents turns bank-statement PDFs into a cited cash-basis books reconstruction pack so a solopreneur can see categorized income, expenses, and open questions without clunky software or a bookkeeper.
 
 ### [Same-Week Agent Runtime Cost Estimate Pack for Retainer Sellers](ideas/2026-10-15-agent-runtime-cost-estimate-pack.md)
 
