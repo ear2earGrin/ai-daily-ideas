@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 74+
+Total ideas: 75+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-17 | [Same-Week Agent Access Policy Pack for Small Businesses](ideas/2026-10-17-agent-access-policy-pack.md) | ready | agent security operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `security`, `access-policy`, `least-privilege`, `credentials`, `services`, `b2b` |
 | 2026-10-16 | [Same-Week Cash Basis Books Reconstruction Pack from Bank PDFs for Solopreneurs](ideas/2026-10-16-cash-books-reconstruction-pack.md) | ready | finance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `accounting`, `bookkeeping`, `cash-basis`, `PDFs`, `bank-statements`, `services`, `b2b` |
 | 2026-10-15 | [Same-Week Agent Runtime Cost Estimate Pack for Retainer Sellers](ideas/2026-10-15-agent-runtime-cost-estimate-pack.md) | ready | agent economics | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `costs`, `pricing`, `estimates`, `services`, `b2b` |
 | 2026-10-14 | [Same-Week Agent Identity Boundary Pack for Solo Client Deployments](ideas/2026-10-14-agent-identity-boundary-pack.md) | ready | agent identity operations | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `identity`, `permissions`, `liability`, `off-switch`, `services`, `b2b` |
@@ -17,6 +18,10 @@ Total ideas: 74+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Access Policy Pack for Small Businesses](ideas/2026-10-17-agent-access-policy-pack.md)
+
+A one-person operator plus agents turns a proposed agent setup (tools, credentials, intended actions) into a cited access-policy pack so a small business can deploy agents without leaving full-credential or open-ended liability.
 
 ### [Same-Week Cash Basis Books Reconstruction Pack from Bank PDFs for Solopreneurs](ideas/2026-10-16-cash-books-reconstruction-pack.md)
 
