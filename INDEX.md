@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 75+
+Total ideas: 76+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-18 | [Same-Week Agent Spend Boundary Pack for Solo Operators](ideas/2026-10-18-agent-spend-boundary-pack.md) | ready | agent economics operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `spend`, `wallet`, `budget`, `approval`, `governance`, `services`, `b2b` |
 | 2026-10-17 | [Same-Week Agent Access Policy Pack for Small Businesses](ideas/2026-10-17-agent-access-policy-pack.md) | ready | agent security operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `security`, `access-policy`, `least-privilege`, `credentials`, `services`, `b2b` |
 | 2026-10-16 | [Same-Week Cash Basis Books Reconstruction Pack from Bank PDFs for Solopreneurs](ideas/2026-10-16-cash-books-reconstruction-pack.md) | ready | finance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `accounting`, `bookkeeping`, `cash-basis`, `PDFs`, `bank-statements`, `services`, `b2b` |
 | 2026-10-15 | [Same-Week Agent Runtime Cost Estimate Pack for Retainer Sellers](ideas/2026-10-15-agent-runtime-cost-estimate-pack.md) | ready | agent economics | small | per-pack fees and setup retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `retainers`, `costs`, `pricing`, `estimates`, `services`, `b2b` |
@@ -18,6 +19,10 @@ Total ideas: 75+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Spend Boundary Pack for Solo Operators](ideas/2026-10-18-agent-spend-boundary-pack.md)
+
+A one-person operator plus agents turns a proposed agent workflow that can spend money or hire services into a cited spend-boundary pack so a solopreneur can give an agent a budget without discovering that permission and good judgment are different things.
 
 ### [Same-Week Agent Access Policy Pack for Small Businesses](ideas/2026-10-17-agent-access-policy-pack.md)
 
