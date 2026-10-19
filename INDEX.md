@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 76+
+Total ideas: 77+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-19 | [Same-Week Sales Call Harvest Pack for Solo Campaign Builders](ideas/2026-10-19-sales-call-harvest-pack.md) | ready | marketing operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `sales-calls`, `marketing`, `campaigns`, `landing-pages`, `ads`, `services`, `b2b` |
 | 2026-10-18 | [Same-Week Agent Spend Boundary Pack for Solo Operators](ideas/2026-10-18-agent-spend-boundary-pack.md) | ready | agent economics operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `spend`, `wallet`, `budget`, `approval`, `governance`, `services`, `b2b` |
 | 2026-10-17 | [Same-Week Agent Access Policy Pack for Small Businesses](ideas/2026-10-17-agent-access-policy-pack.md) | ready | agent security operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `security`, `access-policy`, `least-privilege`, `credentials`, `services`, `b2b` |
 | 2026-10-16 | [Same-Week Cash Basis Books Reconstruction Pack from Bank PDFs for Solopreneurs](ideas/2026-10-16-cash-books-reconstruction-pack.md) | ready | finance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `accounting`, `bookkeeping`, `cash-basis`, `PDFs`, `bank-statements`, `services`, `b2b` |
@@ -19,6 +20,10 @@ Total ideas: 76+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Sales Call Harvest Pack for Solo Campaign Builders](ideas/2026-10-19-sales-call-harvest-pack.md)
+
+A one-person operator plus agents turns recent sales call transcripts or notes into a cited harvest pack of objections, landing-page copy, ad angles, and outreach snippets so a solo can ship agent-driven campaigns without sitting on hours of recordings.
 
 ### [Same-Week Agent Spend Boundary Pack for Solo Operators](ideas/2026-10-18-agent-spend-boundary-pack.md)
 
