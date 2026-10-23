@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-23 | [Same-Week Agent Maintainability Floor Pack for Solo Operators](ideas/2026-10-23-agent-maintainability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `maintainability`, `accountability`, `ownership`, `review`, `one-sentence`, `services`, `b2b` |
 | 2026-10-22 | [Same-Week Agent Reviewability Pack for Solo Operators](ideas/2026-10-22-agent-reviewability-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reviewability`, `receipts`, `verification`, `approval`, `handoffs`, `services`, `b2b` |
 | 2026-10-21 | [Same-Week Agent Ownership & Stickiness Pack for Solo Operators](ideas/2026-10-21-agent-ownership-stickiness-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `ownership`, `stickiness`, `handoffs`, `review`, `verification`, `services`, `b2b` |
 | 2026-10-20 | [Same-Week Agent Teammate Roster Pack for Multi-Project Solopreneurs](ideas/2026-10-20-agent-teammate-roster-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `multi-project`, `SOPs`, `context`, `teammates`, `roster`, `services`, `b2b` |
@@ -23,6 +24,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Maintainability Floor Pack for Solo Operators](ideas/2026-10-23-agent-maintainability-floor-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s recent agent-generated artifacts into a cited maintainability floor pack of one-sentence ownership notes, required receipts, escalation rules, and prompt changes so the human can own and evolve the work long-term without re-reading everything.
 
 ### [Same-Week Agent Reviewability Pack for Solo Operators](ideas/2026-10-22-agent-reviewability-pack.md)
 
