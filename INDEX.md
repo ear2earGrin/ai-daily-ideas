@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-24 | [Same-Week Agent Handoff Contract Pack for Solo Multi-Agent Operators](ideas/2026-10-24-agent-handoff-contract-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `handoffs`, `unstick`, `failure-paths`, `parallel`, `contracts`, `services`, `b2b` |
 | 2026-10-23 | [Same-Week Agent Maintainability Floor Pack for Solo Operators](ideas/2026-10-23-agent-maintainability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `maintainability`, `accountability`, `ownership`, `review`, `one-sentence`, `services`, `b2b` |
 | 2026-10-22 | [Same-Week Agent Reviewability Pack for Solo Operators](ideas/2026-10-22-agent-reviewability-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reviewability`, `receipts`, `verification`, `approval`, `handoffs`, `services`, `b2b` |
 | 2026-10-21 | [Same-Week Agent Ownership & Stickiness Pack for Solo Operators](ideas/2026-10-21-agent-ownership-stickiness-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `ownership`, `stickiness`, `handoffs`, `review`, `verification`, `services`, `b2b` |
@@ -24,6 +25,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Handoff Contract Pack for Solo Multi-Agent Operators](ideas/2026-10-24-agent-handoff-contract-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s multi-agent workflow notes or sample run log into a cited handoff contract pack of explicit work contracts, required context packages, unstick/escalation rules, and parallel-run caps so agents stop dropping context or melting resources at handoffs.
 
 ### [Same-Week Agent Maintainability Floor Pack for Solo Operators](ideas/2026-10-23-agent-maintainability-floor-pack.md)
 
