@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-25 | [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reliability`, `production`, `silent-errors`, `timeouts`, `confirmation`, `failure-modes`, `services`, `b2b` |
 | 2026-10-24 | [Same-Week Agent Handoff Contract Pack for Solo Multi-Agent Operators](ideas/2026-10-24-agent-handoff-contract-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `handoffs`, `unstick`, `failure-paths`, `parallel`, `contracts`, `services`, `b2b` |
 | 2026-10-23 | [Same-Week Agent Maintainability Floor Pack for Solo Operators](ideas/2026-10-23-agent-maintainability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `maintainability`, `accountability`, `ownership`, `review`, `one-sentence`, `services`, `b2b` |
 | 2026-10-22 | [Same-Week Agent Reviewability Pack for Solo Operators](ideas/2026-10-22-agent-reviewability-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reviewability`, `receipts`, `verification`, `approval`, `handoffs`, `services`, `b2b` |
@@ -25,6 +26,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md)
+
+A one-person operator plus agents turns a working demo agent (description, sample runs, or traces) into a cited production reliability floor pack of failure-mode tests, silent-error detectors, confirmation rules, timeout/escalation triggers, and a readiness checklist so the agent can be trusted beyond the demo without constant babysitting.
 
 ### [Same-Week Agent Handoff Contract Pack for Solo Multi-Agent Operators](ideas/2026-10-24-agent-handoff-contract-pack.md)
 
