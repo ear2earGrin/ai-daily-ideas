@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-28 | [Same-Week Agent Skill Safety & Context Floor Pack for Solo Operators](ideas/2026-10-28-agent-skill-safety-context-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `skills`, `SKILL.md`, `context`, `progressive-disclosure`, `safety`, `dependencies`, `services`, `b2b` |
 | 2026-10-26 | [Same-Week Agent Loop Containment Pack for Solo Operators](ideas/2026-10-26-agent-loop-containment-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `loops`, `retries`, `kill-switch`, `cost-explosion`, `idempotency`, `ceilings`, `services`, `b2b` |
 | 2026-10-25 | [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reliability`, `production`, `silent-errors`, `timeouts`, `confirmation`, `failure-modes`, `services`, `b2b` |
 | 2026-10-24 | [Same-Week Agent Handoff Contract Pack for Solo Multi-Agent Operators](ideas/2026-10-24-agent-handoff-contract-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `handoffs`, `unstick`, `failure-paths`, `parallel`, `contracts`, `services`, `b2b` |
@@ -27,6 +28,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Skill Safety & Context Floor Pack for Solo Operators](ideas/2026-10-28-agent-skill-safety-context-floor-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s current agent skills, SKILL.md files, and context docs into a cited safety-and-context floor pack of progressive-disclosure rules, third-party skill risk scores, stale-context cutoffs, and paste-ready updates so agents stop burning context windows or running unreviewed code with full permissions.
 
 ### [Same-Week Agent Loop Containment Pack for Solo Operators](ideas/2026-10-26-agent-loop-containment-pack.md)
 
