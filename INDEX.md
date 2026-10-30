@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-30 | [Same-Week Shared Memory Hygiene Pack for Multi-Agent Solos](ideas/2026-10-30-shared-memory-hygiene-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `memory`, `context`, `shared-memory`, `markdown`, `hygiene`, `multi-agent`, `receipts`, `services`, `b2b` |
 | 2026-10-29 | [Same-Week Agent Autonomy Threshold Pack for Solo Operators](ideas/2026-10-29-agent-autonomy-threshold-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `autonomy`, `thresholds`, `escalation`, `proof`, `approval`, `guardrails`, `services`, `b2b` |
 | 2026-10-28 | [Same-Week Agent Skill Safety & Context Floor Pack for Solo Operators](ideas/2026-10-28-agent-skill-safety-context-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `skills`, `SKILL.md`, `context`, `progressive-disclosure`, `safety`, `dependencies`, `services`, `b2b` |
 | 2026-10-26 | [Same-Week Agent Loop Containment Pack for Solo Operators](ideas/2026-10-26-agent-loop-containment-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `loops`, `retries`, `kill-switch`, `cost-explosion`, `idempotency`, `ceilings`, `services`, `b2b` |
@@ -29,6 +30,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Shared Memory Hygiene Pack for Multi-Agent Solos](ideas/2026-10-30-shared-memory-hygiene-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s scattered markdown files, session notes, and agent traces into a cited shared-memory hygiene pack of ownership rules, stale-context cutoffs, required receipts, and paste-ready update templates so agents stop fighting over context or forcing constant manual cleanup.
 
 ### [Same-Week Agent Autonomy Threshold Pack for Solo Operators](ideas/2026-10-29-agent-autonomy-threshold-pack.md)
 
