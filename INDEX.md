@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-01 | [Same-Week Agent Idempotency & Partial-Success Recovery Pack for Solo Operators](ideas/2026-11-01-agent-idempotency-recovery-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `idempotency`, `recovery`, `partial-success`, `tool-calls`, `timeouts`, `rollback`, `services`, `b2b` |
 | 2026-10-31 | [Same-Week Workflow-vs-Decision Audit Pack for Solopreneurs](ideas/2026-10-31-workflow-vs-decision-audit-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `automation`, `scope`, `ROI`, `decision-time`, `workflow`, `judgment`, `services`, `b2b` |
 | 2026-10-30 | [Same-Week Shared Memory Hygiene Pack for Multi-Agent Solos](ideas/2026-10-30-shared-memory-hygiene-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `memory`, `context`, `shared-memory`, `markdown`, `hygiene`, `multi-agent`, `receipts`, `services`, `b2b` |
 | 2026-10-29 | [Same-Week Agent Autonomy Threshold Pack for Solo Operators](ideas/2026-10-29-agent-autonomy-threshold-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `autonomy`, `thresholds`, `escalation`, `proof`, `approval`, `guardrails`, `services`, `b2b` |
@@ -31,6 +32,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Idempotency & Partial-Success Recovery Pack for Solo Operators](ideas/2026-11-01-agent-idempotency-recovery-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s sample agent runs, tool traces, or proposed money/external-system workflows into a cited idempotency-and-recovery floor pack of required keys, partial-success detectors, safe retry rules, rollback/compensation steps, and paste-ready prompt/wrapper language so timeouts or mid-run failures stop turning into double charges, duplicate offers, or orphaned state.
 
 ### [Same-Week Workflow-vs-Decision Audit Pack for Solopreneurs](ideas/2026-10-31-workflow-vs-decision-audit-pack.md)
 
