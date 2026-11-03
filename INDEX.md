@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-03 | [Same-Week Agent Overnight Ops Brief Pack for Solo Operators](ideas/2026-11-03-agent-overnight-ops-brief-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `overnight`, `brief`, `summary`, `escalation`, `receipts`, `services`, `b2b` |
 | 2026-11-02 | [Same-Week Agent Action Completion Receipt Pack for Solo Operators](ideas/2026-11-02-agent-completion-receipt-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `receipts`, `completion`, `verification`, `side-effects`, `browser-agents`, `services`, `b2b` |
 | 2026-11-01 | [Same-Week Agent Idempotency & Partial-Success Recovery Pack for Solo Operators](ideas/2026-11-01-agent-idempotency-recovery-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `idempotency`, `recovery`, `partial-success`, `tool-calls`, `timeouts`, `rollback`, `services`, `b2b` |
 | 2026-10-31 | [Same-Week Workflow-vs-Decision Audit Pack for Solopreneurs](ideas/2026-10-31-workflow-vs-decision-audit-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `automation`, `scope`, `ROI`, `decision-time`, `workflow`, `judgment`, `services`, `b2b` |
@@ -33,6 +34,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Overnight Ops Brief Pack for Solo Operators](ideas/2026-11-03-agent-overnight-ops-brief-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s overnight agent run logs, traces, and workflow notes into a cited morning brief pack of completed actions, escalations needed, proof links, and paste-ready brief template so the solo wakes up to an inspectable summary instead of opening every tool.
 
 ### [Same-Week Agent Action Completion Receipt Pack for Solo Operators](ideas/2026-11-02-agent-completion-receipt-pack.md)
 
