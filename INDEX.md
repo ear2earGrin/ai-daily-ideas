@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-04 | [Same-Week Agent External-Action Lease Pack for Solo Operators](ideas/2026-11-04-agent-external-action-lease-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `external-actions`, `leases`, `approval`, `capability`, `logs`, `control-plane`, `services`, `b2b` |
 | 2026-11-03 | [Same-Week Agent Overnight Ops Brief Pack for Solo Operators](ideas/2026-11-03-agent-overnight-ops-brief-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `overnight`, `brief`, `summary`, `escalation`, `receipts`, `services`, `b2b` |
 | 2026-11-02 | [Same-Week Agent Action Completion Receipt Pack for Solo Operators](ideas/2026-11-02-agent-completion-receipt-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `receipts`, `completion`, `verification`, `side-effects`, `browser-agents`, `services`, `b2b` |
 | 2026-11-01 | [Same-Week Agent Idempotency & Partial-Success Recovery Pack for Solo Operators](ideas/2026-11-01-agent-idempotency-recovery-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `idempotency`, `recovery`, `partial-success`, `tool-calls`, `timeouts`, `rollback`, `services`, `b2b` |
@@ -34,6 +35,10 @@ Total ideas: 80+
 | 2026-10-10 | [Competitor Snapshot Card](ideas/2026-10-10-competitor-snapshot-card.md) | ready | competitive intelligence | small | per-pack fees | `agents`, `research`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent External-Action Lease Pack for Solo Operators](ideas/2026-11-04-agent-external-action-lease-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s current or proposed agent tools and high-risk external actions into a cited lease pack of capability boundaries, approval gates, required logs, and paste-ready prompt/wrapper rules so the agent can write to external systems without open-ended liability.
 
 ### [Same-Week Agent Overnight Ops Brief Pack for Solo Operators](ideas/2026-11-03-agent-overnight-ops-brief-pack.md)
 
