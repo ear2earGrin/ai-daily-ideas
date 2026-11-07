@@ -6,6 +6,7 @@ Total ideas: 80+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-07 | [Same-Week Agent Harness Floor Pack for Solo Operators](ideas/2026-11-07-agent-harness-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `harness`, `job-description`, `memory-file`, `verification`, `stop-rules`, `context`, `scheduled`, `services`, `b2b` |
 | 2026-11-06 | [Same-Week Agent Silent-Failure Watch Pack for Solo Operators](ideas/2026-11-06-agent-silent-failure-watch-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `silent-failure`, `heartbeat`, `scheduled`, `background`, `monitoring`, `watch`, `receipts`, `services`, `b2b` |
 | 2026-11-04 | [Same-Week Agent External-Action Lease Pack for Solo Operators](ideas/2026-11-04-agent-external-action-lease-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `external-actions`, `leases`, `approval`, `capability`, `logs`, `control-plane`, `services`, `b2b` |
 | 2026-11-03 | [Same-Week Agent Overnight Ops Brief Pack for Solo Operators](ideas/2026-11-03-agent-overnight-ops-brief-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `overnight`, `brief`, `summary`, `escalation`, `receipts`, `services`, `b2b` |
@@ -19,6 +20,10 @@ Total ideas: 80+
 | 2026-10-25 | [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reliability`, `production`, `silent-errors`, `timeouts`, `confirmation`, `failure-modes`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Harness Floor Pack for Solo Operators](ideas/2026-11-07-agent-harness-floor-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s current or proposed agent job into a cited harness floor pack of written job description, persistent memory-file template, output-verification checks, and stop-when-data-missing rules so the agent starts each run with clear limits instead of re-prompting from scratch.
 
 ### [Same-Week Agent Silent-Failure Watch Pack for Solo Operators](ideas/2026-11-06-agent-silent-failure-watch-pack.md)
 
