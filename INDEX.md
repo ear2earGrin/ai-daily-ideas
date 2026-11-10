@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 81+
+Total ideas: 82+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-10 | [Same-Week Agent Cheap-Model Volume Extraction Floor Pack for Solo Operators](ideas/2026-11-10-agent-cheap-model-volume-extraction-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `extraction`, `volume`, `cheap-model`, `schema`, `validation`, `human-approval`, `services`, `b2b` |
 | 2026-11-09 | [Same-Week Agent Signal-Based Outbound Floor Pack for Solo Operators](ideas/2026-11-09-agent-signal-outbound-floor-pack.md) | ready | agent sales operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `outbound`, `signals`, `buying-intent`, `human-approval`, `routing`, `services`, `b2b` |
 | 2026-11-08 | [Same-Week Agent Entity Memory Isolation Pack for Solo Operators](ideas/2026-11-08-agent-entity-memory-isolation-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `memory`, `isolation`, `overwrite`, `per-entity`, `multi-agent`, `version-check`, `services`, `b2b` |
 | 2026-11-07 | [Same-Week Agent Harness Floor Pack for Solo Operators](ideas/2026-11-07-agent-harness-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `harness`, `job-description`, `memory-file`, `verification`, `stop-rules`, `context`, `scheduled`, `services`, `b2b` |
@@ -22,6 +23,10 @@ Total ideas: 81+
 | 2026-10-25 | [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reliability`, `production`, `silent-errors`, `timeouts`, `confirmation`, `failure-modes`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Cheap-Model Volume Extraction Floor Pack for Solo Operators](ideas/2026-11-10-agent-cheap-model-volume-extraction-floor-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s sample invoices, supplier PDFs, or form dumps into a cited cheap-model volume extraction floor pack of JSON schema, field validation rules, model-routing decision, human-approval gates, and paste-ready prompt language so a low-cost worker model can extract structured data at volume without inventing fields or silently failing.
 
 ### [Same-Week Agent Signal-Based Outbound Floor Pack for Solo Operators](ideas/2026-11-09-agent-signal-outbound-floor-pack.md)
 
