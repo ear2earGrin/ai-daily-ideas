@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 83+
+Total ideas: 84+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-12 | [Same-Week Agent Marketplace Hiring Floor Pack for Solo Operators](ideas/2026-11-12-agent-marketplace-hiring-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `marketplace`, `hiring`, `escrow`, `multi-agent`, `termix`, `verification`, `services`, `b2b` |
 | 2026-11-11 | [Same-Week Agent Support Escalation Floor Pack for Solo Operators](ideas/2026-11-11-agent-support-escalation-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `support`, `escalation`, `refund`, `objection`, `obligation`, `human-approval`, `services`, `b2b` |
 | 2026-11-10 | [Same-Week Agent Cheap-Model Volume Extraction Floor Pack for Solo Operators](ideas/2026-11-10-agent-cheap-model-volume-extraction-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `extraction`, `volume`, `cheap-model`, `schema`, `validation`, `human-approval`, `services`, `b2b` |
 | 2026-11-09 | [Same-Week Agent Signal-Based Outbound Floor Pack for Solo Operators](ideas/2026-11-09-agent-signal-outbound-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `outbound`, `signals`, `buying-intent`, `human-approval`, `routing`, `services`, `b2b` |
@@ -24,6 +25,10 @@ Total ideas: 83+
 | 2026-10-25 | [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reliability`, `production`, `silent-errors`, `timeouts`, `confirmation`, `failure-modes`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Marketplace Hiring Floor Pack for Solo Operators](ideas/2026-11-12-agent-marketplace-hiring-floor-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s project brief, past agent failures, and marketplace rules into a cited hiring floor pack of job descriptions, escrow conditions, verification criteria, reputation checks, and paste-ready posting language so the solo can safely hire specialist agents on platforms like Termix without open-ended liability or unpaid work.
 
 ### [Same-Week Agent Support Escalation Floor Pack for Solo Operators](ideas/2026-11-11-agent-support-escalation-floor-pack.md)
 
