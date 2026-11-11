@@ -2,12 +2,13 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 82+
+Total ideas: 83+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-11 | [Same-Week Agent Support Escalation Floor Pack for Solo Operators](ideas/2026-11-11-agent-support-escalation-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `support`, `escalation`, `refund`, `objection`, `obligation`, `human-approval`, `services`, `b2b` |
 | 2026-11-10 | [Same-Week Agent Cheap-Model Volume Extraction Floor Pack for Solo Operators](ideas/2026-11-10-agent-cheap-model-volume-extraction-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `extraction`, `volume`, `cheap-model`, `schema`, `validation`, `human-approval`, `services`, `b2b` |
-| 2026-11-09 | [Same-Week Agent Signal-Based Outbound Floor Pack for Solo Operators](ideas/2026-11-09-agent-signal-outbound-floor-pack.md) | ready | agent sales operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `outbound`, `signals`, `buying-intent`, `human-approval`, `routing`, `services`, `b2b` |
+| 2026-11-09 | [Same-Week Agent Signal-Based Outbound Floor Pack for Solo Operators](ideas/2026-11-09-agent-signal-outbound-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `outbound`, `signals`, `buying-intent`, `human-approval`, `routing`, `services`, `b2b` |
 | 2026-11-08 | [Same-Week Agent Entity Memory Isolation Pack for Solo Operators](ideas/2026-11-08-agent-entity-memory-isolation-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `memory`, `isolation`, `overwrite`, `per-entity`, `multi-agent`, `version-check`, `services`, `b2b` |
 | 2026-11-07 | [Same-Week Agent Harness Floor Pack for Solo Operators](ideas/2026-11-07-agent-harness-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `harness`, `job-description`, `memory-file`, `verification`, `stop-rules`, `context`, `scheduled`, `services`, `b2b` |
 | 2026-11-06 | [Same-Week Agent Silent-Failure Watch Pack for Solo Operators](ideas/2026-11-06-agent-silent-failure-watch-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `silent-failure`, `heartbeat`, `scheduled`, `background`, `monitoring`, `watch`, `receipts`, `services`, `b2b` |
@@ -23,6 +24,10 @@ Total ideas: 82+
 | 2026-10-25 | [Same-Week Agent Production Reliability Floor Pack for Solo Operators](ideas/2026-10-25-agent-production-reliability-floor-pack.md) | ready | agent operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reliability`, `production`, `silent-errors`, `timeouts`, `confirmation`, `failure-modes`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Support Escalation Floor Pack for Solo Operators](ideas/2026-11-11-agent-support-escalation-floor-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s FAQ, past tickets, refund policy, and sample objection threads into a cited support escalation floor pack of response templates, escalation thresholds, obligation-logging rules, human-approval gates, and paste-ready prompt language so a customer-facing agent answers repetitive questions without inventing promises or approving refunds it shouldn’t.
 
 ### [Same-Week Agent Cheap-Model Volume Extraction Floor Pack for Solo Operators](ideas/2026-11-10-agent-cheap-model-volume-extraction-floor-pack.md)
 
