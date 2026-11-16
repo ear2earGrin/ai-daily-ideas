@@ -2,16 +2,21 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 83+
+Total ideas: 84+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-16 | [Same-Week Agent External Dependency Risk Pack for Solo Operators](ideas/2026-11-16-agent-external-dependency-risk-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `dependency`, `ban`, `expiry`, `external`, `fallback`, `control`, `services`, `b2b` |
 | 2026-11-15 | [Same-Week Agent Daily Digest Pack for Solo Operators](ideas/2026-11-15-agent-daily-digest-pack.md) | ready | agent ops control | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `digest`, `daily`, `control`, `decisions`, `revenue-touch`, `services`, `b2b` |
 | 2026-11-14 | [Same-Week Agent Offline Fallback Runbook Pack for Solo Operators](ideas/2026-11-14-agent-offline-fallback-runbook-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `offline`, `fallback`, `runbook`, `critical-path`, `switch-off`, `control`, `services`, `b2b` |
 | 2026-11-13 | [Same-Week Pre-Call Client Context Brief Pack for Freelancers](ideas/2026-11-13-pre-call-context-brief-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `context`, `pre-call`, `portals`, `admin`, `personal-agents`, `services`, `b2b` |
 | 2026-11-06 | [Same-Week Agent Silent-Failure Watch Pack for Solo Operators](ideas/2026-11-06-agent-silent-failure-watch-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `silent-failure`, `heartbeat`, `scheduled`, `background`, `monitoring`, `watch`, `receipts`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent External Dependency Risk Pack for Solo Operators](ideas/2026-11-16-agent-external-dependency-risk-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s list of external sites, APIs, or platforms their agents automate against into a cited risk pack of known or probable ban/expiry risks, with human fallback steps, so the solo knows which automations have an expiry date they don’t control.
 
 ### [Same-Week Agent Daily Digest Pack for Solo Operators](ideas/2026-11-15-agent-daily-digest-pack.md)
 
