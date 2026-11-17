@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 84+
+Total ideas: 85+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-17 | [Same-Week Multi-Agent Reviewer Gate Pack for Solo Operators](ideas/2026-11-17-agent-reviewer-gate-pack.md) | ready | agent ops control | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reviewer`, `quality-gate`, `multi-agent`, `outbound`, `control`, `services`, `b2b` |
 | 2026-11-16 | [Same-Week Agent External Dependency Risk Pack for Solo Operators](ideas/2026-11-16-agent-external-dependency-risk-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `dependency`, `ban`, `expiry`, `external`, `fallback`, `control`, `services`, `b2b` |
 | 2026-11-15 | [Same-Week Agent Daily Digest Pack for Solo Operators](ideas/2026-11-15-agent-daily-digest-pack.md) | ready | agent ops control | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `digest`, `daily`, `control`, `decisions`, `revenue-touch`, `services`, `b2b` |
 | 2026-11-14 | [Same-Week Agent Offline Fallback Runbook Pack for Solo Operators](ideas/2026-11-14-agent-offline-fallback-runbook-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `offline`, `fallback`, `runbook`, `critical-path`, `switch-off`, `control`, `services`, `b2b` |
@@ -13,6 +14,10 @@ Total ideas: 84+
 | 2026-11-06 | [Same-Week Agent Silent-Failure Watch Pack for Solo Operators](ideas/2026-11-06-agent-silent-failure-watch-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `silent-failure`, `heartbeat`, `scheduled`, `background`, `monitoring`, `watch`, `receipts`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Multi-Agent Reviewer Gate Pack for Solo Operators](ideas/2026-11-17-agent-reviewer-gate-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s multi-agent stack (especially customer-facing bots) into a cited reviewer-gate pack of roles, shared-context rules, quality checks, and paste-ready reviewer prompts so nothing ships until a second agent or human confirms it matches buyer intent.
 
 ### [Same-Week Agent External Dependency Risk Pack for Solo Operators](ideas/2026-11-16-agent-external-dependency-risk-pack.md)
 
