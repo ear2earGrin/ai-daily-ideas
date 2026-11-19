@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 86+
+Total ideas: 87+
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-19 | [Same-Week Agent Runaway Guard Pack for Solo Operators](ideas/2026-11-19-agent-runaway-guard-pack.md) | ready | agent cost and reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `runaway`, `retry`, `spend-cap`, `kill-switch`, `budget`, `reliability`, `control`, `services`, `b2b` |
 | 2026-11-18 | [Same-Week Agent Token Efficiency Audit Pack for Solo Operators](ideas/2026-11-18-agent-token-efficiency-audit-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `tokens`, `cost`, `efficiency`, `waste`, `caching`, `routing`, `budget`, `services`, `b2b` |
 | 2026-11-17 | [Same-Week Multi-Agent Reviewer Gate Pack for Solo Operators](ideas/2026-11-17-agent-reviewer-gate-pack.md) | ready | agent ops control | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `reviewer`, `quality-gate`, `multi-agent`, `outbound`, `control`, `services`, `b2b` |
 | 2026-11-16 | [Same-Week Agent External Dependency Risk Pack for Solo Operators](ideas/2026-11-16-agent-external-dependency-risk-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `dependency`, `ban`, `expiry`, `external`, `fallback`, `control`, `services`, `b2b` |
@@ -15,6 +16,10 @@ Total ideas: 86+
 | 2026-11-06 | [Same-Week Agent Silent-Failure Watch Pack for Solo Operators](ideas/2026-11-06-agent-silent-failure-watch-pack.md) | ready | agent reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `silent-failure`, `heartbeat`, `scheduled`, `background`, `monitoring`, `watch`, `receipts`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Agent Runaway Guard Pack for Solo Operators](ideas/2026-11-19-agent-runaway-guard-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s agent stack and recent logs into a cited runaway-guard pack of hard spend caps, retry limits, kill-switch rules, and paste-ready config or wrapper snippets so an overnight retry loop cannot turn a $400 plan into a multi-thousand-dollar bill.
 
 ### [Same-Week Agent Token Efficiency Audit Pack for Solo Operators](ideas/2026-11-18-agent-token-efficiency-audit-pack.md)
 
