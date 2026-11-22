@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 154
+Total ideas: 155
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-22 | [Same-Day Client Delivery Handover Pack for Solo Freelancers](ideas/2026-11-22-client-delivery-handover-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `handover`, `delivery`, `verification`, `proof-of-work`, `services`, `b2b` |
 | 2026-11-21 | [Same-Week Agent Work-to-Invoice Pack for Solo Freelancers](ideas/2026-11-21-agent-work-to-invoice-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `invoice`, `progress-update`, `billing`, `work-receipt`, `services`, `b2b` |
 | 2026-11-20 | [Same-Week Meeting-to-Proposal Pack for Freelancers](ideas/2026-11-20-meeting-to-proposal-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `proposal`, `sow`, `quote`, `meeting-notes`, `services`, `b2b` |
 | 2026-11-19 | [Same-Week Agent Runaway Guard Pack for Solo Operators](ideas/2026-11-19-agent-runaway-guard-pack.md) | ready | agent cost and reliability operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `runaway`, `retry`, `spend-cap`, `kill-switch`, `budget`, `reliability`, `control`, `services`, `b2b` |
@@ -13,6 +14,10 @@ Total ideas: 154
 | 2026-11-18 | [Same-Week Agent Token Efficiency Audit Pack for Solo Operators](ideas/2026-11-18-agent-token-efficiency-audit-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `tokens`, `cost`, `efficiency`, `waste`, `caching`, `routing`, `budget`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Day Client Delivery Handover Pack for Solo Freelancers](ideas/2026-11-22-client-delivery-handover-pack.md)
+
+A one-person operator plus agents turns a freelancer’s completed work artifacts, logs, and notes into a single shareable verification pack with timeline, cited deliverables, and approval language so the client can inspect and sign off without endless back-and-forth.
 
 ### [Same-Week Agent Work-to-Invoice Pack for Solo Freelancers](ideas/2026-11-21-agent-work-to-invoice-pack.md)
 
