@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 155
+Total ideas: 156
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-23 | [Same-Week Local SMB Agent-Automation Outreach Pack for Solo Operators](ideas/2026-11-23-local-smb-outreach-pack.md) | ready | local business outreach | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `outreach`, `local`, `automation`, `lead-gen`, `services`, `b2b` |
 | 2026-11-22 | [Same-Day Client Delivery Handover Pack for Solo Freelancers](ideas/2026-11-22-client-delivery-handover-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `handover`, `delivery`, `verification`, `proof-of-work`, `services`, `b2b` |
 | 2026-11-21 | [Same-Week Agent Work-to-Invoice Pack for Solo Freelancers](ideas/2026-11-21-agent-work-to-invoice-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `invoice`, `progress-update`, `billing`, `work-receipt`, `services`, `b2b` |
 | 2026-11-20 | [Same-Week Meeting-to-Proposal Pack for Freelancers](ideas/2026-11-20-meeting-to-proposal-pack.md) | ready | freelance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `proposal`, `sow`, `quote`, `meeting-notes`, `services`, `b2b` |
@@ -14,6 +15,10 @@ Total ideas: 155
 | 2026-11-18 | [Same-Week Agent Token Efficiency Audit Pack for Solo Operators](ideas/2026-11-18-agent-token-efficiency-audit-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `tokens`, `cost`, `efficiency`, `waste`, `caching`, `routing`, `budget`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Local SMB Agent-Automation Outreach Pack for Solo Operators](ideas/2026-11-23-local-smb-outreach-pack.md)
+
+A one-person operator plus agents turns a city or niche of local small businesses into a ready-to-send outreach pack with researched cards, personalized AI-automation offers, mock sketches, and source citations so the solo can start conversations the same week.
 
 ### [Same-Day Client Delivery Handover Pack for Solo Freelancers](ideas/2026-11-22-client-delivery-handover-pack.md)
 
