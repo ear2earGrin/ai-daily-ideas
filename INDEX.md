@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 159
+Total ideas: 160
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-27 | [Same-Week Problem-Post Customer Pack for Indie Builders](ideas/2026-11-27-problem-post-customer-pack.md) | ready | customer discovery and distribution | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `distribution`, `leads`, `outreach`, `problem-posts`, `services`, `b2b` |
 | 2026-11-26 | [Same-Week Agent Scale Floor Pack for Solo Operators](ideas/2026-11-26-agent-scale-floor-pack.md) | ready | agent operations and scaling | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `scale`, `review`, `approval`, `handoff`, `architecture`, `exception`, `services`, `b2b` |
 | 2026-11-25 | [Same-Week Agent Acquisition Analyst Pack for Solo Operators](ideas/2026-11-25-agent-acquisition-analyst-pack.md) | ready | client acquisition operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `analyst`, `acquisition`, `feedback`, `outreach`, `kill-list`, `services`, `b2b` |
 | 2026-11-24 | [Same-Week AI Output Review Floor Pack for Solo Operators and SMB Owners](ideas/2026-11-24-ai-output-review-floor-pack.md) | ready | AI review and governance operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `review`, `fact-check`, `brand-bar`, `checklist`, `governance`, `services`, `b2b` |
@@ -18,6 +19,10 @@ Total ideas: 159
 | 2026-11-18 | [Same-Week Agent Token Efficiency Audit Pack for Solo Operators](ideas/2026-11-18-agent-token-efficiency-audit-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `tokens`, `cost`, `efficiency`, `waste`, `caching`, `routing`, `budget`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Problem-Post Customer Pack for Indie Builders](ideas/2026-11-27-problem-post-customer-pack.md)
+
+A one-person operator plus agents turns an indie builder’s product description and problem keywords into a cited pack of recent X/Reddit posts where people describe the exact pain, plus fit reasons and paste-ready reply/DM drafts so the solo can start real conversations the same week instead of shipping another feature into silence.
 
 ### [Same-Week Agent Scale Floor Pack for Solo Operators](ideas/2026-11-26-agent-scale-floor-pack.md)
 
