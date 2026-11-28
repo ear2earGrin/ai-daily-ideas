@@ -2,10 +2,11 @@
 
 Generated from `ideas/*.md` frontmatter.
 
-Total ideas: 160
+Total ideas: 161
 
 | Date | Idea | Status | Category | Effort | Monetization | Tags |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-28 | [Same-Week Free Agent Completion Alert Pack for Solo Operators](ideas/2026-11-28-free-agent-alert-pack.md) | ready | agent notifications and free-tier ops | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `alerts`, `email`, `cloudflare`, `notifications`, `free-tier`, `services`, `b2b` |
 | 2026-11-27 | [Same-Week Problem-Post Customer Pack for Indie Builders](ideas/2026-11-27-problem-post-customer-pack.md) | ready | customer discovery and distribution | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `distribution`, `leads`, `outreach`, `problem-posts`, `services`, `b2b` |
 | 2026-11-26 | [Same-Week Agent Scale Floor Pack for Solo Operators](ideas/2026-11-26-agent-scale-floor-pack.md) | ready | agent operations and scaling | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `scale`, `review`, `approval`, `handoff`, `architecture`, `exception`, `services`, `b2b` |
 | 2026-11-25 | [Same-Week Agent Acquisition Analyst Pack for Solo Operators](ideas/2026-11-25-agent-acquisition-analyst-pack.md) | ready | client acquisition operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `analyst`, `acquisition`, `feedback`, `outreach`, `kill-list`, `services`, `b2b` |
@@ -19,6 +20,10 @@ Total ideas: 160
 | 2026-11-18 | [Same-Week Agent Token Efficiency Audit Pack for Solo Operators](ideas/2026-11-18-agent-token-efficiency-audit-pack.md) | ready | agent cost operations | small | per-pack fees and monthly retainers | `agents`, `solopreneur`, `indie-hackers`, `freelance`, `small-business`, `tokens`, `cost`, `efficiency`, `waste`, `caching`, `routing`, `budget`, `services`, `b2b` |
 
 ## Summaries
+
+### [Same-Week Free Agent Completion Alert Pack for Solo Operators](ideas/2026-11-28-free-agent-alert-pack.md)
+
+A one-person operator plus agents turns a solopreneur’s agent stack and Cloudflare domain into a cited free-email alert pack with setup steps, Wrangler/REST snippets, and integration notes so background jobs can notify the solo on completion without a paid notification stack.
 
 ### [Same-Week Problem-Post Customer Pack for Indie Builders](ideas/2026-11-27-problem-post-customer-pack.md)
 
